@@ -1,14 +1,19 @@
-# volumes:
+volumes:
+  wander-list-data:
+    external: true
 services:
-  fastapi:
+  api:
     build:
-      context: sample_service
+      context: ./api
       dockerfile: Dockerfile.dev
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
-      - ./sample_service:/app
-
+      - ./api:/app
+    environment:
+      DATABASE_URL: postgresql://cookie_monsters:postgres@db/wander_list
+      WAIT_HOSTS: db:5432
+      PORT: 8000
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh
@@ -18,8 +23,18 @@ services:
     ports:
       - "3000:3000"
     environment:
-      HOST_OS: ${OS}
+      # HOST_OS: ${OS}
       NODE_ENV: development
       HOST: "0.0.0.0"
-      PUBLIC_URL: http://localhost:3000
-      REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+      # PUBLIC_URL: http://localhost:3000
+      # REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+  db:
+    image: postgres:14.5-bullseye
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: cookie_monsters
+      POSTGRES_DB: wander_list
+    ports:
+      - "15432:5432"
+    volumes:
+      - wander-list-data:/var/lib/postgresql/data
