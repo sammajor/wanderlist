@@ -11,6 +11,8 @@ services:
     volumes:
       - ./api:/app
     environment:
+      SIGNING_KEY: 0473f405d57176b1c74827b028f00dada8d66367e3a3ce2daafd642d1d0478a1
+      ALGORITHM: "HS256"
       DATABASE_URL: postgresql://cookie_monsters:postgres@db/wander_list
       WAIT_HOSTS: db:5432
       PORT: 8000
@@ -23,11 +25,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      # HOST_OS: ${OS}
+      HOST_OS: ${OS}
       NODE_ENV: development
       HOST: "0.0.0.0"
-      # PUBLIC_URL: http://localhost:3000
-      # REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+      PUBLIC_URL: http://localhost:3000
+      REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
   db:
     image: postgres:14.5-bullseye
     environment:
