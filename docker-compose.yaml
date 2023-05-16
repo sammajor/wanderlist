@@ -6,16 +6,17 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile.dev
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./api:/app
     environment:
-      SIGNING_KEY: 0473f405d57176b1c74827b028f00dada8d66367e3a3ce2daafd642d1d0478a1
+      SIGNING_KEY: ${SIGNING_KEY}
       ALGORITHM: "HS256"
       DATABASE_URL: postgresql://cookie_monsters:postgres@db/wander_list
       WAIT_HOSTS: db:5432
       PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh
