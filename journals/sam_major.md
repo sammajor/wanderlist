@@ -1,0 +1,2 @@
+5.15.23 -
+Today we worked on the following: 1. Filled out the docker-compose file with the volume and database and got the containers up and running. 2. We entered all of the issues we wrote last week into the project in GitLab. 3. We worked as a group to build out the authentication feature on our app. We were able to create the accounts table in PostgreSQL, but we weren't able to get the API to return a 200 response when trying to create a user in the Swagger.
