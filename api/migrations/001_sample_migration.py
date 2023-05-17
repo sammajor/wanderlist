@@ -12,6 +12,7 @@ steps = [
             required_money MONEY NOT NULL
         );
         """,
+
         # "Down" SQL statement
         """
         DROP TABLE dummy;

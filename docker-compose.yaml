@@ -1,4 +1,6 @@
 volumes:
+  pg-admin:
+    external: true
   wander-list-data:
     external: true
 services:
@@ -31,6 +33,17 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
       REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+
+  pg-admin:
+    image: dpage/pgadmin4
+    volumes:
+      - pg-admin:/var/lib/pgadmin
+    ports:
+      - 8082:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: cookiemonsters@wanderlist.com
+      PGADMIN_DEFAULT_PASSWORD: nationalparks
+      PGADMIN_DISABLE_POSTFIX: 1
   db:
     image: postgres:14.5-bullseye
     environment:
