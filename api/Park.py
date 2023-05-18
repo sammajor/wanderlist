@@ -9,9 +9,9 @@ def get_park_data():
     payload = {'limit': '5', 'api_key': NPS_KEY}
     r = requests.get('https://developer.nps.gov/api/v1/parks', params=payload)
     data = json.loads(r.text)
-    images = []
     park_data = data["data"]
     for park in park_data:
+        activities = json.dumps(park["activities"])
         try:
             park_info = {
                 "full_name": park["fullName"],
@@ -20,16 +20,17 @@ def get_park_data():
                 "description": park["description"],
                 "park_url": park["url"],
                 "park_id": park["id"],
-                "park_code": park["parkCode"]
+                "park_code": park["parkCode"],
+                "activities": activities
             }
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
                     """
                     INSERT INTO parks
-                        (full_name, city, state, description, park_url, park_id, park_code)
+                        (full_name, city, state, description, park_url, park_id, park_code, activities)
                     VALUES
-                        (%s, %s, %s, %s, %s, %s, %s)
+                        (%s, %s, %s, %s, %s, %s, %s, %s)
                     """,
                     [
                         park_info["full_name"],
@@ -39,6 +40,7 @@ def get_park_data():
                         park_info["park_url"],
                         park_info["park_id"],
                         park_info["park_code"],
+                        park_info["activities"]
                     ],
                 )
                     print("data is imported successfully")

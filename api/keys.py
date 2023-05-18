@@ -1,1 +1,1 @@
-NPS_KEY = "wDis6oWJvbTyKyZL4IxOvsdZER99YhRRKP6msSzf"
+NPS_KEY = "Meqrsx7gmEdwYnEgtILn3TB6d4eCbyLfwnhsOoov"
