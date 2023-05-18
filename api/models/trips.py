@@ -9,7 +9,7 @@ class TripIn(BaseModel):
     park: str
 
 class TripOut(BaseModel):
-    id: int
+    trip_id: int
     account_id: int
     start_date: date
     end_date: date

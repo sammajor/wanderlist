@@ -5,19 +5,17 @@ from models.trips import Error
 
 class TripQueries:
 
-    def get_one_trip(self, id: int, account_id: int) -> TripOut:
+    def get_one_trip(self, trip_id: int, account_id: int) -> TripOut:
 
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, account_id, start_date, end_date, park
+                    SELECT trip_id, account_id, start_date, end_date, park
                     FROM trips
-                    WHERE id = %s
-                    , account_id = %s
+                    WHERE trip_id = %s AND account_id = %s
                     """,
-                    [id],
-                    [account_id],
+                    [trip_id, account_id]
                 )
                 record = result.fetchone()
                 if record is None:
@@ -30,7 +28,7 @@ class TripQueries:
                     with conn.cursor() as db:
                         result = db.execute(
                             """
-                            SELECT id, account_id, start_date, end_date, parks
+                            SELECT trip_id, account_id, start_date, end_date, parks
                             FROM trips
                             ORDER BY start_date;
                             """
@@ -49,7 +47,7 @@ class TripQueries:
                         (account_id, start_date, end_date, park)
                     VALUES
                         (%s, %s, %s, %s)
-                    RETURNING id;
+                    RETURNING trip_id;
                     """,
                     [
                         info.account_id,
@@ -61,14 +59,15 @@ class TripQueries:
                 id = result.fetchone()[0]
                 return self.trip_in_to_out(id, info)
 
-    def trip_in_to_out(self, id: int, trip: TripIn):
+    def trip_in_to_out(self, trip_id: int, trip: TripIn):
         old_data = trip.dict()
         print(old_data)
-        return TripOut(id=id, **old_data)
+        return TripOut(trip_id=trip_id, **old_data)
 
     def record_to_trip_out(self, record):
         return TripOut(
-            id=record[0],
+            trip_id=record[0],
+            account_id =record[1],
             start_date=record[2],
             end_date=record[3],
             park=record[4],

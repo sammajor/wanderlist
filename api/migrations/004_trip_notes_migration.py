@@ -4,7 +4,7 @@ steps = [
         """
         CREATE TABLE tripnotes (
             id SERIAL PRIMARY KEY NOT NULL,
-            trip_id INT NOT NULL REFERENCES trips(id),
+            trip_id INT NOT NULL REFERENCES trips(trip_id),
             title VARCHAR(200) NOT NULL,
             description TEXT NOT NULL
         );
