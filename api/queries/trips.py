@@ -1,12 +1,11 @@
 from queries.pool import pool
 from models.trips import TripIn, TripOut
-from typing import List, Union
+from typing import List, Union, Optional
 from models.trips import Error
 
 class TripQueries:
 
-    def get_one_trip(self, id: int, account_id: int) -> TripOut:
-
+    def get_one_trip(self, id: int, account_id: int) -> Optional[TripOut]:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -14,7 +13,7 @@ class TripQueries:
                     SELECT id, account_id, start_date, end_date, park
                     FROM trips
                     WHERE id = %s
-                    , account_id = %s
+                    AND account_id = %s
                     """,
                     [id],
                     [account_id],
