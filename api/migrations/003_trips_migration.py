@@ -3,7 +3,7 @@ steps = [
         # “Up” SQL statement
         """
         CREATE TABLE trips (
-            id SERIAL PRIMARY KEY NOT NULL,
+            trip_id SERIAL PRIMARY KEY NOT NULL,
             account_id INT NOT NULL REFERENCES accounts(id),
             start_date DATE NOT NULL,
             end_date DATE NOT NULL,

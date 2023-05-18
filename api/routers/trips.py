@@ -29,11 +29,12 @@ async def create_trip(
     return repo.create(trip)
 
 
-@router.get("/api/trips", response_model=Union[List[TripOut], Error])
+@router.get("/api/trips")
 async def get_all_trips(
-    repo: TripOut = Depends(),
+    account_id: int,
+    repo: TripQueries = Depends(),
 ):
-    return repo.get_all_trips()
+    return repo.get_all_trips(account_id)
 
 @router.get("/api/trips/{trip_id}")
 def get_one_trip(
