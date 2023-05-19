@@ -8,7 +8,11 @@ app = FastAPI()
 app.include_router(authenticator.router, tags=["Authentication"])
 app.include_router(accounts.router, tags=["Accounts"])
 app.include_router(trips.router, tags=["Trips"])
+<<<<<<< HEAD
 app.include_router(trip_notes.router, tags=["Trip Note"])
+=======
+app.include_router(trip_notes.router, tags=["Trip_Note"])
+>>>>>>> 9e2a2aed33dbb6684db708f5f59c9442e729d28b
 
 app.add_middleware(
     CORSMiddleware,

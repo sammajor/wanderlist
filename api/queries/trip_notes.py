@@ -5,60 +5,62 @@ from models.trips import Error
 
 class TripNoteQueries:
 
-    def get_one_note(self, id: int, trip_id: int) -> TripNoteOut:
+    def get_one_note(self, account_id: int, trip_id: int) -> TripNoteOut:
 
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, trip_id, title, description
+                    SELECT account_id, trip_id, title, description
                     FROM tripnotes
-                    WHERE id = %s
-                    , trip_id = %s
+                    WHERE account_id = %s AND trip_id = %s
                     """,
-                    [id],
-                    [trip_id],
+                    [account_id, trip_id]
                 )
                 record = result.fetchone()
                 if record is None:
                     return None
                 return self.record_to_trip_note_out(record)
 
-    def get_all(self) -> Union[Error, List[TripNoteOut]]:
+    def get_all_notes(self, account_id: int, trip_id: int) -> Union[Error, List[TripNoteOut]]:
             try:
                 with pool.connection() as conn:
                     with conn.cursor() as db:
                         result = db.execute(
                             """
-                            SELECT id, trip_id, title, description
+                            SELECT account_id, trip_id, title, description, note_id
                             FROM tripnotes
                             ORDER BY trip_id;
                             """
+                            [account_id, trip_id]
                         )
                         return [self.record_to_trip_note_out(record) for record in result]
             except Exception as e:
                 print(e)
                 return {"message": "Could not get all trip notes"}
 
-    def create(self, info: TripNoteIn, trip_id: int) -> TripNoteOut:
+    def create_note(self, info: TripNoteIn) -> TripNoteOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
                     """
                     INSERT INTO tripnotes
-                        (trip_id, title, description)
+                        (title, description, account_id, trip_id)
                     VALUES
-                        (%s, %s, %s)
-                    RETURNING id;
+                        (%s, %s, %s, %s)
+                    RETURNING note_id;
                     """,
                     [
-                        trip_id,
                         info.title,
                         info.description,
+                        info.account_id,
+                        info.trip_id
                     ],
                 )
-                id = result.fetchone()[0]
-                return self.trip_note_in_to_out(id, info, trip_id)
+                print("info", info)
+                note_id = result.fetchone()[0]
+                print("note_id", note_id)
+                return self.trip_note_in_to_out(note_id, info)
 
     def delete(self, id: int) -> bool:
         try:
@@ -75,14 +77,15 @@ class TripNoteQueries:
         except Exception as e:
             return False
 
-    def trip_note_in_to_out(self, id: int, trip_id: TripNoteIn):
-        old_data = trip_id.dict()
-        return TripNoteOut(id=id, **old_data)
+    def trip_note_in_to_out(self, note_id: int, note: TripNoteIn):
+        old_data = note.dict()
+        return TripNoteOut(note_id=note_id, **old_data)
 
     def record_to_trip_note_out(self, record):
         return TripNoteOut(
-            id=record[0],
-            trip_id=record[1],
-            title=record[2],
-            description=record[3],
+            note_id=record[0],
+            title=record[1],
+            description=record[2],
+            account_id=record[3],
+            trip_id=record[4],
         )
