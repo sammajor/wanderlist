@@ -5,7 +5,7 @@ from models.trips import Error
 
 class TripNoteQueries:
 
-    def get(self, id: int, trip_id: int) -> TripNoteOut:
+    def get_one_note(self, id: int, trip_id: int) -> TripNoteOut:
 
         with pool.connection() as conn:
             with conn.cursor() as db:
