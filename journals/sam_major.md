@@ -16,3 +16,11 @@ Today Drake and I worked on getting data from the national parks API and caching
 
 5.18.23
 Today I worked with Drake again to finish our API queries and routes on parks. We were able to store the data for the activities object as a JSONB field and then retrieve it from the database. All the park routes work and return 200 responses!
+
+5.22.23
+Today I worked with Drake to fix some minor edits to our work from last week to include try/except blocks that we missed. We then merged the changes to main. I also worked with Brady and Sandy on the following:
+
+1. We made a new branch for our frontend work.
+2. We added the TripList component. We copied the JSX from project beta and began editing it to fit our current project.
+3. We added the dependencies for the React project that we will need.
+   Tomorrow we will start work on redux to include the pieces of state that we will need for this page.
