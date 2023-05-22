@@ -4,8 +4,15 @@ Today we worked on the following: 1. Filled out the docker-compose file with the
 5.16.23
 Today we worked on the following:
 
-1. Fixed Authentication and got everything working. We created 4 routes (get token, post token, create account, delete account).
-2. We created all of the issues in Git so that we could work using issue branches.
+1. We finished the authentication app today and got a 200 response from all routes.
+2. We created four authentication routes for login, get token, logout, and create token.
 
 5.17.23
-Today we discussed how to store the data coming in from the third party parks API to populate the data for national parks. We decided to cache the data in our PostgreSQL database. Drake and I worked on creating the file that defines the function to call the parks API and pull out the pieces of information we want into a parks_data object and then store that object as a row in the parks table in our database. We got the function to successfully pull park data from the third party API and store it in the database! We have one blocker. We took out the activities property in the data we import because it imported as a JS object and we need to figure out how to store that
+Today Drake and I worked on getting data from the national parks API and caching the data into our database. We completed the following:
+
+1. Hitting the national parks API using an API key and storing the data in our database. We created a file that needs to run in order to execute that task.
+2. We created routes for getting all park details from our API and getting an individual park's details. We were able to finish everything without one property. The activities are sent as an object and we have a blocker saving that object in the database column. For today we just omitted it and we'll go back and add it back in tomorrow.
+3. We created tables for parks and also for park images that will have a Foreign key of the park code.
+
+5.18.23
+Today I worked with Drake again to finish our API queries and routes on parks. We were able to store the data for the activities object as a JSONB field and then retrieve it from the database. All the park routes work and return 200 responses!
