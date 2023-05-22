@@ -3,9 +3,7 @@ from models.accounts import AccountOutWithPassword, AccountOut, AccountIn
 
 
 class AccountQueries:
-
     def get(self, email: str) -> AccountOutWithPassword:
-
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
