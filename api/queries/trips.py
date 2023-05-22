@@ -1,26 +1,29 @@
 from queries.pool import pool
 from models.trips import TripIn, TripOut
-from typing import List, Union, Optional
+from typing import List, Union
 from models.trips import Error
 
 class TripQueries:
 
     def get_one_trip(self, trip_id: int, account_id: int) -> TripOut:
-
-        with pool.connection() as conn:
-            with conn.cursor() as db:
-                result = db.execute(
-                    """
-                    SELECT trip_id, account_id, start_date, end_date, park
-                    FROM trips
-                    WHERE trip_id = %s AND account_id = %s
-                    """,
-                    [trip_id, account_id]
-                )
-                record = result.fetchone()
-                if record is None:
-                    return None
-                return self.record_to_trip_out(record)
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT trip_id, account_id, start_date, end_date, park
+                        FROM trips
+                        WHERE trip_id = %s AND account_id = %s
+                        """,
+                        [trip_id, account_id]
+                    )
+                    record = result.fetchone()
+                    if record is None:
+                        return None
+                    return self.record_to_trip_out(record)
+        except Exception as e:
+            print(e)
+            return {"message": "Trip Could Not Be Found"}
 
     def get_all_trips(self, account_id: int) -> Union[Error, List[TripOut]]:
             try:

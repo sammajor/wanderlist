@@ -21,8 +21,6 @@ router = APIRouter()
 @router.post("/api/trips/{trip_id}/notes", response_model=TripNoteOut)
 async def create_note(
     note: TripNoteIn,
-    # trip_id: int,
-    # account_id: int,
     response: Response,
     repo: TripNoteQueries = Depends(),
 ):

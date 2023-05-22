@@ -6,20 +6,24 @@ from models.trips import Error
 class TripNoteQueries:
 
     def get_one_note(self, account_id: int, trip_id: int, note_id: int) -> TripNoteOut:
-        with pool.connection() as conn:
-            with conn.cursor() as db:
-                result = db.execute(
-                    """
-                    SELECT note_id, trip_id, account_id, title, description
-                    FROM tripnotes
-                    WHERE account_id = %s AND trip_id = %s AND note_id = %s
-                    """,
-                    [account_id, trip_id, note_id]
-                )
-                record = result.fetchone()
-                if record is None:
-                    return None
-                return self.record_to_trip_note_out(record)
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT note_id, trip_id, account_id, title, description
+                        FROM tripnotes
+                        WHERE account_id = %s AND trip_id = %s AND note_id = %s
+                        """,
+                        [account_id, trip_id, note_id]
+                    )
+                    record = result.fetchone()
+                    if record is None:
+                        return None
+                    return self.record_to_trip_note_out(record)
+        except Exception as e:
+            print(e)
+            return {"message": "Trip Note Could Not Be Found"}
 
     def get_all_notes(self, account_id: int, trip_id: int) -> Union[Error, List[TripNoteOut]]:
             try:

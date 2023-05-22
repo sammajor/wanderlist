@@ -6,14 +6,12 @@ from fastapi import (
     APIRouter,
     Request,
 )
-from typing import Union, List, Optional
+from typing import Optional
 from authenticator import authenticator
 from queries.trips import TripQueries
 from models.trips import (
     TripIn,
     TripOut,
-    TripForm,
-    Error
 )
 
 
