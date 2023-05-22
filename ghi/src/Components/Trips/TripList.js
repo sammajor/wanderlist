@@ -1,8 +1,13 @@
-
+import { format, parseISO } from "date-fns";
+import React, { useState } from "react";
+const initData = {
+  park: "",
+  start_date: "",
+  end_date: "",
+};
 
 function TripList() {
-
-
+  const [trips, setTrips] = useState(initData);
 
   return (
     <div>
@@ -19,6 +24,7 @@ function TripList() {
           {/* #### FILTER TRIPS BY STATUS AND LOOP THROUGH #### */}
           {trips
             .filter((trip) => trip.status === "upcoming")
+            .map((trip) => {
               // #### PARSE DATE TO DISPLAY IN TABLE ####
               let startDate = parseISO(trip.start_date);
               let endDate = parseISO(trip.end_date);
@@ -29,11 +35,12 @@ function TripList() {
                   <td>{format(startDate, "MM/dd/yyyy")}</td>
                   <td>{format(endDate, "h:mm b")}</td>
                 </tr>
-            );
-            }
+              );
+            })}
+          ;
         </tbody>
       </table>
     </div>
-    )
+  );
 }
 export default TripList;
