@@ -5,17 +5,16 @@ from models.trips import Error
 
 class TripNoteQueries:
 
-    def get_one_note(self, account_id: int, trip_id: int) -> TripNoteOut:
-
+    def get_one_note(self, account_id: int, trip_id: int, note_id: int) -> TripNoteOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT account_id, trip_id, title, description
+                    SELECT note_id, trip_id, account_id, title, description
                     FROM tripnotes
-                    WHERE account_id = %s AND trip_id = %s
+                    WHERE account_id = %s AND trip_id = %s AND note_id = %s
                     """,
-                    [account_id, trip_id]
+                    [account_id, trip_id, note_id]
                 )
                 record = result.fetchone()
                 if record is None:
@@ -28,10 +27,11 @@ class TripNoteQueries:
                     with conn.cursor() as db:
                         result = db.execute(
                             """
-                            SELECT account_id, trip_id, title, description, note_id
+                            SELECT note_id, trip_id, account_id, title, description
                             FROM tripnotes
+                            WHERE account_id = %s AND trip_id = %s
                             ORDER BY trip_id;
-                            """
+                            """,
                             [account_id, trip_id]
                         )
                         return [self.record_to_trip_note_out(record) for record in result]
@@ -62,16 +62,16 @@ class TripNoteQueries:
                 print("note_id", note_id)
                 return self.trip_note_in_to_out(note_id, info)
 
-    def delete(self, id: int) -> bool:
+    def delete(self, note_id: int) -> bool:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
                         DELETE FROM tripnotes
-                        WHERE id = %s
+                        WHERE note_id = %s
                         """,
-                        [id],
+                        [note_id],
                     )
                     return True
         except Exception as e:
@@ -84,8 +84,8 @@ class TripNoteQueries:
     def record_to_trip_note_out(self, record):
         return TripNoteOut(
             note_id=record[0],
-            title=record[1],
-            description=record[2],
-            account_id=record[3],
-            trip_id=record[4],
+            trip_id=record[1],
+            account_id=record[2],
+            title=record[3],
+            description=record[4],
         )

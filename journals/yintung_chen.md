@@ -1,3 +1,13 @@
+## May 18, 2023
+Today, I worked on:
+
+* Fixing the issue to get list of trips and get a single trip
+* Creating a trip notes associate to specific trip with Brady and Dasia
+
+In today's project time, I was the first lead to share screen and coding while Brady and Daisa helping to troubleshoot to get the list of trips. Finally, I caught a parameter TypeError that was passed into our SQL. By fixing that error, the list of trip data was able to fetch and return a 200 success. And we move on to fixing the error of getting a single trip and it was solved.
+Dasia takes the second lead on coding to create a trip note associate to specific trip. All three of us re-think the logic behind this functionally and play around and change lots of stuff. We weren't able to figure out for an hour, and the issue was resolved after the SEIRs guidance. The trip note was able to create by specific trip and user. But we still have issues with getting a list of trip notes, so we decide to leave it for tomorrow.
+
+
 ## May 17, 2023
 Today, I worked on:
 
