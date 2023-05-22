@@ -17,8 +17,10 @@ router = APIRouter()
 def get_park_data(
     queries: ParkQueries = Depends()
     ):
-
-        return queries.get_all_parks()
+        try:
+            return queries.get_all_parks()
+        except:
+               raise HTTPException(status_code=404, detail="Park data not found")
 
 @router.get("/api/parks/{park_id}", response_model=ParkOut)
 def get_one_park(
