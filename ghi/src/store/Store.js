@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { tripsApi } from './tripsApi';
+// import { tripsApi } from './tripsApi';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-
+import {apiSlice} from './apiSlice';
 
 export const store = configureStore({
   reducer: {
-    [tripsApi.reducerPath]: tripsApi.reducer,
+    [apiSlice.reducerPath]: apiSlice.reducer
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(tripsApi.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 setupListeners(store.dispatch);
