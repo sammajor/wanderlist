@@ -4,7 +4,8 @@ import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginForm from "./LoginForm.js";
-import SignUpForm from "./SignUpForm.js";
+import SignUpForm from "./store/SignUpForm.js";
+import LogoutForm from "./store/LogoutForm.js";
 import Testing from "./Testing.js";
 
 
@@ -16,6 +17,7 @@ function App() {
       <Route path="/test" element={<Testing />}/>
       <Route path="/login" element={<LoginForm />}/>
       <Route path="/signup" element={<SignUpForm />}/>
+       <Route path="/logout" element={<LogoutForm />}/>
     </Routes>
   </div>
   </BrowserRouter>
