@@ -24,3 +24,6 @@ Today I worked with Drake to fix some minor edits to our work from last week to 
 2. We added the TripList component. We copied the JSX from project beta and began editing it to fit our current project.
 3. We added the dependencies for the React project that we will need.
    Tomorrow we will start work on redux to include the pieces of state that we will need for this page.
+
+5.23.23
+Today we worked as a group to add Redux to our project and then broke into teams to tackle the frontend authorization portion of the app using Redux. I worked with Drake to add the functionality to get the current user information and store as a slice of state. We also handled the login function and updating the state with the username and password to log a user into the app.
