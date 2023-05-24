@@ -11,7 +11,8 @@ steps = [
             activities JSONB,
             park_url VARCHAR(1000),
             park_id VARCHAR(100) NOT NULL,
-            park_code VARCHAR(100) NOT NULL
+            park_code VARCHAR(100) NOT NULL,
+            park_image VARCHAR(1000)
         );
         """,
         # "DOWN" SQL statement

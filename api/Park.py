@@ -12,6 +12,8 @@ def get_park_data():
     park_data = data["data"]
     for park in park_data:
         activities = json.dumps(park["activities"])
+        if park['images'][0]['url']:
+                park_image = park['images'][0]["url"]
         try:
             park_info = {
                 "full_name": park["fullName"],
@@ -21,16 +23,17 @@ def get_park_data():
                 "park_url": park["url"],
                 "park_id": park["id"],
                 "park_code": park["parkCode"],
-                "activities": activities
+                "activities": activities,
+                "park_image": park_image
             }
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
                     """
                     INSERT INTO parks
-                        (full_name, city, state, description, park_url, park_id, park_code, activities)
+                        (full_name, city, state, description, park_url, park_id, park_code, activities, park_image)
                     VALUES
-                        (%s, %s, %s, %s, %s, %s, %s, %s)
+                        (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                     """,
                     [
                         park_info["full_name"],
@@ -40,31 +43,32 @@ def get_park_data():
                         park_info["park_url"],
                         park_info["park_id"],
                         park_info["park_code"],
-                        park_info["activities"]
+                        park_info["activities"],
+                        park_info["park_image"]
                     ],
                 )
                     print("data is imported successfully")
         except IOError:
             print("Input Error")
 
-    try:
-        for image in park["images"]:
-            url = image["url"]
-            with pool.connection() as conn:
-                with conn.cursor() as db:
-                    result = db.execute(
-                    """
-                    INSERT INTO park_images
-                        (image_url, park_code)
-                    VALUES
-                        (%s, %s)
-                    """,
-                    [
-                        url,
-                        park_info["park_code"],
-                    ],
-                )
-                    print("data is imported successfully")
-    except IOError:
-            print("Input Error")
+        # try:
+        #     for image in park["images"]:
+        #         url = image["url"]
+        #         with pool.connection() as conn:
+        #             with conn.cursor() as db:
+        #                 result = db.execute(
+        #                 """
+        #                 INSERT INTO park_images
+        #                     (image_url, park_code)
+        #                 VALUES
+        #                     (%s, %s)
+        #                 """,
+        #                 [
+        #                     url,
+        #                     park_info["park_code"],
+        #                 ],
+        #             )
+        #                 print("data is imported successfully")
+        # except IOError:
+        #         print("Input Error")
 get_park_data()

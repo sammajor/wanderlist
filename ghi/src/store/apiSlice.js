@@ -1,11 +1,10 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
-  reducerPath: 'apiSlice',
-  tagTypes: ['Token'],
+  reducerPath: "apiSlice",
+  tagTypes: ["Token", "Parks"],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8000/'
+    baseUrl: "http://localhost:8000/",
 
     // prepareHeaders: (headers, { getState }) => {
     //     const token = getState().auth?.token
@@ -14,33 +13,38 @@ export const apiSlice = createApi({
     //     }
     //     return headers
     // }
-
   }),
 
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: ({username, password}) => {
+      query: ({ username, password }) => {
         const body = new FormData();
-        body.append('username', username);
-        body.append('password', password);
+        body.append("username", username);
+        body.append("password", password);
         return {
           url: `/token`,
-          method: 'post',
+          method: "post",
           body,
-          credentials: 'include',
+          credentials: "include",
         };
       },
-
     }),
     getToken: builder.query({
       query: () => ({
         url: `/token`,
-        credentials: 'include',
+        credentials: "include",
       }),
-      providesTags: ['Token'],
-      transformResponse: (response) => response?.account || null
+      providesTags: ["Token"],
+      transformResponse: (response) => response?.account || null,
+    }),
+    getAllParks: builder.query({
+      query: () => ({
+        url: "/api/parks",
+      }),
+      providesTags: ["Parks"],
     }),
   }),
 });
 
-export const {useGetTokenQuery, useLoginMutation} = apiSlice
+export const { useGetTokenQuery, useLoginMutation, useGetAllParksQuery } =
+  apiSlice;

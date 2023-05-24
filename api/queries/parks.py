@@ -19,7 +19,8 @@ class ParkQueries:
                         park_url,
                         park_id,
                         park_code,
-                        activities
+                        activities,
+                        park_image
                         FROM parks
                         """
                     )
@@ -34,9 +35,9 @@ class ParkQueries:
                             park_url=record[5],
                             park_id=record[6],
                             park_code=record[7],
-                            activities=record[8]
+                            activities=record[8],
+                            park_image=record[9],
                         )
-                        print(record[8])
                         result.append(park)
                     return result
         except Exception as e:
@@ -57,7 +58,8 @@ class ParkQueries:
                         park_url,
                         park_id,
                         park_code,
-                        activities
+                        activities,
+                        park_image
                         FROM parks
                         WHERE park_id = %s
                         """, [park_id]
@@ -81,5 +83,6 @@ class ParkQueries:
             park_url=record[5],
             park_id=record[6],
             park_code=record[7],
-            activities=record[8]
+            activities=record[8],
+            park_image=record[9],
         )
