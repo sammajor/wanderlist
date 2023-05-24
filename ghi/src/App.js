@@ -4,6 +4,7 @@ import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginForm from "./LoginForm.js";
+import SignUpForm from "./SignUpForm.js";
 import Testing from "./Testing.js";
 
 
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route path="/test" element={<Testing />}/>
       <Route path="/login" element={<LoginForm />}/>
+      <Route path="/signup" element={<SignUpForm />}/>
     </Routes>
   </div>
   </BrowserRouter>
