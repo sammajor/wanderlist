@@ -25,4 +25,12 @@ Today, we focused on trip notes. Dasia screen-shared and we worked together for 
 
 ## Monday, May 22
 
-After about an hour, we were able to resolve our GET and DELETE issues. Turns out that a couple days away from the project works wonders for troubleshooting capacity! Sam and Drake fixed error handling and we moved on to handling merge requests between the two issues.
+After about an hour, we were able to resolve our GET and DELETE issues for trip notes. Turns out that a couple days away from the project works wonders for troubleshooting capacity! Sam and Drake fixed error handling and we moved on to handling merge requests between the two issues.
+
+## Tuesday, May 23
+
+We moved on to front-end authorization. As a group, we decided that we want to use Redux for our project. Then, we split up into a group working on login/getting acccount tokens, and a group to begin researching signing up and logging out. Sandy, Dasia and I worked on signing up and logging out. We were able to locate snippets of code to help our efforts, but were not able to resolve these issues. Sam and Drake finished with login/get token.
+
+## Wednesday, May 24
+
+We started with code review and merge requests. Then, everyone pulled from main. We will continue working on signup and logout now that we have the rest of Drake and Sam's login/token code. Drake and Sam will begin on a front-end list page. Around 1:30, we finished up with sign up and not are moving on to logging out a user. 
