@@ -33,4 +33,8 @@ We moved on to front-end authorization. As a group, we decided that we want to u
 
 ## Wednesday, May 24
 
-We started with code review and merge requests. Then, everyone pulled from main. We will continue working on signup and logout now that we have the rest of Drake and Sam's login/token code. Drake and Sam will begin on a front-end list page. Around 1:30, we finished up with sign up and not are moving on to logging out a user. 
+We started with code review and merge requests. Then, everyone pulled from main. We will continue working on signup and logout now that we have the rest of Drake and Sam's login/token code. Drake and Sam will begin on a front-end list page. Around 1:30, we finished up with sign up and not are moving on to logging out a user. At the end of the day, we began working on our list pages for parks and user trips.
+
+## Thursday, May 25
+
+
