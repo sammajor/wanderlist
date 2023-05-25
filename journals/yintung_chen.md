@@ -1,3 +1,23 @@
+## May 23, 2023
+Today, I worked on:
+
+* Front-end authorization and signup page
+
+After we finished the back-end portion, we decided to move to the front-end, and do the wheel of names to split the group into two and three. So, I team up with Dasia and Brady again. We decided to do the sign-up form and started with Brady shared the screen, and we complete the SignUp form with j's file.
+Then we realized the code we wrote in the sign-up form may not be correct because the code is nothing relates to the Redux. So we all agree to re-watch today's lecture recording and realized the SignUp form requires the token and another file (apiSlice.js)
+But our other two teammates are doing the sign-in and sign-out form so they're working on the token and file (apiSlice.js). Then we decide to talk about it tomorrow since we're not familiar with Redux. We plan to do our own research tonight so we can have a better understanding for tomorrow's coding.
+In the night-time, I wrote my own apiSlice.js file and plan to discuss with my teammate tomorrow.
+
+
+## May 22, 2023
+Today, I worked on:
+
+* Fixing the issue to get list of trip notes and a single note
+* write a function to delete a single note
+
+In today’s project time, I share my screen and code first with Dasia and Brady. We are working on fixing the bug to get a list of notes associated with specific trip, and a single note feature. Later on, I fixed the bug by double check the SQL order and my code. So, the single note function is able to work, then we solved the list of notes by entering the account id and trip id to locate the notes that were created under specific trip. Delete note feature was also write and test  to make sure it's functional.
+Later on, Sam, Brandy, and I were working to to get the list of trips, Sam shares the screen and install redux toolkit and do some coding while Brady and I giving some advice. We're not able to finish this feature today. So, we save it for later.
+
 ## May 18, 2023
 Today, I worked on:
 
