@@ -7,14 +7,6 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:8000/'
 
-    // prepareHeaders: (headers, { getState }) => {
-    //     const token = getState().auth?.token
-    //     if (token){
-    //         headers.set('authorization', `Bearer ${token}`)
-    //     }
-    //     return headers
-    // }
-
   }),
 
   endpoints: (builder) => ({
@@ -30,7 +22,7 @@ export const apiSlice = createApi({
           credentials: 'include',
         };
       },
-      providesTags: ["Account"]
+      invalidatesTags: ["Account"]
     }),
 
     getToken: builder.query({
