@@ -27,3 +27,6 @@ Today I worked with Drake to fix some minor edits to our work from last week to 
 
 5.23.23
 Today we worked as a group to add Redux to our project and then broke into teams to tackle the frontend authorization portion of the app using Redux. I worked with Drake to add the functionality to get the current user information and store as a slice of state. We also handled the login function and updating the state with the username and password to log a user into the app.
+
+5.24.23
+Today I continued to work with Drake and we tackled the Parks List page while the others finished the sign up and logout functions on the frontend authorization. We built the component and got it to populate with data. We got that going pretty quickly and spent the rest of the day on CSS to make the page look nice. We got the individual parks into cards and got the cards to display in a masonry-like grid on the page. Tomorrow we are going to try and add pagination and also work on the Nav bar.
