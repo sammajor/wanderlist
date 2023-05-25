@@ -40,6 +40,7 @@ export const apiSlice = createApi({
     getAllParks: builder.query({
       query: () => ({
         url: "/api/parks",
+        credentials: "include"
       }),
       providesTags: ["Parks"],
     }),

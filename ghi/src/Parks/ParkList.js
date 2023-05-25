@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { useGetAllParksQuery } from "../store/apiSlice";
+import { useSelector } from "react-redux";
+import SearchBar from "../Search";
+
 
 const ParkList = () => {
-  const { data } = useGetAllParksQuery();
+  const { data, isLoading } = useGetAllParksQuery();
+  const searchCriteria = useSelector((state) => state.parkSearch.value);
+  console.log(data, isLoading)
+  const filteredParks = () => {
+    if (!searchCriteria) return data;
+    return data.filter(park => park.full_name.toLowerCase().includes(searchCriteria.toLowerCase()))
+  }
+  if (isLoading) return<div>...loading</div>
   return (
     <div className="container">
       <h1>National Parks</h1>
+      < SearchBar/>
       <div className="row" data-masonry='{"percentPosition": true }'>
-        {data?.map((data) => {
-          const park = data;
+        {filteredParks().map((park) => {
+          console.log(park)
           return (
             <div
               key={park.park_id}
-              className="card mb-3 shadow"
+              className="card my-3 mx-5 shadow"
               style={{ width: "300px" }}
             >
               <img
