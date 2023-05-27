@@ -6,9 +6,6 @@ import "./park.css";
 const Pagination = (props) => {
   const {
     currentPage,
-    onPrevClick,
-    onNextClick,
-    onPageChange,
     maxPageLimit,
     minPageLimit,
     displayParks,
@@ -16,11 +13,49 @@ const Pagination = (props) => {
     pageNumberLimit,
     data,
     searchCriteria,
+    setMaxPageLimit,
+    setMinPageLimit,
+    setCurrentPage,
+    setDisplayParks,
+    chunks,
   } = props;
-  const [totalPages, setTotalPages] = useState(5);
+
   const pages = [];
 
-  for (let i = 1; i <= totalPages; i++) {
+  const onPageChange = (newId) => {
+    setDisplayParks(chunks[newId - 1]);
+  };
+
+  const onPrevClick = (e) => {
+    const { value } = e.target;
+    const newId = Number(value) - 1;
+
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageLimit(maxPageLimit - pageNumberLimit);
+      setMinPageLimit(minPageLimit - pageNumberLimit);
+    }
+    setCurrentPage(newId);
+    onPageChange(newId);
+  };
+
+  const handlePageClick = (e) => {
+    const { text } = e.target;
+    const newId = Number(text);
+    onPageChange(newId);
+  };
+  const onNextClick = (e) => {
+    const { value } = e.target;
+    const newValue = Number(value) + 1;
+
+    if (currentPage + 1 > maxPageLimit) {
+      setMaxPageLimit(maxPageLimit + pageNumberLimit);
+      setMinPageLimit(minPageLimit + pageNumberLimit);
+    }
+
+    setCurrentPage(newValue);
+    onPageChange(newValue);
+  };
+  for (let i = 1; i <= pageNumberLimit; i++) {
     pages.push(i);
   }
   const pageNumbers = pages.map((page) => {
@@ -29,7 +64,7 @@ const Pagination = (props) => {
         <li
           key={page}
           id={page}
-          onClick={onPageChange}
+          onClick={handlePageClick}
           className={currentPage === page ? "page-item-active" : null}
         >
           <a className="page-link" href="#">
@@ -80,22 +115,11 @@ const Pagination = (props) => {
             />
           );
         })}{" "}
-      {/* {parks.filteredParks().map((park) => {
-        return (
-          <ParkCard
-            key={park.park_id}
-            park_image={park.park_image}
-            full_name={park.full_name}
-            city={park.city}
-            state={park.state}
-            description={park.description}
-          />
-        );
-      })} */}
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
             <button
+              value={currentPage}
               className="btn btn-outline-primary"
               onClick={onPrevClick}
               disabled={currentPage === pages[0]}
@@ -108,6 +132,7 @@ const Pagination = (props) => {
           {pageIncrementEllipses}
           <li className="page-item">
             <button
+              value={currentPage}
               className="btn btn-outline-primary"
               onClick={onNextClick}
               disabled={currentPage === pages[pages.length - 1]}

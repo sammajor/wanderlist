@@ -27,30 +27,42 @@ const ParkList = () => {
   const chunks = _.chunk(data, 20);
 
   const initParks = chunks[0];
+  console.log(chunks);
+  // const onPageChange = (currentPage) => {
+  //   setDisplayParks(chunks[currentPage]);
+  // };
 
-  const onPageChange = (currentPage) => {
-    setDisplayParks(chunks[currentPage]);
-  };
-  const onPrevClick = () => {
-    if ((currentPage - 1) % pageNumberLimit === 0) {
-      setMaxPageLimit(maxPageLimit - pageNumberLimit);
-      setMinPageLimit(minPageLimit - pageNumberLimit);
-    }
+  // const onNextPage = (currentPage) => {
+  //   setCurrentPage(currentPage);
+  // };
 
-    setCurrentPage((prev) => prev - 1).then(onPageChange(currentPage));
-  };
+  // const onPrevClick = (e) => {
+  //   console.log(e);
+  //   if ((currentPage - 1) % pageNumberLimit === 0) {
+  //     setMaxPageLimit(maxPageLimit - pageNumberLimit);
+  //     setMinPageLimit(minPageLimit - pageNumberLimit);
+  //   }
 
-  const onNextClick = () => {
-    if (currentPage + 1 > maxPageLimit) {
-      setMaxPageLimit(maxPageLimit + pageNumberLimit);
-      setMinPageLimit(minPageLimit + pageNumberLimit);
-    }
-    setCurrentPage((prev) => prev + 1);
-    onPageChange(currentPage);
-  };
+  //   setCurrentPage((prev) => prev - 1);
+
+  //   onNextPage(currentPage);
+  // };
+  // const handlePageClick = (e) => {
+  //   props.onPageChange(Number(e.target.id));
+  // };
+  // const onNextClick = (e) => {
+  //   console.log(e);
+  //   if (currentPage + 1 > maxPageLimit) {
+  //     setMaxPageLimit(maxPageLimit + pageNumberLimit);
+  //     setMinPageLimit(minPageLimit + pageNumberLimit);
+  //   }
+  //   setCurrentPage((prev) => prev + 1);
+  //   onPageChange(currentPage);
+  // };
 
   useEffect(() => {
     setDisplayParks(initParks);
+    setPageNumberLimit(chunks.length);
   }, [data, searchCriteria]);
   if (isLoading) return <div>...loading</div>;
   return (
@@ -61,9 +73,6 @@ const ParkList = () => {
         {!isLoading ? (
           <Pagination
             currentPage={currentPage}
-            onPrevClick={onPrevClick}
-            onNextClick={onNextClick}
-            onPageChange={onPageChange}
             maxPageLimit={maxPageLimit}
             minPageLimit={minPageLimit}
             displayParks={displayParks}
@@ -71,6 +80,11 @@ const ParkList = () => {
             pageNumberLimit={pageNumberLimit}
             data={data}
             searchCriteria={searchCriteria}
+            setMaxPageLimit={setMaxPageLimit}
+            setMinPageLimit={setMinPageLimit}
+            setCurrentPage={setCurrentPage}
+            setDisplayParks={setDisplayParks}
+            chunks={chunks}
           />
         ) : (
           <div> Loading... </div>
