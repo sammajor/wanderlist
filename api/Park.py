@@ -6,14 +6,19 @@ from queries.pool import pool
 
 def get_park_data():
 
-    payload = {'limit': '5', 'api_key': NPS_KEY}
+    payload = {'limit': '60', 'api_key': NPS_KEY}
     r = requests.get('https://developer.nps.gov/api/v1/parks', params=payload)
     data = json.loads(r.text)
     park_data = data["data"]
     for park in park_data:
-        activities = json.dumps(park["activities"])
+        if park["activities"] != []:
+            activities = json.dumps(park["activities"])
+        elif activities == []:
+             activities = [{"activities": "none"}]
         if park['images'][0]['url']:
                 park_image = park['images'][0]["url"]
+        elif not park['images'][0]['url']:
+             park_image = "https://www.glenmoorbythesea.com/images/56a0dad6-2f38-4f05-8a18-e815d44e6e7c.webp"
         try:
             park_info = {
                 "full_name": park["fullName"],

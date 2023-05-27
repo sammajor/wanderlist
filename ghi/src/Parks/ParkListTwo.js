@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useGetAllParksQuery } from "../store/apiSlice";
 import { useSelector } from "react-redux";
 import SearchBar from "../Search";
 import Pagination from "./ParkPagination";
 import { chunk } from "lodash";
 import PaginationTwo from "./PaginationTwo";
+import { ParksContext } from "./Context";
 
-const ParkList = () => {
+const ParkListTwo = () => {
   const { data, isLoading } = useGetAllParksQuery();
   const searchCriteria = useSelector((state) => state.parkSearch.value);
 
@@ -36,8 +37,8 @@ const ParkList = () => {
       setMaxPageLimit(maxPageLimit - pageNumberLimit);
       setMinPageLimit(minPageLimit - pageNumberLimit);
     }
-
-    setCurrentPage((prev) => prev - 1).then(onPageChange(currentPage));
+    setCurrentPage((prev) => prev - 1);
+    onPageChange(currentPage);
   };
 
   const onNextClick = () => {
@@ -51,32 +52,35 @@ const ParkList = () => {
 
   useEffect(() => {
     setDisplayParks(initParks);
-  }, [data, searchCriteria]);
+  }, [data]);
   if (isLoading) return <div>...loading</div>;
   return (
     <div className="container">
       <h1>National Parks</h1>
       <SearchBar />
       <div className="row" data-masonry='{"percentPosition": true }'>
-        {!isLoading ? (
-          <Pagination
-            currentPage={currentPage}
-            onPrevClick={onPrevClick}
-            onNextClick={onNextClick}
-            onPageChange={onPageChange}
-            maxPageLimit={maxPageLimit}
-            minPageLimit={minPageLimit}
-            displayParks={displayParks}
-            filteredParks={filteredParks}
-            pageNumberLimit={pageNumberLimit}
-            data={data}
-            searchCriteria={searchCriteria}
-          />
-        ) : (
-          <div> Loading... </div>
-        )}
+        <ParksContext.provider value={data}>
+          {!isLoading ? (
+            <PaginationTwo
+              currentPage={currentPage}
+              onPrevClick={onPrevClick}
+              onNextClick={onNextClick}
+              onPageChange={onPageChange}
+              maxPageLimit={maxPageLimit}
+              minPageLimit={minPageLimit}
+              displayParks={displayParks}
+              filteredParks={filteredParks}
+              pageNumberLimit={pageNumberLimit}
+              data={data}
+              searchCriteria={searchCriteria}
+              chunks={chunks}
+            />
+          ) : (
+            <div> Loading... </div>
+          )}
+        </ParksContext.provider>
       </div>
     </div>
   );
 };
-export default ParkList;
+export default ParkListTwo;

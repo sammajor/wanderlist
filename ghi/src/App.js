@@ -5,7 +5,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./LoginForm.js";
 import Testing from "./Testing.js";
-import ParksList from "./Parks/ParkList.js";
+import ParkList from "./Parks/ParkList.js";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="login" element={<LoginForm />} />
         <Route path="test" element={<Testing />} />
-        <Route path="parks" element={<ParksList />} />
+        <Route path="parks" element={<ParkList />} />
       </Routes>
     </BrowserRouter>
   );

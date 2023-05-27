@@ -1,9 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ParkCard from "./ParkCard";
 import "./park.css";
+import { ParksContext } from "./Context";
 
-const Pagination = (props) => {
+const PaginationTwo = (props) => {
   const {
     currentPage,
     onPrevClick,
@@ -16,10 +17,11 @@ const Pagination = (props) => {
     pageNumberLimit,
     data,
     searchCriteria,
+    chunks,
   } = props;
   const [totalPages, setTotalPages] = useState(5);
   const pages = [];
-
+  const allParks = useContext(ParksContext);
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
@@ -51,36 +53,11 @@ const Pagination = (props) => {
   if (minPageLimit >= 1) {
     pageDecrementEllipses = <li onClick={onPrevClick}>&hellip;</li>;
   }
-
-  return (
-    <>
-      {searchCriteria &&
-        filteredParks(data)?.map((park) => {
-          return (
-            <ParkCard
-              key={park.park_id}
-              park_image={park.park_image}
-              full_name={park.full_name}
-              city={park.city}
-              state={park.state}
-              description={park.description}
-            />
-          );
-        })}{" "}
-      {!searchCriteria &&
-        displayParks?.map((park) => {
-          return (
-            <ParkCard
-              key={park.park_id}
-              park_image={park.park_image}
-              full_name={park.full_name}
-              city={park.city}
-              state={park.state}
-              description={park.description}
-            />
-          );
-        })}{" "}
-      {/* {parks.filteredParks().map((park) => {
+  console.log(searchCriteria);
+  const parkLoop = () => {
+    if (!searchCriteria) {
+      filteredParks(displayParks).map((park) => {
+        console.log(park);
         return (
           <ParkCard
             key={park.park_id}
@@ -91,7 +68,25 @@ const Pagination = (props) => {
             description={park.description}
           />
         );
-      })} */}
+      });
+    } else if (searchCriteria) {
+      data?.map((park) => {
+        return (
+          <ParkCard
+            key={park.park_id}
+            park_image={park.park_image}
+            full_name={park.full_name}
+            city={park.city}
+            state={park.state}
+            description={park.description}
+          />
+        );
+      });
+    }
+  };
+  return (
+    <>
+      {parkLoop()}
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
@@ -121,4 +116,4 @@ const Pagination = (props) => {
   );
 };
 
-export default Pagination;
+export default PaginationTwo;
