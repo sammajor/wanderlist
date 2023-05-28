@@ -16,49 +16,17 @@ const ParkList = () => {
       park.full_name.toLowerCase().includes(searchCriteria.toLowerCase())
     );
   };
-
+  const initMin = 1;
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPageLimit, setMaxPageLimit] = useState(5);
-  const [minPageLimit, setMinPageLimit] = useState(0);
+  const [minPageLimit, setMinPageLimit] = useState(initMin);
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [displayParks, setDisplayParks] = useState([]);
 
   const _ = require("lodash");
   const chunks = _.chunk(data, 20);
-
+  const initMax = chunks.length;
   const initParks = chunks[0];
-  console.log(chunks);
-  // const onPageChange = (currentPage) => {
-  //   setDisplayParks(chunks[currentPage]);
-  // };
-
-  // const onNextPage = (currentPage) => {
-  //   setCurrentPage(currentPage);
-  // };
-
-  // const onPrevClick = (e) => {
-  //   console.log(e);
-  //   if ((currentPage - 1) % pageNumberLimit === 0) {
-  //     setMaxPageLimit(maxPageLimit - pageNumberLimit);
-  //     setMinPageLimit(minPageLimit - pageNumberLimit);
-  //   }
-
-  //   setCurrentPage((prev) => prev - 1);
-
-  //   onNextPage(currentPage);
-  // };
-  // const handlePageClick = (e) => {
-  //   props.onPageChange(Number(e.target.id));
-  // };
-  // const onNextClick = (e) => {
-  //   console.log(e);
-  //   if (currentPage + 1 > maxPageLimit) {
-  //     setMaxPageLimit(maxPageLimit + pageNumberLimit);
-  //     setMinPageLimit(minPageLimit + pageNumberLimit);
-  //   }
-  //   setCurrentPage((prev) => prev + 1);
-  //   onPageChange(currentPage);
-  // };
 
   useEffect(() => {
     setDisplayParks(initParks);
@@ -85,6 +53,8 @@ const ParkList = () => {
             setCurrentPage={setCurrentPage}
             setDisplayParks={setDisplayParks}
             chunks={chunks}
+            initMin={initMin}
+            initMax={initMax}
           />
         ) : (
           <div> Loading... </div>

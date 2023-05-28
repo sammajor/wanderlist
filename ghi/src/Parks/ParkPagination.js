@@ -18,14 +18,33 @@ const Pagination = (props) => {
     setCurrentPage,
     setDisplayParks,
     chunks,
+    initMin,
+    initMax,
   } = props;
 
   const pages = [];
+  const onPageRangeIncrease = () => {
+    if (maxPageLimit + 5 <= pages.length) {
+      const newMaxLimit = maxPageLimit + 5;
+      setMaxPageLimit(newMaxLimit);
+    } else {
+      const newMaxLimit = maxPageLimit + (pages.length - maxPageLimit);
+      setMaxPageLimit(newMaxLimit);
+    }
 
-  const onPageChange = (newId) => {
-    setDisplayParks(chunks[newId - 1]);
+    const newMinLimit = minPageLimit + 5;
+    setMinPageLimit(newMinLimit);
   };
-
+  const onPageRangeDecrease = () => {
+    const newMaxLimit = maxPageLimit - 5;
+    if (minPageLimit - 5 > initMin) {
+      const newMinLimit = minPageLimit - 5;
+      setMinPageLimit(newMinLimit);
+    } else if (minPageLimit - 5 <= initMin) {
+      setMinPageLimit(initMin);
+    }
+    setMaxPageLimit(newMaxLimit);
+  };
   const onPrevClick = (e) => {
     const { value } = e.target;
     const newId = Number(value) - 1;
@@ -35,13 +54,13 @@ const Pagination = (props) => {
       setMinPageLimit(minPageLimit - pageNumberLimit);
     }
     setCurrentPage(newId);
-    onPageChange(newId);
+    setDisplayParks(chunks[newId - 1]);
   };
 
   const handlePageClick = (e) => {
     const { text } = e.target;
     const newId = Number(text);
-    onPageChange(newId);
+    setDisplayParks(chunks[newId - 1]);
   };
   const onNextClick = (e) => {
     const { value } = e.target;
@@ -53,13 +72,13 @@ const Pagination = (props) => {
     }
 
     setCurrentPage(newValue);
-    onPageChange(newValue);
+    setDisplayParks(chunks[newValue - 1]);
   };
   for (let i = 1; i <= pageNumberLimit; i++) {
     pages.push(i);
   }
   const pageNumbers = pages.map((page) => {
-    if (page <= maxPageLimit && page > minPageLimit) {
+    if (page <= maxPageLimit && page >= minPageLimit) {
       return (
         <li
           key={page}
@@ -76,15 +95,29 @@ const Pagination = (props) => {
       return null;
     }
   });
-  let pageIncrementEllipses = null;
+  let pageIncrementEllipses;
 
   if (pages.length > maxPageLimit) {
-    pageIncrementEllipses = <li onClick={onNextClick}>&hellip;</li>;
+    pageIncrementEllipses = (
+      <li
+        className={maxPageLimit < pages.length ? "page-item-active" : null}
+        onClick={onPageRangeIncrease}
+      >
+        &hellip;
+      </li>
+    );
   }
 
-  let pageDecrementEllipses = null;
-  if (minPageLimit >= 1) {
-    pageDecrementEllipses = <li onClick={onPrevClick}>&hellip;</li>;
+  let pageDecrementEllipses;
+  if (minPageLimit >= 2) {
+    pageDecrementEllipses = (
+      <li
+        className={minPageLimit >= 1 ? "page-item-active" : null}
+        onClick={onPageRangeDecrease}
+      >
+        &hellip;
+      </li>
+    );
   }
 
   return (
@@ -122,7 +155,7 @@ const Pagination = (props) => {
               value={currentPage}
               className="btn btn-outline-primary"
               onClick={onPrevClick}
-              disabled={currentPage === pages[0]}
+              disabled={currentPage == initMin}
             >
               Prev
             </button>
@@ -135,7 +168,7 @@ const Pagination = (props) => {
               value={currentPage}
               className="btn btn-outline-primary"
               onClick={onNextClick}
-              disabled={currentPage === pages[pages.length - 1]}
+              disabled={currentPage == initMax}
             >
               &gt;Next
             </button>
