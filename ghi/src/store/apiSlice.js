@@ -70,4 +70,10 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetTokenQuery, useLoginMutation } = apiSlice;
+export const {
+  useGetTokenQuery,
+  useLoginMutation,
+  useGetAllParksQuery,
+  useLogoutMutation,
+  useSignupMutation,
+} = apiSlice;
