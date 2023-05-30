@@ -29,6 +29,7 @@ export const apiSlice = createApi({
         };
       },
     }),
+
     getToken: builder.query({
       query: () => ({
         url: `/token`,
@@ -40,12 +41,33 @@ export const apiSlice = createApi({
     getAllParks: builder.query({
       query: () => ({
         url: "/api/parks",
-        credentials: "include"
+        credentials: "include",
       }),
-      providesTags: ["Parks"],
+      providesTags: ["Token"],
+      transformResponse: (response) => response?.account || null,
+    }),
+
+    logout: builder.mutation({
+      query: () => ({
+        url: `/token`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Account"],
+    }),
+
+    signup: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/api/accounts",
+          method: "POST",
+          body,
+          credentials: "include",
+        };
+      },
+      invalidatesTags: ["Account"],
     }),
   }),
 });
 
-export const { useGetTokenQuery, useLoginMutation, useGetAllParksQuery } =
-  apiSlice;
+export const { useGetTokenQuery, useLoginMutation } = apiSlice;
