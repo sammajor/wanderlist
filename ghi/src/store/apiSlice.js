@@ -105,6 +105,4 @@ export const {
   useCreateTripMutation,
   useGetTripQuery,
   useGetAllParksQuery,
-  useLogoutMutation,
-  useSignupMutation,
 } = apiSlice;
