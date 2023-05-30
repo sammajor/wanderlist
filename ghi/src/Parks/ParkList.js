@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 import SearchBar from "../Search";
 import Pagination from "./ParkPagination";
 import { chunk } from "lodash";
-import PaginationTwo from "./PaginationTwo";
 
 const ParkList = () => {
   const { data, isLoading } = useGetAllParksQuery();
   const searchCriteria = useSelector((state) => state.parkSearch.value);
-
+  console.log(data);
   const filteredParks = (data) => {
     if (!searchCriteria) return data;
     return data.filter((park) =>

@@ -5,14 +5,6 @@ export const apiSlice = createApi({
   tagTypes: ["Token", "Parks"],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8000/",
-
-    // prepareHeaders: (headers, { getState }) => {
-    //     const token = getState().auth?.token
-    //     if (token){
-    //         headers.set('authorization', `Bearer ${token}`)
-    //     }
-    //     return headers
-    // }
   }),
 
   endpoints: (builder) => ({
@@ -43,8 +35,7 @@ export const apiSlice = createApi({
         url: "/api/parks",
         credentials: "include",
       }),
-      providesTags: ["Token"],
-      transformResponse: (response) => response?.account || null,
+      providesTags: ["Parks"],
     }),
 
     logout: builder.mutation({
