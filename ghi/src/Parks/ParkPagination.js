@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import ParkCard from "./ParkCard";
 import "./park.css";
 
@@ -61,6 +60,7 @@ const Pagination = (props) => {
     const { text } = e.target;
     const newId = Number(text);
     setDisplayParks(chunks[newId - 1]);
+    setCurrentPage(newId);
   };
   const onNextClick = (e) => {
     const { value } = e.target;
@@ -155,7 +155,7 @@ const Pagination = (props) => {
               value={currentPage}
               className="btn btn-outline-primary"
               onClick={onPrevClick}
-              disabled={currentPage == initMin}
+              disabled={currentPage === initMin}
             >
               Prev
             </button>
@@ -168,7 +168,7 @@ const Pagination = (props) => {
               value={currentPage}
               className="btn btn-outline-primary"
               onClick={onNextClick}
-              disabled={currentPage == initMax}
+              disabled={currentPage === initMax}
             >
               &gt;Next
             </button>

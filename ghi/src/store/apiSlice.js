@@ -35,8 +35,7 @@ export const apiSlice = createApi({
         url: "/api/parks",
         credentials: "include",
       }),
-      providesTags: ["Token"],
-      transformResponse: (response) => response?.account || null,
+      providesTags: ["Parks"],
     }),
 
     logout: builder.mutation({
