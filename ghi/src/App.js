@@ -18,6 +18,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/logout" element={<LogoutForm />} />
+          <Route path="parks" element={<ParkList />} />
         </Routes>
       </div>
     </BrowserRouter>
