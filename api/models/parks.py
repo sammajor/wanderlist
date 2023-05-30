@@ -11,6 +11,7 @@ class ParkOut(BaseModel):
     park_url: str
     park_id: str
     activities: list
+    park_image: str
 
 class ParksList(BaseModel):
     parks: List[ParkOut]

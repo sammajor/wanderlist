@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Construct from "./Construct.js";
-import ErrorNotification from "./ErrorNotification";
+// import { useEffect, useState } from "react";
+// import Construct from "./Construct.js";
+// import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./LoginForm.js";
@@ -9,6 +9,7 @@ import LogoutForm from "./store/LogoutForm.js";
 import Testing from "./Testing.js";
 import ListTrips from "./ListTrips.js";
 import CreateTripForm from "./CreateTripForm.js";
+import ParkList from "./Parks/ParkList.js";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/logout" element={<LogoutForm />} />
           <Route path="/triplist" element={<ListTrips />} />
           <Route path="/createtrip" element={<CreateTripForm />} />
+          <Route path="/parks" element={<ParkList />} />
         </Routes>
       </div>
     </BrowserRouter>

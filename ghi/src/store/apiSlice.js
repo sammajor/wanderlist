@@ -37,8 +37,15 @@ export const apiSlice = createApi({
         url: `/token`,
         credentials: "include",
       }),
-      providesTags: ["Account"],
+      providesTags: ["Token"],
       transformResponse: (response) => response?.account || null,
+    }),
+    getAllParks: builder.query({
+      query: () => ({
+        url: "/api/parks",
+        credentials: "include",
+      }),
+      providesTags: ["Parks"],
     }),
 
     logout: builder.mutation({
@@ -97,4 +104,7 @@ export const {
   useGetAllTripsQuery,
   useCreateTripMutation,
   useGetTripQuery,
+  useGetAllParksQuery,
+  useLogoutMutation,
+  useSignupMutation,
 } = apiSlice;
