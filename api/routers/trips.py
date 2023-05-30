@@ -21,27 +21,29 @@ router = APIRouter()
 @router.post("/api/trips", response_model=TripOut)
 async def create_trip(
     trip: TripIn,
-    response: Response,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripQueries = Depends(),
+
 ):
-    return repo.create(trip)
+    print (trip)
+    return repo.create(account_data["id"], trip)
 
 
 @router.get("/api/trips")
 async def get_all_trips(
-    account_id: int,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripQueries = Depends(),
 ):
-    return repo.get_all_trips(account_id)
+    return repo.get_all_trips(account_data['id'])
 
 @router.get("/api/trips/{trip_id}")
 def get_one_trip(
     trip_id: int,
-    account_id: int,
     response: Response,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripQueries = Depends(),
 ) -> Optional[TripOut]:
-    trip = repo.get_one_trip(trip_id, account_id)
+    trip = repo.get_one_trip(account_data["id"], trip_id)
     if trip is None:
         response.status_code = 404
     return trip

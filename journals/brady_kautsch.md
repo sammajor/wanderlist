@@ -37,4 +37,4 @@ We started with code review and merge requests. Then, everyone pulled from main.
 
 ## Thursday, May 25
 
-
+As we continued with our trip list component, we learned that some of our authorization was not behaving as expected, even though it seemed to be working correctly. Essentially, our authenticator was NOT passing a unique account ID for the user to get their data. Rather, the user was expected to plug in their account id, which would  be unreasonable for a user to do. Once we finish that, we should be able to access trip lists by user instead of getting undefined objects. We plan to finish the trips list component by EOD tomorrow. I led with screen sharing/coding today in our pair programming. 
