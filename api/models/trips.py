@@ -3,13 +3,12 @@ from datetime import date
 
 
 class TripIn(BaseModel):
-    account_id: int
     start_date: date
     end_date: date
     park: str
 
 class TripOut(BaseModel):
-    trip_id: int
+    id: int
     account_id: int
     start_date: date
     end_date: date

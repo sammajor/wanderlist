@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
     const [signup] = useSignupMutation();
-    const [fullName, setFullName] = useState("");
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
@@ -14,8 +14,8 @@ const SignUpForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const accountData = {
-            fullName: fullName,
-            username: username,
+            name: name,
+            email: email,
             password: password
         };
         signup(
@@ -34,22 +34,22 @@ const SignUpForm = () => {
             <div className="mb-3">
                 <label className="form-label">Full Name</label>
                 <input
-                name="fullName"
+                name="name"
                 type="text"
                 className="form-control"
                 onChange={(e) => {
-                    setFullName(e.target.value);
+                    setName(e.target.value);
                 }}
                 />
             </div>
             <div className="mb-3">
-                <label className="form-label">Username</label>
+                <label className="form-label">Email</label>
                 <input
-                name="username"
+                name="email"
                 type="text"
                 className="form-control"
                 onChange={(e) => {
-                    setUsername(e.target.value);
+                    setEmail(e.target.value);
                 }}
                 />
             </div>

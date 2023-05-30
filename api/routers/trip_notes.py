@@ -22,29 +22,30 @@ router = APIRouter()
 async def create_note(
     note: TripNoteIn,
     response: Response,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripNoteQueries = Depends(),
 ):
-    return repo.create_note(note)
+    return repo.create_note(account_data["id"], note)
 
 
 @router.get("/api/trips/{trip_id}/notes")
 async def get_all_notes(
-    account_id: int,
     trip_id: int,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripNoteQueries = Depends(),
 ):
-    return repo.get_all_notes(account_id, trip_id)
+    return repo.get_all_notes(account_data["id"], trip_id)
 
 
 @router.get("/api/trips/{trip_id}/notes/{note_id}")
 def get_one_note(
     trip_id: int,
     note_id: int,
-    account_id: int,
     response: Response,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripNoteQueries = Depends(),
 ) -> Optional[TripNoteOut]:
-    note = repo.get_one_note(account_id, trip_id, note_id)
+    note = repo.get_one_note(account_data["id"], trip_id, note_id)
     if note is None:
         response.status_code = 404
     return note
@@ -53,6 +54,7 @@ def get_one_note(
 @router.delete("/api/trips/{trip_id}/notes/{note_id}", response_model=bool)
 def delete_note(
     note_id: int,
+    account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripNoteQueries = Depends(),
 ) -> bool:
-    return repo.delete(note_id)
+    return repo.delete(account_data["id"], note_id)

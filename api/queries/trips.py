@@ -5,15 +5,15 @@ from models.trips import Error
 
 class TripQueries:
 
-    def get_one_trip(self, trip_id: int, account_id: int) -> TripOut:
+    def get_one_trip(self, account_id: int, trip_id: int) -> TripOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT trip_id, account_id, start_date, end_date, park
+                        SELECT id, account_id, start_date, end_date, park
                         FROM trips
-                        WHERE trip_id = %s AND account_id = %s
+                        WHERE id = %s AND account_id = %s
                         """,
                         [trip_id, account_id]
                     )
@@ -29,9 +29,16 @@ class TripQueries:
             try:
                 with pool.connection() as conn:
                     with conn.cursor() as db:
+                        # """
+                        # SELECT t.id, t.account_id, t.start_date, t.end_date, t.park_id, p.full_name
+                        # FROM trips t
+                        # JOIN parks p on t.park_id = p.id
+                        # WHERE t.account_id = %s
+                        # ORDER BY t.start_date;
+                        # """
                         result = db.execute(
                             """
-                            SELECT trip_id, account_id, start_date, end_date, park
+                            SELECT id, account_id, start_date, end_date, park
                             FROM trips
                             WHERE account_id = %s
                             ORDER BY start_date;
@@ -43,7 +50,7 @@ class TripQueries:
                 print(e)
                 return {"message": "Could not get all trips"}
 
-    def create(self, info: TripIn) -> TripOut:
+    def create(self, account_id: int, trip: TripIn) -> TripOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -52,26 +59,26 @@ class TripQueries:
                         (account_id, start_date, end_date, park)
                     VALUES
                         (%s, %s, %s, %s)
-                    RETURNING trip_id;
+                    RETURNING id;
                     """,
                     [
-                        info.account_id,
-                        info.start_date,
-                        info.end_date,
-                        info.park,
+                        account_id,
+                        trip.start_date,
+                        trip.end_date,
+                        trip.park,
                     ],
                 )
                 id = result.fetchone()[0]
-                return self.trip_in_to_out(id, info)
+                return self.trip_in_to_out(account_id, id, trip)
 
-    def trip_in_to_out(self, trip_id: int, trip: TripIn):
+    def trip_in_to_out(self, account_id: int, trip_id: int, trip: TripIn):
         old_data = trip.dict()
         print(old_data)
-        return TripOut(trip_id=trip_id, **old_data)
+        return TripOut(account_id=account_id, id=trip_id, **old_data)
 
     def record_to_trip_out(self, record):
         return TripOut(
-            trip_id=record[0],
+            id=record[0],
             account_id =record[1],
             start_date=record[2],
             end_date=record[3],
