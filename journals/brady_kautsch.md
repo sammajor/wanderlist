@@ -37,4 +37,12 @@ We started with code review and merge requests. Then, everyone pulled from main.
 
 ## Thursday, May 25
 
-As we continued with our trip list component, we learned that some of our authorization was not behaving as expected, even though it seemed to be working correctly. Essentially, our authenticator was NOT passing a unique account ID for the user to get their data. Rather, the user was expected to plug in their account id, which would  be unreasonable for a user to do. Once we finish that, we should be able to access trip lists by user instead of getting undefined objects. We plan to finish the trips list component by EOD tomorrow. I led with screen sharing/coding today in our pair programming. 
+As we continued with our trip list component, we learned that some of our authorization was not behaving as expected, even though it seemed to be working correctly. Essentially, our authenticator was NOT passing a unique account ID for the user to get their data. Rather, the user was expected to plug in their account id, which would  be unreasonable for a user to do. Once we finish that, we should be able to access trip lists by user instead of getting undefined objects. We plan to finish the trips list component by EOD tomorrow. I led with screen sharing/coding today in our pair programming.
+
+## Friday, May 26
+
+Sandy, Dasia and I switched to a Create Trip form, and Dasia led with screen sharing for the day. We nearly completed this feature, but were consistently getting Unprocessable Entity errors. We eventually realized that JS was trying to submit date as MM-DD-YYYY, while SQL was expecting the date format to be YYYY-MM-DD. We tried to write functions to convert the date format to the SQL expected format, but were unsuccessful at this point. We would later find out that one reason for this was in our slice file.
+
+## Monday, May 30
+
+Sandy led with screen share this morning as we addressed an issue with our create trip feature. The SQL vs JS date formatting conflicted, and we could not post to the database correctly. Together, the whole group worked on this until we successfully debugged and could successfully post. We were able to fix this by making a minor edit to our slice file, as well as importing a new date library(date-fns) to assist us in converting dates. After this, we changed up our groups and addressed new features. Dasia and Drake began working on a Park Details page, while Sandy, Sam, and I worked on completing the Trip Note (by trip) Form. I led screen share & coding for the trip note form, while Sam and Sandy collaborated.

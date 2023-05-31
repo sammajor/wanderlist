@@ -93,6 +93,15 @@ export const apiSlice = createApi({
         providesTags: ["Trips"],
       }),
     }),
+    createTripNote: builder.mutation({
+      query: (body) => ({
+        url: "/api/trips/{trip_id}/notes",
+        method: "POST",
+        body: body,
+        credentials: "include",
+      }),
+      invalidatesTags: [{ type: "Notes", id: "LIST" }],
+    }),
   }),
 });
 
@@ -104,5 +113,6 @@ export const {
   useGetAllTripsQuery,
   useCreateTripMutation,
   useGetTripQuery,
+  useCreateTripNoteMutation,
   useGetAllParksQuery,
 } = apiSlice;

@@ -9,6 +9,7 @@ import LogoutForm from "./store/LogoutForm.js";
 import Testing from "./Testing.js";
 import ListTrips from "./ListTrips.js";
 import CreateTripForm from "./CreateTripForm.js";
+import CreateTripNoteForm from "./createTripNoteForm";
 import ParkList from "./Parks/ParkList.js";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/logout" element={<LogoutForm />} />
           <Route path="/triplist" element={<ListTrips />} />
           <Route path="/createtrip" element={<CreateTripForm />} />
+          <Route path="/createtripnote" element={<CreateTripNoteForm />} />
           <Route path="/parks" element={<ParkList />} />
         </Routes>
       </div>
