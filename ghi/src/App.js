@@ -7,10 +7,12 @@ import LoginForm from "./LoginForm.js";
 import SignUpForm from "./store/SignUpForm.js";
 import LogoutForm from "./store/LogoutForm.js";
 import Testing from "./Testing.js";
-import ListTrips from "./ListTrips.js";
-import CreateTripForm from "./CreateTripForm.js";
-import CreateTripNoteForm from "./createTripNoteForm";
+import ListTrips from "./Trips/ListTrips.js";
+import CreateTripForm from "./Trips/CreateTripForm.js";
+import CreateTripNoteForm from "./Notes/createTripNoteForm";
 import ParkList from "./Parks/ParkList.js";
+import NoteDetail from "./Notes/NoteDetail";
+import TripDetail from "./Trips/TripDetail";
 
 function App() {
   return (
@@ -21,10 +23,15 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/logout" element={<LogoutForm />} />
-          <Route path="/triplist" element={<ListTrips />} />
+          <Route path="/trips" element={<ListTrips />} />
           <Route path="/createtrip" element={<CreateTripForm />} />
           <Route path="/createtripnote" element={<CreateTripNoteForm />} />
           <Route path="/parks" element={<ParkList />} />
+          <Route path="trips/:trip_id" element={<TripDetail />} />
+          <Route
+            path="/trips/:trip_id/notes/:note_id"
+            element={<NoteDetail />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

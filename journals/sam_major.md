@@ -33,3 +33,9 @@ Today I continued to work with Drake and we tackled the Parks List page while th
 
 5.25.23
 I worked with Drake again today and he was a total BEAST coding what I think will probably be the hardest feature which is pagination on the Parks list page. There are 500 parks and we want all of the results to display, but we can't have the page be huge, so we are adding a pagination feature to display only 20 at a time. At this point, we only have 5 parks imported. The feature is about 80% of the way complete. We have the components built and passing props from parent to child and the data is being displayed properly along with the search bar and filter features. So you can type in the search bar and the data will filter and the pages are showing, but we just have some styling to do and making sure that only the proper number of parks is displayed at once. We will probably get it figured out by tomorrow. The other group worked on the trip list page and they have a few issues they are working through so I figure we'll both be finished with our current assignments tomorrow.
+
+5.26.23
+Today Drake and I worked again all day on the pagination. We got further, but the page buttons are still not working. Called it quits at 7:50 pm. Hoping we can get it figured out in one more day.
+
+5.31.23
+Pagination fixed and merged into main! Today I worked with Brady and Sandy on fixing a date issue on the create trip form and we integrated the trip list and trip form into main. Then we got to work on the create trip note form. That also works and we submitted a merge request. Glad to be getting all of these components built! I want to keep enough time for CSS and cleanup.
