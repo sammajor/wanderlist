@@ -19,6 +19,7 @@ const TripList = () => {
             <th>Park</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th>Trip Status</th>
             <th>See Details</th>
           </tr>
         </thead>
@@ -29,6 +30,7 @@ const TripList = () => {
                 <td>{trip.park}</td>
                 <td>{trip.start_date}</td>
                 <td>{trip.end_date}</td>
+                <td>{trip.trip_status}</td>
                 <td>
                   <button
                     value={trip.id}
