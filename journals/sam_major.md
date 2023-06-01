@@ -39,3 +39,6 @@ Today Drake and I worked again all day on the pagination. We got further, but th
 
 5.31.23
 Pagination fixed and merged into main! Today I worked with Brady and Sandy on fixing a date issue on the create trip form and we integrated the trip list and trip form into main. Then we got to work on the create trip note form. That also works and we submitted a merge request. Glad to be getting all of these components built! I want to keep enough time for CSS and cleanup.
+
+6.01.23
+Today I worked with Sandy on the complete and cancel buttons for the trip detail page. That was a lot more complicated than I thought it would be. The actual coding of the frontend was easy, but we had a bug that we couldn't figure out when we tried to re-render the page with new state. Finally figured it out. The backend was a lot more complicated because we had to alter the database with a new column for trip status and getting the route, query, and pydantic models updated took a lot of effort. We didn't have a put route created and so we had to do all of that from scratch. We finally got it figured out and pushed to main, so that was good. 5 features left to finish and then we are moving on to CSS, code polishing, comments, and cleanup next week!
