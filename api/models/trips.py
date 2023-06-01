@@ -13,6 +13,7 @@ class TripOut(BaseModel):
     start_date: date
     end_date: date
     park: str
+    trip_status: str
 
 class TripForm(BaseModel):
     start_date: date

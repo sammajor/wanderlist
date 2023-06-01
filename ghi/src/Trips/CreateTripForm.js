@@ -22,7 +22,7 @@ const CreateTripForm = () => {
     };
     createTrip(createTripData);
     e.target.reset();
-    navigate("/triplist");
+    navigate("/trips");
   };
   return (
     <div className="card text-bg-light mb-3">

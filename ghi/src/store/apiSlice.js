@@ -6,14 +6,6 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8000/",
     credentials: "include",
-
-    // prepareHeaders: (headers, { getState }) => {
-    //     const token = getState().auth?.token
-    //     if (token){
-    //         headers.set('authorization', `Bearer ${token}`)
-    //     }
-    //     return headers
-    // }
   }),
 
   endpoints: (builder) => ({
@@ -75,7 +67,6 @@ export const apiSlice = createApi({
         credentials: "include",
       }),
       providesTags: ["Trips"],
-      // transformResponse: (response) => response?.account || null
     }),
     createTrip: builder.mutation({
       query: (body) => ({
@@ -89,9 +80,24 @@ export const apiSlice = createApi({
     getTrip: builder.query({
       query: (trip_id) => ({
         url: `/api/trips/${trip_id}`,
-        // transformResponse: (response) => response?.event,
-        providesTags: ["Trips"],
       }),
+      providesTags: ["Trip"],
+    }),
+    cancelTrip: builder.mutation({
+      query: (body) => ({
+        url: `/api/trips/${body.trip_id}/status?trip_status=${body.trip_status}`,
+        method: "PUT",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Trip"],
+    }),
+    completeTrip: builder.mutation({
+      query: (body) => ({
+        url: `/api/trips/${body.trip_id}/status?trip_status=${body.trip_status}`,
+        method: "PUT",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Trip"],
     }),
     createTripNote: builder.mutation({
       query: (body) => ({
@@ -131,4 +137,6 @@ export const {
   useGetAllParksQuery,
   useGetTripNoteQuery,
   useGetAllTripNotesQuery,
+  useCancelTripMutation,
+  useCompleteTripMutation,
 } = apiSlice;
