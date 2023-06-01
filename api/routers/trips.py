@@ -53,4 +53,5 @@ def update_trip_status(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripQueries = Depends(),
 ):
+    print(trip_status)
     return repo.update_trip_status(trip_id, trip_status)

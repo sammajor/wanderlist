@@ -89,14 +89,15 @@ class TripQueries:
                     )
                     result = db.execute(
                         """
-                        SELECT trip_status from trips WHERE id = %s
+                        SELECT id, account_id, start_date, end_date, park,trip_status from trips
+                        WHERE id = %s
                         """,
                         [
                             trip_id
                         ]
                     )
                     trip_record = result.fetchone()
-                    return trip_record[0]
+                    return self.record_to_trip_out(trip_record)
         except Exception as e:
             print(e)
             return {"message": "Could not update this trip"}
