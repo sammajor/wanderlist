@@ -15,6 +15,8 @@ const TripDetail = () => {
     const { id } = e.target;
     navigate(`/trips/${trip_id}/notes/${id}`);
   };
+
+  const handleDelete = (e) => {};
   if (isLoading) return <div>Loading...</div>;
   return (
     <div>
@@ -45,7 +47,17 @@ const TripDetail = () => {
               </div>
               <div className="row">
                 <ul>
-                  <li>Cancel</li>
+                  <li>
+                    <td>
+                      <button
+                        onClick={handleDelete}
+                        id={trip_id}
+                        className="btn btn-sm btn-danger"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </li>
                   <li>Finish</li>
                 </ul>
               </div>
