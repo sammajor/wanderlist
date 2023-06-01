@@ -41,7 +41,6 @@ const TripList = () => {
                     Details
                   </button>
                 </td>
-                {/* <td><button onClick={handleDelete} id={trip.id} className="btn btn-sm btn-danger">Delete</button></td> */}
               </tr>
             );
           })}
