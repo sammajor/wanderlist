@@ -1,3 +1,7 @@
 .pages-list {
   display: inline;
 }
+
+.center-text {
+  text-align: center;
+}

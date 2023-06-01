@@ -108,6 +108,12 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: [{ type: "Notes", id: "LIST" }],
     }),
+    getParkByID: builder.query({
+      query: (park_id) => ({
+          url: `/api/parks/${park_id}`,
+          providesTags: (result, error, park_id) => [{type: 'Parks', park_id}],
+      }),
+    }),
     getTripNote: builder.query({
       query: (trip_id, note_id) => ({
         url: `api/trips/${trip_id}/notes/${note_id}`,
@@ -120,6 +126,12 @@ export const apiSlice = createApi({
         url: `api/trips/${trip_id}/notes`,
         providesTags: ["Notes"],
         credentials: "include",
+      }),
+    }),
+    getParkByID: builder.query({
+      query: (park_id) => ({
+        url: `/api/parks/${park_id}`,
+        providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
       }),
     }),
   }),
@@ -135,6 +147,7 @@ export const {
   useGetTripQuery,
   useCreateTripNoteMutation,
   useGetAllParksQuery,
+  useGetParkByIDQuery,
   useGetTripNoteQuery,
   useGetAllTripNotesQuery,
   useCancelTripMutation,

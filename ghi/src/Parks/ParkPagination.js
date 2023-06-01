@@ -132,6 +132,7 @@ const Pagination = (props) => {
               city={park.city}
               state={park.state}
               description={park.description}
+              park_id={park.park_id}
             />
           );
         })}{" "}
@@ -145,6 +146,7 @@ const Pagination = (props) => {
               city={park.city}
               state={park.state}
               description={park.description}
+              park_id={park.park_id}
             />
           );
         })}{" "}
