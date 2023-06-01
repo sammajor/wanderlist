@@ -1,4 +1,4 @@
-import { useCreateTripMutation } from "./store/apiSlice";
+import { useCreateTripMutation } from "../store/apiSlice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { format, parseISO } from "date-fns";
