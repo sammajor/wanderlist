@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { reset, search } from './store/parkSearchSlice';
+import { reset, search } from '../store/parkSearchSlice';
 import { useState } from 'react';
 
 

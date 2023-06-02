@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const TripList = () => {
   const { data: trips, isLoading } = useGetAllTripsQuery();
-  console.log(trips);
   const navigate = useNavigate();
   const handleClick = (e) => {
     const { value } = e.target;

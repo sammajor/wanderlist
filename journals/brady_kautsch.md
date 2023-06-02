@@ -53,3 +53,6 @@ Sam led our trip and trip note detail pages today. Dasia and Drake worked on a P
 I led most of today's coding by creating buttons that would route from an individual national park on the list page to its respective detail page. We ran into lots of issues where the park list stopped working and upon trying to hit that endpoint it would just grab a (seemlingly) random park ID and take us to a detail page. Eventually we worked out that our Park Card was imported in too many places, so we made adjustments to remove duplicated values and then were able to successfully map.
 
 After completing these features, Drake took over to create our Nav bar. It is largely completed without issues, except that the page is not reloading without a manual refresh after logging in or logging out; depending on which is selected, access to certain features are either added or removed for the user.
+
+## Friday, June 2
+

@@ -19,7 +19,7 @@ const filteredTrips = () => {
   if (isLoading) return <div>Loading...</div>;
   return (
     <div className="list-container">
-      <h2 className="list-title">My Upcoming Trips</h2>
+      <h2 className="list-title">My Trip History</h2>
       <table className="table table-striped">
         <thead>
           <tr>

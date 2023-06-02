@@ -1,4 +1,4 @@
-import { useLogoutMutation } from "./apiSlice";
+import { useLogoutMutation } from "../store/apiSlice";
 import { useNavigate } from "react-router";
 
 const LogoutForm = () => {

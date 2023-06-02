@@ -23,6 +23,9 @@ function Nav() {
             <NavLink className="nav-link" to="/trips">My Upcoming Trips</NavLink>
         </li>}
         {token &&<li className="nav-item">
+            <NavLink className="nav-link" to="/trips/history">My Trip History</NavLink>
+        </li>}
+        {token &&<li className="nav-item">
             <NavLink className="nav-link" to="/createtrip">Create Trip</NavLink>
         </li>}
         {token &&<li className="nav-item">

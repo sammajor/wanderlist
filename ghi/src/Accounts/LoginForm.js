@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 
-import { useLoginMutation } from "./store/apiSlice";
+import { useLoginMutation } from "../store/apiSlice";
 
 const LoginForm = () => {
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();

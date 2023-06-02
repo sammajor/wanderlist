@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useGetAllParksQuery } from "../store/apiSlice";
 import { useSelector } from "react-redux";
-import SearchBar from "../Search";
+import SearchBar from "./Search";
 import Pagination from "./ParkPagination";
 
 const ParkList = () => {

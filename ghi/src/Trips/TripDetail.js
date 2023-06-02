@@ -29,7 +29,8 @@ const TripDetail = () => {
       trip_id: trip_id,
     };
     complete(body);
-  };
+    navigate(`/trips/history`);
+};
 
   const handleCancel = () => {
     const body = {
@@ -37,6 +38,7 @@ const TripDetail = () => {
       trip_id: trip_id,
     };
     cancel(body);
+    navigate(`/trips/history`);
   };
   if (isLoading) return <div>Loading...</div>;
   return (
@@ -74,7 +76,7 @@ const TripDetail = () => {
                     <button
                       onClick={handleCancel}
                       id={trip_id}
-                      disabled={trip.trip_status === "Cancelled"}
+                      disabled={trip?.trip_status === "Cancelled"}
                       className="carousel btn btn-sm btn-danger mx-2"
                     >
                       Cancel
@@ -82,7 +84,7 @@ const TripDetail = () => {
                     <button
                       onClick={handleComplete}
                       id={trip_id}
-                      disabled={trip.trip_status === "Completed"}
+                      disabled={trip?.trip_status === "Completed"}
                       className="carousel btn btn-sm btn-primary"
                     >
                       Complete

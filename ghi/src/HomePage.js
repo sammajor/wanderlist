@@ -5,7 +5,7 @@ const HomePage = () => {
         <div>
             <div>
                 <div>
-                <div fluid id="Hero-Image">
+                <div fluid="true" id="Hero-Image">
                     <h1 className='d-flex justify-content-center text-center'>
                         Welcome to WanderList! <br></br>
                         Plan Your Next Trip to a National Park!
@@ -17,7 +17,7 @@ const HomePage = () => {
                     type="button"
                     className="btn btn-success btn-lg">
                     Click Here to Get Started!</button>
-                    </Link> 
+                    </Link>
                   </div>
                   </div>
                 </div>

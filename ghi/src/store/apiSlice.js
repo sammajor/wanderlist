@@ -30,7 +30,6 @@ export const apiSlice = createApi({
         credentials: "include",
       }),
       providesTags: ["Token"],
-      // transformResponse: (response) => response?.account || null,
     }),
     getAllParks: builder.query({
       query: () => ({
@@ -39,7 +38,6 @@ export const apiSlice = createApi({
       }),
       providesTags: ["Parks"],
     }),
-
     logout: builder.mutation({
       query: () => ({
         url: `/token`,
@@ -75,7 +73,7 @@ export const apiSlice = createApi({
         body: body,
         credentials: "include",
       }),
-      invalidatesTags: [{ type: "Trips", id: "LIST" }],
+      invalidatesTags: ["Trips"],
     }),
     getTrip: builder.query({
       query: (trip_id) => ({
@@ -106,32 +104,40 @@ export const apiSlice = createApi({
         body: body,
         credentials: "include",
       }),
-      invalidatesTags: [{ type: "Notes", id: "LIST" }],
+      invalidatesTags: ["Notes"]
     }),
     getParkByID: builder.query({
       query: (park_id) => ({
         url: `/api/parks/${park_id}`,
-        providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
       }),
+      providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
     }),
     getTripNote: builder.query({
       query: ({ trip_id, note_id }) => ({
         url: `api/trips/${trip_id}/notes/${note_id}`,
-        providesTags: ["Notes"],
       }),
+      providesTags: ["Notes"],
     }),
     getAllTripNotes: builder.query({
       query: (trip_id) => ({
         url: `api/trips/${trip_id}/notes`,
-        providesTags: ["Notes"],
         credentials: "include",
       }),
+      providesTags: ["Notes"],
     }),
     getParkByID: builder.query({
       query: (park_id) => ({
         url: `/api/parks/${park_id}`,
-        providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
       }),
+      providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
+    }),
+    deleteTripNote: builder.mutation({
+      query: ({trip_id, note_id}) => ({
+        url: `/api/trips/${trip_id}/notes/${note_id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Notes"],
     }),
   }),
 });
@@ -151,4 +157,5 @@ export const {
   useGetAllTripNotesQuery,
   useCancelTripMutation,
   useCompleteTripMutation,
+  useDeleteTripNoteMutation,
 } = apiSlice;
