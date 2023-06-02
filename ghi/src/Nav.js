@@ -36,13 +36,13 @@ function Nav() {
         </li>}
         {token &&
         <button
-          className="btn btn-outlinte-danger"
+          className="btn btn-warning"
           onClick={() => {
             logout()
             navigate('/parks')
           }}
             >Logout</button>}
-            </ul>
+          </ul>
         </div>
     </div>
     </nav>

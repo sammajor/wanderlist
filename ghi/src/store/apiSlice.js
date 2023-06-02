@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "apiSlice",
-  tagTypes: ["Account", "Trips"],
+  tagTypes: ["Account", "Trips", "Notes"],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8000/",
     credentials: "include",
@@ -81,7 +81,7 @@ export const apiSlice = createApi({
       query: (trip_id) => ({
         url: `/api/trips/${trip_id}`,
       }),
-      providesTags: ["Trip"],
+      providesTags: ["Trips"],
     }),
     cancelTrip: builder.mutation({
       query: (body) => ({
@@ -89,7 +89,7 @@ export const apiSlice = createApi({
         method: "PUT",
         credentials: "include",
       }),
-      invalidatesTags: ["Trip"],
+      invalidatesTags: ["Trips"],
     }),
     completeTrip: builder.mutation({
       query: (body) => ({
@@ -97,7 +97,7 @@ export const apiSlice = createApi({
         method: "PUT",
         credentials: "include",
       }),
-      invalidatesTags: ["Trip"],
+      invalidatesTags: ["Trips"],
     }),
     createTripNote: builder.mutation({
       query: (body) => ({
@@ -110,16 +110,15 @@ export const apiSlice = createApi({
     }),
     getParkByID: builder.query({
       query: (park_id) => ({
-          url: `/api/parks/${park_id}`,
-          providesTags: (result, error, park_id) => [{type: 'Parks', park_id}],
+        url: `/api/parks/${park_id}`,
+        providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
       }),
     }),
     getTripNote: builder.query({
-      query: (trip_id, note_id) => ({
+      query: ({ trip_id, note_id }) => ({
         url: `api/trips/${trip_id}/notes/${note_id}`,
         providesTags: ["Notes"],
       }),
-      transformResponse: (response) => response?.event,
     }),
     getAllTripNotes: builder.query({
       query: (trip_id) => ({

@@ -21,7 +21,7 @@ import TripHistoryList from "./Trips/TripHistoryPage";
 function App() {
   return (
     <BrowserRouter>
-    <Nav/>
+      <Nav />
       <div>
         <Routes>
           <Route path="/login" element={<LoginForm />} />

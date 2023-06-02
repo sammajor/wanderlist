@@ -6,7 +6,7 @@ from queries.pool import pool
 
 def get_park_data():
 
-    payload = {'limit': '200', 'api_key': NPS_KEY}
+    payload = {'limit': '500', 'api_key': NPS_KEY}
     r = requests.get('https://developer.nps.gov/api/v1/parks', params=payload)
     data = json.loads(r.text)
     park_data = data["data"]

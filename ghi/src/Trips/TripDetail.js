@@ -53,37 +53,41 @@ const TripDetail = () => {
                 <Carousel className="col" />
               </div>
 
-              <div className="row justify-content-end">
+              <div className="row justify-content-start">
                 {notes?.map((note) => {
                   return (
-                    <NoteCard
-                      key={note.id}
-                      title={note.title}
-                      description={note.description}
-                      id={note.id}
-                      handleCardClick={handleCardClick}
-                    />
+                    <div className="col-2 col-sm-3 col-md-4" key={note.id}>
+                      <NoteCard
+                        key={note.id}
+                        title={note.title}
+                        description={note.description}
+                        id={note.id}
+                        handleCardClick={handleCardClick}
+                      />
+                    </div>
                   );
                 })}
               </div>
               <div className="row">
                 <div>
-                  <button
-                    onClick={handleCancel}
-                    id={trip_id}
-                    disabled={trip.trip_status === "Cancelled"}
-                    className="carousel btn btn-sm btn-danger"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={handleComplete}
-                    id={trip_id}
-                    disabled={trip.trip_status === "Completed"}
-                    className="carousel btn btn-sm btn-primary"
-                  >
-                    Complete
-                  </button>
+                  <div className="row justify-content-center">
+                    <button
+                      onClick={handleCancel}
+                      id={trip_id}
+                      disabled={trip.trip_status === "Cancelled"}
+                      className="carousel btn btn-sm btn-danger mx-2"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleComplete}
+                      id={trip_id}
+                      disabled={trip.trip_status === "Completed"}
+                      className="carousel btn btn-sm btn-primary"
+                    >
+                      Complete
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
