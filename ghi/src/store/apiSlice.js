@@ -21,7 +21,7 @@ export const apiSlice = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Account", "Token"],
     }),
 
     getToken: builder.query({
@@ -30,7 +30,7 @@ export const apiSlice = createApi({
         credentials: "include",
       }),
       providesTags: ["Token"],
-      transformResponse: (response) => response?.account || null,
+      // transformResponse: (response) => response?.account || null,
     }),
     getAllParks: builder.query({
       query: () => ({
@@ -46,7 +46,7 @@ export const apiSlice = createApi({
         method: "DELETE",
         credentials: "include",
       }),
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Account", "Token"],
     }),
 
     signup: builder.mutation({

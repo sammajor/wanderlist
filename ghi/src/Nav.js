@@ -1,6 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useGetTokenQuery, useLogoutMutation } from './store/apiSlice';
+
 
 function Nav() {
+  const {data:token} = useGetTokenQuery();
+  const navigate = useNavigate();
+  const [logout] = useLogoutMutation();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
@@ -9,11 +15,35 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-        </div>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-            <NavLink className="nav-link" to="parks">List of Parks</NavLink>
+            <NavLink className="nav-link" to="/parks">All Parks</NavLink>
         </li>
+        {token &&<li className="nav-item">
+            <NavLink className="nav-link" to="/trips">My Upcoming Trips</NavLink>
+        </li>}
+        {token &&<li className="nav-item">
+            <NavLink className="nav-link" to="/createtrip">Create Trip</NavLink>
+        </li>}
+        {token &&<li className="nav-item">
+            <NavLink className="nav-link" to="/createtripnote">Create Trip Note</NavLink>
+        </li>}
+        {!token &&<li className="nav-item">
+            <NavLink className="nav-link" to="/signup">Signup</NavLink>
+        </li>}
+        {!token &&<li className="nav-item">
+            <NavLink className="nav-link" to="/login">Login</NavLink>
+        </li>}
+        {token &&
+        <button
+          className="btn btn-outlinte-danger"
+          onClick={() => {
+            logout()
+            navigate('/parks')
+          }}
+            >Logout</button>}
+            </ul>
+        </div>
     </div>
     </nav>
   )

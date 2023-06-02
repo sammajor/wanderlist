@@ -17,7 +17,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (isSuccess === true) {
-      navigate("/test");
+      navigate("/trips");
     }
   }, [isSuccess]);
 

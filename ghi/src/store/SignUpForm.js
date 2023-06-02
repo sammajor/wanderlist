@@ -23,7 +23,7 @@ const SignUpForm = () => {
             `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/accounts`
         );
         e.target.reset();
-        navigate("/");
+        navigate("/parks");
     };
 
     return (

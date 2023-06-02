@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./LoginForm.js";
 import SignUpForm from "./store/SignUpForm.js";
 import LogoutForm from "./store/LogoutForm.js";
-import Testing from "./Testing.js";
 import ListTrips from "./Trips/ListTrips.js";
 import CreateTripForm from "./Trips/CreateTripForm.js";
 import CreateTripNoteForm from "./Notes/createTripNoteForm";
@@ -14,13 +13,15 @@ import ParkList from "./Parks/ParkList.js";
 import ParkDetails from "./Parks/ParkDetailPage.js";
 import NoteDetail from "./Notes/NoteDetail";
 import TripDetail from "./Trips/TripDetail";
+import Nav from "./Nav";
+
 
 function App() {
   return (
     <BrowserRouter>
+    <Nav/>
       <div>
         <Routes>
-          <Route path="/test" element={<Testing />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/logout" element={<LogoutForm />} />
