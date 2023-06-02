@@ -40,7 +40,7 @@ As we continued with our trip list component, we learned that some of our author
 
 Sandy, Dasia and I switched to a Create Trip form, and Dasia led with screen sharing for the day. We nearly completed this feature, but were consistently getting Unprocessable Entity errors. We eventually realized that JS was trying to submit date as MM-DD-YYYY, while SQL was expecting the date format to be YYYY-MM-DD. We tried to write functions to convert the date format to the SQL expected format, but were unsuccessful at this point. We would later find out that one reason for this was in our slice file.
 
-## Monday, May 30
+## Tuesday, May 30
 
 After completing these features, Drake took over to create our Nav bar. It is largely completed without issues, except that the page is not reloading without a manual refresh after logging in or logging out; depending on which is selected, access to certain features are either added or removed for the user.
 
