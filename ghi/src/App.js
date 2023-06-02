@@ -15,6 +15,7 @@ import NoteDetail from "./Notes/NoteDetail";
 import TripDetail from "./Trips/TripDetail";
 import Nav from "./Nav";
 
+import TripHistoryList from "./Trips/TripHistoryPage";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             path="/trips/:trip_id/notes/:note_id"
             element={<NoteDetail />}
           />
+          <Route path="trips/history" element={<TripHistoryList />} />
         </Routes>
       </div>
     </BrowserRouter>

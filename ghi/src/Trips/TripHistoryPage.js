@@ -1,7 +1,7 @@
 import { useGetAllTripsQuery } from "../store/apiSlice";
 import { useNavigate } from "react-router-dom";
 
-const TripList = () => {
+const TripHistoryList = () => {
   const { data: trips, isLoading } = useGetAllTripsQuery();
   console.log(trips);
   const navigate = useNavigate();
@@ -9,10 +9,10 @@ const TripList = () => {
     const { value } = e.target;
     navigate(`/trips/${value}/`);
   };
-  const filteredTripList = () => {
+const filteredTrips = () => {
     return trips.filter((trip) => {
         return (
-            trip.trip_status === 'Pending'
+            trip.trip_status !== 'Pending'
         );
     });
 };
@@ -26,16 +26,18 @@ const TripList = () => {
             <th>Park</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th>Trip Status</th>
             <th>See Details</th>
           </tr>
         </thead>
         <tbody>
-          {filteredTripList().map((trip) => {
+          {filteredTrips().map((trip) => {
             return (
               <tr key={trip.id}>
                 <td>{trip.park}</td>
                 <td>{trip.start_date}</td>
                 <td>{trip.end_date}</td>
+                <td>{trip.trip_status}</td>
                 <td>
                   <button
                     value={trip.id}
@@ -55,4 +57,4 @@ const TripList = () => {
   );
 };
 
-export default TripList;
+export default TripHistoryList;
