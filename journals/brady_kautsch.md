@@ -56,3 +56,6 @@ After completing these features, Drake took over to create our Nav bar. It is la
 
 ## Friday, June 2
 
+Today we had a sprint to complete the last of our features and we did it! I led coding today with Sandy and Drake for the note detail page and note delete button. We had to write a new slice for note deletion, and move around some misplaced tags. From there, we deleted a transform response which was nullifying our note object for the note detail page (i.e. we would get a 200 response for our GET request but the page would be empty). Once we addressed this, we were able to view the entirety of our note. Then, I wrote a function to handle note deletion and re-route to the trip detail page, where the traveler would see the trip overview with their remaining notes.
+
+Sam and Sandy completed our home page and created a trip history page to log trips that were completed or cancelled, while our upcoming trips page holds "pending" trips. We worked together to sort out our merge requests, tested behavior as a team, and then selected who would write which unit tests. Next week, we will work on app styling, along with writing unit tests and ensuring the behavior of the app is as expected with all extraneous imports, commented-out code, etc. deleted before turning in the final product.
