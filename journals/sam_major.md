@@ -38,7 +38,10 @@ I worked with Drake again today and he was a total BEAST coding what I think wil
 Today Drake and I worked again all day on the pagination. We got further, but the page buttons are still not working. Called it quits at 7:50 pm. Hoping we can get it figured out in one more day.
 
 5.31.23
-Pagination fixed and merged into main! Today I worked with Brady and Sandy on fixing a date issue on the create trip form and we integrated the trip list and trip form into main. Then we got to work on the create trip note form. That also works and we submitted a merge request. Glad to be getting all of these components built! I want to keep enough time for CSS and cleanup.
+Pagination fixed and merged into main! Today I worked with Brady and Sandy on fixing a date issue on the create trip form and we integrated the trip list and trip form into main. Then we got to work on the create trip note form. That also works and we submitted a merge request. I coded this with Brady and Sandy on eagle eye duty. Glad to be getting all of these components built! I want to keep enough time for CSS and cleanup.
 
 6.01.23
 Today I worked with Sandy on the complete and cancel buttons for the trip detail page. That was a lot more complicated than I thought it would be. The actual coding of the frontend was easy, but we had a bug that we couldn't figure out when we tried to re-render the page with new state. Finally figured it out. The backend was a lot more complicated because we had to alter the database with a new column for trip status and getting the route, query, and pydantic models updated took a lot of effort. We didn't have a put route created and so we had to do all of that from scratch. We finally got it figured out and pushed to main, so that was good. 5 features left to finish and then we are moving on to CSS, code polishing, comments, and cleanup next week!
+
+6.02.23
+We got so much done today! I worked with Dasia today. We plowed through getting the Trip history page done and also the homepage. We then got back together with the other group and we worked together on finishing the trip note delete button and then we collaborated on starting the cleanup making sure comments and console.log statements are deleted. Looking forward to working on CSS, unit tests and more cleanup next week.
