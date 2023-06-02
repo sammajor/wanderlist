@@ -79,5 +79,3 @@ const CreateTripForm = () => {
 }
 
 export default CreateTripForm;
-
-export default CreateTripForm;
