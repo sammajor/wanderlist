@@ -1,26 +1,32 @@
-
+import { Link } from "react-router-dom";
 
 const ParkCard = (props) => {
+  const { park_image, full_name, city, state, description, park_id } = props;
 
     return (
         <div
-              key={props.park_id}
+              key={park_id}
               className="card my-3 mx-5 shadow"
               style={{ width: "300px" }}
             >
               <img
-                src={props.park_image}
+                src={park_image}
                 alt="park pic"
                 className="card-img-top"
               />
               <div className="card-body">
-                <h5 className="card-title">{props.full_name}</h5>
+                <h5 className="card-title">{full_name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">
-                  {props.city}, {props.state}
+                  {city}, {state}
                 </h6>
-                <p className="card-text">{props.description}</p>
+                <p className="card-text">{description}</p>
               </div>
-            </div>
+              <div className="text-center">
+                <Link to={ `/parks/${park_id}` } className="btn btn-primary btn-sm mb-2">
+                  View
+                </Link>
+              </div>
+        </div>
     )
 }
 export default ParkCard;

@@ -23,9 +23,7 @@ async def create_trip(
     trip: TripIn,
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripQueries = Depends(),
-
 ):
-    print (trip)
     return repo.create(account_data["id"], trip)
 
 
@@ -47,3 +45,13 @@ def get_one_trip(
     if trip is None:
         response.status_code = 404
     return trip
+
+@router.put("/api/trips/{trip_id}/status")
+def update_trip_status(
+    trip_id: int,
+    trip_status: str,
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    repo: TripQueries = Depends(),
+):
+    print(trip_status)
+    return repo.update_trip_status(trip_id, trip_status)

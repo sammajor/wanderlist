@@ -6,13 +6,11 @@ When this was completed, Drake shared his screen and transferred content from is
 
 Finally, Sandy shared her screen and led us in coding our authentication, while we all contributed thoughts as troubleshooting was needed. By the end of the day, we still had a 401 Unauthorized error, because we did not successfully complete our "get" Account Query, which was preventing a newly created account from logging in.
 
-
 ## Tuesday, May 16
 
 Dasia led in screen sharing as we fixed our accounts table, and updated our ./routers/accounts.py, ./models/accounts.py, and ./queries/accounts.py files. Once we addressed the remaining edits in these files, we were successful in creating our login, logout, token, create account, and protected routes with 200 responses.
 
 Upon completing authorization, we merged to main with Drake serving as our merge request reviewer, and moved on to planning the next steps of our backend. Drake, Sam, and I will be working on communicating with the National Park Service API, including the decision to run a get request or add to our own database. Dasia and Sandy will work on the Trip and Trip Notes components of our database. We will all be present for the third-party API strategy discussion.
-
 
 ## Wednesday, May 17
 
@@ -21,7 +19,6 @@ Sam and Drake split up to work on seeding the database with a call to the /parks
 ## Thursday, May 18
 
 Today, we focused on trip notes. Dasia screen-shared and we worked together for the afternoon. We were able to make adjustments/progress such that we received different errors each time we hit one of our trip note endpoints, but we were only able to get our POST endpoint for notes working. Our GET and DELETE were not operational. Sam and Drake nearly finished with the parks aspect of our database construction, but realized they didn't write code to handle errors. To finish the backend on Monday, Sam and Drake would need to write in try--except blocks and we would finish our GET and DELETE api calls.
-
 
 ## Monday, May 22
 
@@ -37,7 +34,7 @@ We started with code review and merge requests. Then, everyone pulled from main.
 
 ## Thursday, May 25
 
-As we continued with our trip list component, we learned that some of our authorization was not behaving as expected, even though it seemed to be working correctly. Essentially, our authenticator was NOT passing a unique account ID for the user to get their data. Rather, the user was expected to plug in their account id, which would  be unreasonable for a user to do. Once we finish that, we should be able to access trip lists by user instead of getting undefined objects. We plan to finish the trips list component by EOD tomorrow. I led with screen sharing/coding today in our pair programming.
+As we continued with our trip list component, we learned that some of our authorization was not behaving as expected, even though it seemed to be working correctly. Essentially, our authenticator was NOT passing a unique account ID for the user to get their data. Rather, the user was expected to plug in their account id, which would be unreasonable for a user to do. Once we finish that, we should be able to access trip lists by user instead of getting undefined objects. We plan to finish the trips list component by EOD tomorrow. I led with screen sharing/coding today in our pair programming.
 
 ## Friday, May 26
 
@@ -45,4 +42,14 @@ Sandy, Dasia and I switched to a Create Trip form, and Dasia led with screen sha
 
 ## Monday, May 30
 
-Sandy led with screen share this morning as we addressed an issue with our create trip feature. The SQL vs JS date formatting conflicted, and we could not post to the database correctly. Together, the whole group worked on this until we successfully debugged and could successfully post. We were able to fix this by making a minor edit to our slice file, as well as importing a new date library(date-fns) to assist us in converting dates. After this, we changed up our groups and addressed new features. Dasia and Drake began working on a Park Details page, while Sandy, Sam, and I worked on completing the Trip Note (by trip) Form. I led screen share & coding for the trip note form, while Sam and Sandy collaborated.
+After completing these features, Drake took over to create our Nav bar. It is largely completed without issues, except that the page is not reloading without a manual refresh after logging in or logging out; depending on which is selected, access to certain features are either added or removed for the user.
+
+## Wednesday, May 31
+
+Sam led our trip and trip note detail pages today. Dasia and Drake worked on a Park Detail page. Both groups worked on connecting an instance from our list page to the corresponding detail page. Trip and trip note detail pages were completed minus a couple of buttons (for cancel and finish trip) which are listed as separate issues in our GitLab. Talking through code, console logging, and googling bootstrap documentation got us through today.
+
+## Thursday, June 1
+
+I led most of today's coding by creating buttons that would route from an individual national park on the list page to its respective detail page. We ran into lots of issues where the park list stopped working and upon trying to hit that endpoint it would just grab a (seemlingly) random park ID and take us to a detail page. Eventually we worked out that our Park Card was imported in too many places, so we made adjustments to remove duplicated values and then were able to successfully map.
+
+After completing these features, Drake took over to create our Nav bar. It is largely completed without issues, except that the page is not reloading without a manual refresh after logging in or logging out; depending on which is selected, access to certain features are either added or removed for the user.

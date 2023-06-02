@@ -11,7 +11,7 @@ class TripQueries:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, account_id, start_date, end_date, park
+                        SELECT id, account_id, start_date, end_date, park, trip_status
                         FROM trips
                         WHERE id = %s AND account_id = %s
                         """,
@@ -38,7 +38,7 @@ class TripQueries:
                         # """
                         result = db.execute(
                             """
-                            SELECT id, account_id, start_date, end_date, park
+                            SELECT id, account_id, start_date, end_date, park, trip_status
                             FROM trips
                             WHERE account_id = %s
                             ORDER BY start_date;
@@ -59,7 +59,7 @@ class TripQueries:
                         (account_id, start_date, end_date, park)
                     VALUES
                         (%s, %s, %s, %s)
-                    RETURNING id;
+                    RETURNING id, account_id, start_date, end_date, park, trip_status;
                     """,
                     [
                         account_id,
@@ -68,12 +68,42 @@ class TripQueries:
                         trip.park,
                     ],
                 )
-                id = result.fetchone()[0]
-                return self.trip_in_to_out(account_id, id, trip)
+
+                record = result.fetchone()
+                return self.record_to_trip_out(record)
+
+    def update_trip_status(self, trip_id: int, trip_status: str) -> TripOut:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        UPDATE trips
+                        SET trip_status = CAST(%s AS trip_status_enum)
+                        WHERE id = %s;
+                        """,
+                        [
+                            trip_status,
+                            trip_id,
+                        ],
+                    )
+                    result = db.execute(
+                        """
+                        SELECT id, account_id, start_date, end_date, park,trip_status from trips
+                        WHERE id = %s
+                        """,
+                        [
+                            trip_id
+                        ]
+                    )
+                    trip_record = result.fetchone()
+                    return self.record_to_trip_out(trip_record)
+        except Exception as e:
+            print(e)
+            return {"message": "Could not update this trip"}
 
     def trip_in_to_out(self, account_id: int, trip_id: int, trip: TripIn):
         old_data = trip.dict()
-        print(old_data)
         return TripOut(account_id=account_id, id=trip_id, **old_data)
 
     def record_to_trip_out(self, record):
@@ -83,4 +113,5 @@ class TripQueries:
             start_date=record[2],
             end_date=record[3],
             park=record[4],
+            trip_status=record[5],
         )

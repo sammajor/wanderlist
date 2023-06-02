@@ -3,7 +3,6 @@ import { useGetAllParksQuery } from "../store/apiSlice";
 import { useSelector } from "react-redux";
 import SearchBar from "../Search";
 import Pagination from "./ParkPagination";
-import { chunk } from "lodash";
 
 const ParkList = () => {
   const { data, isLoading } = useGetAllParksQuery();
@@ -31,7 +30,9 @@ const ParkList = () => {
     setDisplayParks(initParks);
     setPageNumberLimit(chunks.length);
   }, [data, searchCriteria]);
+
   if (isLoading) return <div>...loading</div>;
+
   return (
     <div className="container">
       <h1>National Parks</h1>
@@ -62,4 +63,5 @@ const ParkList = () => {
     </div>
   );
 };
+
 export default ParkList;

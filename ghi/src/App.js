@@ -11,6 +11,7 @@ import ListTrips from "./Trips/ListTrips.js";
 import CreateTripForm from "./Trips/CreateTripForm.js";
 import CreateTripNoteForm from "./Notes/createTripNoteForm";
 import ParkList from "./Parks/ParkList.js";
+import ParkDetails from "./Parks/ParkDetailPage.js";
 import NoteDetail from "./Notes/NoteDetail";
 import TripDetail from "./Trips/TripDetail";
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/createtrip" element={<CreateTripForm />} />
           <Route path="/createtripnote" element={<CreateTripNoteForm />} />
           <Route path="/parks" element={<ParkList />} />
+          <Route path="/parks/:park_id" element={<ParkDetails />} />
           <Route path="trips/:trip_id" element={<TripDetail />} />
           <Route
             path="/trips/:trip_id/notes/:note_id"
