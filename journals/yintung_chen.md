@@ -1,3 +1,73 @@
+## Jun 2, 2023
+
+Today, I worked on:
+
+- Navigation bar and note detail page with Drake and Brady
+
+Drake and Brady have worked in a navigation bar since yesterday, so I join with them today to finished this feature. Drake shared his screen while Brady and I were collaborating. Later on, we move on to the note detail page, Brady started the screen and we got 422 errors, then I fixed it by changing the query. It was passing two arguments, then I wrap the two arguments into an object, and check the object has been passed into the react hook. When the note detail data is able to display as we want, we added bootstrap to make it look cleaner.
+In the afternoon, the entire group is working together to make a delete note button inside the note detail page.
+
+## Jun 1, 2023
+
+Today, I worked on:
+
+- Trip completed/cancelled button feature in trip detail page with Sam
+
+In today’s project time, I shared my screen first and code the feature for cancel button in the front-end. While I’m coding and Sam was collaborated. He said we do not have a status change field in the back-end. Thus, we go back to the back-end, and I started to make a migration table for trip_status field. We’ve altered the trips table and added a trip_status field in there. Then we modified the Pydantic model, trip queries and added a trip status update router. When trip status is able to change from default pending to complete or cancelled, the create a trip function is broken. Then we spent some time fixing the bugs. A few hours later, when the back-end trip status functionality is completed. Sam takes the next coding part to do the front-end button feature. The completed/cancelled button ran into a 422 issue. So, we went to SEIR for help. They guide us to change our apiSlice.js url and fixing some SQL code. The button is finally working.
+
+## May 31, 2023
+
+Today, I worked on:
+
+- Create a trip detail page with Sam, Brady
+- Error handling for login form
+
+Sam take the lead for today’s coding. Initially, we planned to create a note detail page but end-up we must create a trip detail page first. Thus, we reconsider our wireframe. We modified the trip list page by adding an extra button, so this button can guide the user to a specific trip (trip detail page). In our trip detail page, we decided to put a carousel with default images for user-interface. Then we decided to put the trip notes inside of the trip detail page within a small card-body. When user click “view” can take the user directly to trip note detail page. Also, the trip cancellation and finished button feature is included in this trip detail page, but we did not finish in today’s project time. We plan to continue tomorrow. In the night time, I fixed our log-in form bugs by writing an error handling function in the code. Therefore, I can prevent the un-register user to log-in, and when the user enters wrong credential, an error message will show. Also, make sure a registered user is able to login and re-direct to our testing page.
+
+## May 30, 2023
+
+Today, I worked on:
+
+- Fixing the date time issue for creating trip form with Sam, Brady
+- Create a trip note form associate to the trip that user has created
+
+In today's project time, I shared my screen to catch up where we've left from the previous day. Create a trip form was having date time format issue, Sam suggested to use Javascript built-in library "date-fns" to organize our date-time format.Which is working perfectly and solved our date issue. Now the art user is able to create the trip in the front-end.
+Later, Brady shared screen and create a trip note form, when it comes to the bug-time, Sam and I was trying to catch the error that was showing on the console. We found that the map function has some issue, then Sam gives advice said we need to check the data we passed in, make sure the id was integer, not a string. After revised, the trip note form was created for specific trip. We tested in swagger and it works well.
+
+## May 26, 2023
+
+Today, I worked on:
+
+- Writing a migration table to update the primary key in the trip and trip_note from trip_id to id and trip_note_id to id.
+- Fixing trip list front-end console error.
+
+Last night I fixed the error in the trip list, so the data is able to fetch and showing in the front-end. Then I share this good news with Dasia and Brady and explained what I've changed to make it work. However, I saw an error in the console showing "Each Child in a List Should Have a Unique 'key' Prop". Then I went back to revised the trip list fetching data, realized in the console the trip_id prop should just be id. So I went back to the migration table and write a new migration to update the primary key from trip_id to id. Because the primary key should just be id, trip_id sounds more like a foreign-key to use as a primary key.
+I did the same thing to update the trip_note_id to id along with updating both of the pydantic model and the prop for the trip list. Now trip list is able to work and fetch the data without error.
+While I'm fixing the console issue, Brady and Dasia move on to the CreateTripForm. Later, we exchange of the info on what we did and completed, they told me the form was created but the date time issue in the back-end and front-end was not matched. Therefore, when they are trying to submit the form, the form's date time data sending from the front-end isn't matching with the back-end. They've tried to figure out this issue. However the time has run out, so we decided to fix this issue in the next day.
+
+## May 25, 2023
+
+Today, I worked on:
+
+- Writing the ListTrips.js file
+- Fixing back-end authorization
+
+In today's project time, Dasia shares screen and begin to move the trip API endpoints from yesterday into the apiSlice.js file (instructor said we should've kept our API endpoints in one file). Then she created a ListTrips.js file to write the components for list of trips. However, we're not able to fetch the data, the page showing blank and the console showing trips data undefined. After 30 minute rule, we turn into SEIRs for the help. SEIRs guide us through changing many naming variables and realized our back-end authorization has issue.
+The issue was requiring a valid token to secure a logged-in user, which we did not do this in our back-end. So, we went back to the back-end trips router and adding some code for secure logged-in user to create a trip, get all trips, and get a specific trip. Because in the swagger, in the back-end, a user should type-in user account_id in order to create a trip. But this feature in the front-end will mess everything, therefore we need to fix the back-end. The user account_id is fetch with token, thus in the front-end the user shouldn't create a trip enter the account_id.
+We also found an issue that when an unregistered user can still login with random username and password, and redirect to our testing page. Sam and Drake will try to fix this issue.
+We plan to dive-in more trip list page tomorrow. In the night time, I play around the project and was able to pull the list of trip that a user has created in the front-end.
+
+## May 24, 2023
+
+Today, I worked on:
+
+- Completed apiSlice.js file (account token) SignUp, log-out feature with Brady and Dasia
+
+In today's project time, I share my screen to add the account endpoints into our apiSlice.js file. It was only login and getAccount token at the beginning. Therefore, I add sign-up and logout endpoints.
+Then we begin to create a sign-up form, Brady actually had a sign-up form template from the previous day, so we just use that and revise. While I’m coding, Brady and Dasia were watching and giving advices.
+When sign-up form was complete, we began to logout form. Later on, we open localhost:3000 to test if our sign-up form and logout button is working. We also add a little feature to re-direct to a blank page with “Hi” after a user has sign-up, login, and logout to make sure everything is at least working properly. After this feature is completed, Dasia takes term to code, trips API endpoints.
+We plan to work on list of trips page tomorrow.
+
 ## May 23, 2023
 
 Today, I worked on:
