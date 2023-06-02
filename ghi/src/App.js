@@ -14,6 +14,7 @@ import ParkDetails from "./Parks/ParkDetailPage.js";
 import NoteDetail from "./Notes/NoteDetail";
 import TripDetail from "./Trips/TripDetail";
 import Nav from "./Nav";
+import HomePage from "./HomePage";
 
 import TripHistoryList from "./Trips/TripHistoryPage";
 
@@ -37,6 +38,7 @@ function App() {
             element={<NoteDetail />}
           />
           <Route path="trips/history" element={<TripHistoryList />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </div>
     </BrowserRouter>

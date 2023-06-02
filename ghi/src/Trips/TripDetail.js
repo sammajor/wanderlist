@@ -72,7 +72,7 @@ const TripDetail = () => {
                     onClick={handleCancel}
                     id={trip_id}
                     disabled={trip.trip_status === "Cancelled"}
-                    className="btn btn-sm btn-danger"
+                    className="carousel btn btn-sm btn-danger"
                   >
                     Cancel
                   </button>
@@ -80,7 +80,7 @@ const TripDetail = () => {
                     onClick={handleComplete}
                     id={trip_id}
                     disabled={trip.trip_status === "Completed"}
-                    className="btn btn-sm btn-primary"
+                    className="carousel btn btn-sm btn-primary"
                   >
                     Complete
                   </button>
