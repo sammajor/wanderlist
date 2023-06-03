@@ -1,6 +1,6 @@
 from queries.pool import pool
-from models.accounts import AccountOutWithPassword, AccountOut, AccountIn
-
+from models.accounts import AccountOutWithPassword, AccountOut, AccountIn, DuplicateAccountError
+from psycopg import errors
 
 class AccountQueries:
     def get(self, email: str) -> AccountOutWithPassword:
@@ -24,20 +24,23 @@ class AccountQueries:
     def create(self, info: AccountIn, hashed_password: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
-                result = db.execute(
-                    """
-                    INSERT INTO accounts
-                        (email, name, hashed_password)
-                    VALUES
-                        (%s, %s, %s)
-                    RETURNING id;
-                    """,
-                    [
-                        info.email,
-                        info.name,
-                        hashed_password,
-                    ],
-                )
+                try:
+                    result = db.execute(
+                        """
+                        INSERT INTO accounts
+                            (email, name, hashed_password)
+                        VALUES
+                            (%s, %s, %s)
+                        RETURNING id;
+                        """,
+                        [
+                            info.email,
+                            info.name,
+                            hashed_password,
+                        ],
+                    )
+                except errors.UniqueViolation:
+                    raise DuplicateAccountError
                 id = result.fetchone()[0]
                 return self.account_in_to_out(id, info, hashed_password)
 
