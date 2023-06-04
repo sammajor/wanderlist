@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSignupMutation } from "../store/apiSlice";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 
 const SignUpForm = () => {
   const [signup, { isLoading, isSuccess, error }] = useSignupMutation();
@@ -48,6 +48,7 @@ const SignUpForm = () => {
               type="text"
               required
               className="form-control"
+              disabled={isLoading}
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -61,6 +62,7 @@ const SignUpForm = () => {
               required
               placeholder="your@email.com"
               className="form-control"
+              disabled={isLoading}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -73,13 +75,26 @@ const SignUpForm = () => {
               type="password"
               required
               className="form-control"
+              disabled={isLoading}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
           </div>
           <div>
-            <input className="btn btn-primary" type="submit" value="Register" />
+            <button className="btn btn-primary" type="submit">
+              {isLoading && (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="me-2"
+                />
+              )}
+              Register
+            </button>
           </div>
         </form>
       </div>

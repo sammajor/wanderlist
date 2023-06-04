@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Col,
+  Container,
+  Form,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 
 import { useLoginMutation } from "../store/apiSlice";
 
@@ -58,6 +66,16 @@ const LoginForm = () => {
               />
             </Form.Group>
             <Button type="submit" variant="success" disabled={isLoading}>
+              {isLoading && (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="me-2"
+                />
+              )}
               Submit
             </Button>
           </Form>
