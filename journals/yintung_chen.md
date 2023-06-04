@@ -1,3 +1,7 @@
+## Jun 3, 2023
+
+Today, I work on writing a unit test and fixing the sign-up duplicate account issue. Showing an error message when the account has already existed when user trying to sign-up.
+
 ## Jun 2, 2023
 
 Today, I worked on:
