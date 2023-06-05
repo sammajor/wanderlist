@@ -33,6 +33,7 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
       REACT_APP_SAMPLE_SERVICE_API_HOST: ${REACT_APP_SAMPLE_SERVICE_API_HOST}
+      REACT_APP_NPS_KEY: ${REACT_APP_NPS_KEY}
 
   pg-admin:
     image: dpage/pgadmin4

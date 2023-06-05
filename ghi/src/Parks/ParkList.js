@@ -7,7 +7,6 @@ import Pagination from "./ParkPagination";
 const ParkList = () => {
   const { data, isLoading } = useGetAllParksQuery();
   const searchCriteria = useSelector((state) => state.parkSearch.value);
-  console.log(data);
   const filteredParks = (data) => {
     if (!searchCriteria) return data;
     return data.filter((park) =>
