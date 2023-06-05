@@ -5,7 +5,6 @@ from authenticator import authenticator
 
 client = TestClient(app)
 
-<<<<<<< HEAD
 class FakeTripQueries:
     def get_all_trips(self, account_id: int):
         return []
@@ -23,8 +22,7 @@ def test_get_all_trips():
     # Assert
     assert res.status_code == 200
     assert data == []
-=======
->>>>>>> a4ffe9200086dcd51b62399bba2163f8942828a9
+
 class FakeTripQueries():
     def get_one_trip(self, account_id: int, trip_id: int):
         return {
