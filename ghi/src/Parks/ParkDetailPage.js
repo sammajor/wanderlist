@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useGetParkByIDQuery } from "../store/apiSlice";
+import { useGetParkByIDQuery, useGetTokenQuery } from "../store/apiSlice";
 import { Link } from "react-router-dom";
 import { useGetOneAlertQuery } from "../store/alertSlice";
 
 const ParkDetails = () => {
   const { park_id } = useParams();
   const { data: park, isLoading } = useGetParkByIDQuery(park_id);
+  const { data: token } = useGetTokenQuery();
+
   const { data: alerts } = useGetOneAlertQuery(park?.park_code);
 
   if (isLoading) return <div>Loading...</div>;
@@ -62,9 +64,11 @@ const ParkDetails = () => {
           </div>
         </div>
         <div className="text-center">
-          <Link to="/createtrip" className="btn btn-success">
-            Create Trip
-          </Link>
+          {token && (
+            <Link to="/createtrip" className="btn btn-success">
+              Create Trip
+            </Link>
+          )}
         </div>
       </div>
     </div>

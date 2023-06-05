@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "apiSlice",
-  tagTypes: ["Account", "Trips", "Notes"],
+  tagTypes: ["Account", "Trips", "Notes", "Token"],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8000/",
     credentials: "include",
@@ -46,7 +46,6 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Account", "Token"],
     }),
-
     signup: builder.mutation({
       query: (body) => {
         return {
@@ -56,7 +55,7 @@ export const apiSlice = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Account", "Token"],
     }),
     getAllTrips: builder.query({
       query: () => ({

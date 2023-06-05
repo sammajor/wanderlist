@@ -15,9 +15,9 @@ const ParkList = () => {
   };
   const initMin = 1;
   const [currentPage, setCurrentPage] = useState(1);
-  const [maxPageLimit, setMaxPageLimit] = useState(5);
+  const [maxPageLimit, setMaxPageLimit] = useState(24);
   const [minPageLimit, setMinPageLimit] = useState(initMin);
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [pageNumberLimit, setPageNumberLimit] = useState(24);
   const [displayParks, setDisplayParks] = useState([]);
 
   const _ = require("lodash");
