@@ -124,12 +124,6 @@ export const apiSlice = createApi({
       }),
       providesTags: ["Notes"],
     }),
-    getParkByID: builder.query({
-      query: (park_id) => ({
-        url: `/api/parks/${park_id}`,
-      }),
-      providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
-    }),
     deleteTripNote: builder.mutation({
       query: ({trip_id, note_id}) => ({
         url: `/api/trips/${trip_id}/notes/${note_id}`,
