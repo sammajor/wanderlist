@@ -20,6 +20,7 @@ const CreateTripForm = () => {
       end_date: format(newEnd, "yyyy-MM-dd"),
       park: park,
     };
+
     createTrip(createTripData);
     e.target.reset();
     navigate("/trips");
