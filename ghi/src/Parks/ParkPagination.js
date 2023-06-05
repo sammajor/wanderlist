@@ -70,7 +70,6 @@ const Pagination = (props) => {
       setMaxPageLimit(maxPageLimit + pageNumberLimit);
       setMinPageLimit(minPageLimit + pageNumberLimit);
     }
-
     setCurrentPage(newValue);
     setDisplayParks(chunks[newValue - 1]);
   };

@@ -9,7 +9,13 @@ const CreateTripForm = () => {
   const [endDate, setEndDate] = useState("");
   const [park, setPark] = useState("");
   const navigate = useNavigate();
+  const [dateMin, setDateMin] = useState("");
 
+  const handleStartDate = (e) => {
+    const { value } = e.target;
+    setDateMin(value);
+    setStartDate(value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const newStart = parseISO(startDate);
@@ -36,9 +42,8 @@ const CreateTripForm = () => {
               name="startDate"
               type="date"
               className="form-control"
-              onChange={(e) => {
-                setStartDate(e.target.value);
-              }}
+              min={dateMin}
+              onChange={handleStartDate}
             />
           </div>
           <div className="mb-3">
@@ -46,6 +51,7 @@ const CreateTripForm = () => {
             <input
               name="endDate"
               type="date"
+              min={dateMin}
               className="form-control"
               onChange={(e) => {
                 setEndDate(e.target.value);
@@ -57,6 +63,7 @@ const CreateTripForm = () => {
             <input
               name="park"
               type="text"
+              min={dateMin}
               className="form-control"
               onChange={(e) => {
                 setPark(e.target.value);

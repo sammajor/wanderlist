@@ -15,6 +15,7 @@ import NoteDetail from "./Notes/NoteDetail";
 import TripDetail from "./Trips/TripDetail";
 import Nav from "./Nav";
 import HomePage from "./HomePage";
+import PageNotFound from "./PageNotFound";
 
 import TripHistoryList from "./Trips/TripHistoryPage";
 
@@ -39,6 +40,7 @@ function App() {
           />
           <Route path="trips/history" element={<TripHistoryList />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
