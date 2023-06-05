@@ -35,7 +35,7 @@ async def create_account(
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Cannot create an account with those credentials",
+            detail="An account with this email already exists",
         )
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
@@ -53,7 +53,7 @@ async def get_token(
             "type": "Bearer",
             "account": account,
         }
-    
+
 @router.get("/api/protected", response_model=bool)
 async def get_protected(
     account_data: dict = Depends(authenticator.get_current_account_data),
