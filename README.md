@@ -1,4 +1,6 @@
-# Module3 Project Gamma
+# WanderList
+
+Yin-Tung Chen
 
 ## Getting started
 
