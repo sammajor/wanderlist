@@ -1,5 +1,5 @@
 from queries.pool import pool
-from models.accounts import AccountOutWithPassword, AccountOut, AccountIn, DuplicateAccountError
+from models.accounts import AccountOutWithPassword, AccountIn, DuplicateAccountError
 from psycopg import errors
 
 class AccountQueries:

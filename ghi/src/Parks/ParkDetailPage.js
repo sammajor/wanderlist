@@ -7,7 +7,6 @@ const ParkDetails = () => {
   const { park_id } = useParams();
   const { data: park, isLoading } = useGetParkByIDQuery(park_id);
   const { data: token } = useGetTokenQuery();
-
   const { data: alerts } = useGetOneAlertQuery(park?.park_code);
 
   if (isLoading) return <div>Loading...</div>;

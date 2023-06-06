@@ -4,7 +4,7 @@ export const alertSlice = createApi({
   reducerPath: "alertSlice",
   tagTypes: ["Alerts"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://developer.nps.gov/api/v1",
+    baseUrl: `${process.env.REACT_APP_ALERT_HOST}`,
   }),
   endpoints: (builder) => ({
     getOneAlert: builder.query({

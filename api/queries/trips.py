@@ -11,7 +11,12 @@ class TripQueries:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, account_id, start_date, end_date, park, trip_status
+                        SELECT id,
+                        account_id,
+                        start_date,
+                        end_date,
+                        park,
+                        trip_status
                         FROM trips
                         WHERE id = %s AND account_id = %s
                         """,
@@ -29,16 +34,14 @@ class TripQueries:
             try:
                 with pool.connection() as conn:
                     with conn.cursor() as db:
-                        # """
-                        # SELECT t.id, t.account_id, t.start_date, t.end_date, t.park_id, p.full_name
-                        # FROM trips t
-                        # JOIN parks p on t.park_id = p.id
-                        # WHERE t.account_id = %s
-                        # ORDER BY t.start_date;
-                        # """
                         result = db.execute(
                             """
-                            SELECT id, account_id, start_date, end_date, park, trip_status
+                            SELECT id,
+                            account_id,
+                            start_date,
+                            end_date,
+                            park,
+                            trip_status
                             FROM trips
                             WHERE account_id = %s
                             ORDER BY start_date;
@@ -59,7 +62,12 @@ class TripQueries:
                         (account_id, start_date, end_date, park)
                     VALUES
                         (%s, %s, %s, %s)
-                    RETURNING id, account_id, start_date, end_date, park, trip_status;
+                    RETURNING id,
+                    account_id,
+                    start_date,
+                    end_date,
+                    park,
+                    trip_status;
                     """,
                     [
                         account_id,
@@ -89,7 +97,12 @@ class TripQueries:
                     )
                     result = db.execute(
                         """
-                        SELECT id, account_id, start_date, end_date, park,trip_status from trips
+                        SELECT id,
+                        account_id,
+                        start_date,
+                        end_date,
+                        park,trip_status
+                        FROM trips
                         WHERE id = %s
                         """,
                         [

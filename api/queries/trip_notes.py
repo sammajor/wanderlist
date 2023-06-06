@@ -5,7 +5,11 @@ from models.trips import Error
 
 class TripNoteQueries:
 
-    def get_one_note(self, account_id: int, trip_id: int, note_id: int) -> TripNoteOut:
+    def get_one_note(
+            self,
+            account_id: int,
+            trip_id: int,
+            note_id: int) -> TripNoteOut:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -25,7 +29,10 @@ class TripNoteQueries:
             print(e)
             return {"message": "Trip Note Could Not Be Found"}
 
-    def get_all_notes(self, account_id: int, trip_id: int) -> Union[Error, List[TripNoteOut]]:
+    def get_all_notes(
+            self,
+            account_id: int,
+            trip_id: int) -> Union[Error, List[TripNoteOut]]:
             try:
                 with pool.connection() as conn:
                     with conn.cursor() as db:
@@ -43,7 +50,10 @@ class TripNoteQueries:
                 print(e)
                 return {"message": "Could not get all trip notes"}
 
-    def create_note(self, account_id: int, trip_note: TripNoteIn) -> TripNoteOut:
+    def create_note(
+            self,
+            account_id: int,
+            trip_note: TripNoteIn) -> TripNoteOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -79,6 +89,7 @@ class TripNoteQueries:
                     )
                     return True
         except Exception as e:
+            print(e)
             return False
 
     def trip_note_in_to_out(self, account_id, note_id: int, note: TripNoteIn) -> TripNoteOut:

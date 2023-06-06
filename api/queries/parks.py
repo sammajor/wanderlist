@@ -1,7 +1,7 @@
 from queries.pool import pool
 from models.parks import ParkOut
 from typing import List
-import json
+
 
 class ParkQueries:
 

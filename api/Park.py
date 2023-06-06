@@ -1,12 +1,12 @@
 import requests
 import json
-from keys import NPS_KEY
+import os
 from queries.pool import pool
 
 
 def get_park_data():
 
-    payload = {'limit': '500', 'api_key': NPS_KEY}
+    payload = {'limit': '500', 'api_key': os.environ["NPS_KEY"]}
     r = requests.get('https://developer.nps.gov/api/v1/parks', params=payload)
     data = json.loads(r.text)
     park_data = data["data"]
@@ -33,10 +33,20 @@ def get_park_data():
             }
             with pool.connection() as conn:
                 with conn.cursor() as db:
-                    result = db.execute(
+                    db.execute(
                     """
                     INSERT INTO parks
-                        (full_name, city, state, description, park_url, park_id, park_code, activities, park_image)
+                        (
+                            full_name,
+                            city,
+                            state,
+                            description,
+                            park_url,
+                            park_id,
+                            park_code,
+                            activities,
+                            park_image
+                        )
                     VALUES
                         (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                     """,
@@ -56,24 +66,4 @@ def get_park_data():
         except IOError:
             print("Input Error")
 
-        # try:
-        #     for image in park["images"]:
-        #         url = image["url"]
-        #         with pool.connection() as conn:
-        #             with conn.cursor() as db:
-        #                 result = db.execute(
-        #                 """
-        #                 INSERT INTO park_images
-        #                     (image_url, park_code)
-        #                 VALUES
-        #                     (%s, %s)
-        #                 """,
-        #                 [
-        #                     url,
-        #                     park_info["park_code"],
-        #                 ],
-        #             )
-        #                 print("data is imported successfully")
-        # except IOError:
-        #         print("Input Error")
 get_park_data()
