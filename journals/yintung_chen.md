@@ -1,3 +1,22 @@
+## Jun 6, 2023
+
+Today, I worked on:
+
+- Code cleaning with Dasia
+- CSS styling with Drake and Brady
+
+In the early project time, I work with Dasia to clean up the code, removed the unused import and try to clean the code that flake8 has been complaining. Only the migration table is unable to modify the code to the shorter version, because it will stop the Docker container.
+Later, the entire group discuss on the CSS styling, and color palette for our project, we split into two groups.
+I work with Drake and Brady on the home page, we got blockers because we used to bootstrap on React, so if we want to add CSS on top of it, it requires some modified. CSS styling is actually harder than we expect and take longer time to get our navigation bar work. We will keep working on it tomorrow.
+
+## Jun 5, 2023
+
+Today, I worked on:
+
+- Debugging start date and end date issue with Sam
+
+In today’s stand up, the entire group discusses the remaining bugs that we need to fix in order for the project to perform better. So, we split into two groups to work on our bugs. I team up with Sam today, he shared the screen and begin working on showing the alert on the park list detail page. This issue was solved pretty quickly, then we moved on to the create trip form file. When a user creates a trip, the end date can be less than then start date, so this is a bug. Both of us do some research and trying to make the time validation. While I’m trying in my local machine, Sam figures out how to prevent the end date is less than start date by writing a use State and set the date minimum. Later, we move on to the creating a 404 Page Not Found site.
+
 ## Jun 3, 2023
 
 Today, I work on writing a unit test and fixing the sign-up duplicate account issue. Showing an error message when the account has already existed when user trying to sign-up.
