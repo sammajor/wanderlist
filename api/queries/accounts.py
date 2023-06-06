@@ -1,6 +1,7 @@
 from queries.pool import pool
-from models.accounts import AccountOutWithPassword, AccountOut, AccountIn, DuplicateAccountError
+from models.accounts import AccountOutWithPassword, AccountIn, DuplicateAccountError
 from psycopg import errors
+
 
 class AccountQueries:
     def get(self, email: str) -> AccountOutWithPassword:
@@ -18,8 +19,6 @@ class AccountQueries:
                 if record is None:
                     return None
                 return self.record_to_account_out(record)
-
-
 
     def create(self, info: AccountIn, hashed_password: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
@@ -44,11 +43,11 @@ class AccountQueries:
                 id = result.fetchone()[0]
                 return self.account_in_to_out(id, info, hashed_password)
 
-
-
     def account_in_to_out(self, id: int, account: AccountIn, hashed_password):
         old_data = account.dict()
-        return AccountOutWithPassword(id=id, hashed_password=hashed_password, **old_data)
+        return AccountOutWithPassword(
+            id=id, hashed_password=hashed_password, **old_data
+        )
 
     def record_to_account_out(self, record):
         return AccountOutWithPassword(

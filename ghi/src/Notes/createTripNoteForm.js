@@ -27,7 +27,6 @@ const CreateTripNoteForm = () => {
     };
     createTripNote(createTripNoteData);
     e.target.reset();
-    // navigate("/triplist");
   };
 
   if (isLoading) return <div>...isLoading</div>;

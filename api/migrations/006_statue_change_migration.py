@@ -1,6 +1,6 @@
 steps = [
     [
-        #"UP" SQL statement
+        # "UP" SQL statement
         """
         CREATE TYPE status AS ENUM ('Pending', 'Completed', 'Cancelled');
         ALTER TABLE trips
@@ -10,6 +10,6 @@ steps = [
         # "DOWN" SQL statement
         """
 
-        """
+        """,
     ]
 ]

@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "apiSlice",
-  tagTypes: ["Account", "Trips", "Notes", "Token"],
+  tagTypes: ["Account", "Trips", "Notes", "Token", "Parks"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/",
+    baseUrl: `${process.env.REACT_APP_API_HOST}`,
     credentials: "include",
   }),
 
@@ -103,7 +103,7 @@ export const apiSlice = createApi({
         body: body,
         credentials: "include",
       }),
-      invalidatesTags: ["Notes"]
+      invalidatesTags: ["Notes"],
     }),
     getParkByID: builder.query({
       query: (park_id) => ({
@@ -124,14 +124,8 @@ export const apiSlice = createApi({
       }),
       providesTags: ["Notes"],
     }),
-    getParkByID: builder.query({
-      query: (park_id) => ({
-        url: `/api/parks/${park_id}`,
-      }),
-      providesTags: (result, error, park_id) => [{ type: "Parks", park_id }],
-    }),
     deleteTripNote: builder.mutation({
-      query: ({trip_id, note_id}) => ({
+      query: ({ trip_id, note_id }) => ({
         url: `/api/trips/${trip_id}/notes/${note_id}`,
         method: "DELETE",
         credentials: "include",

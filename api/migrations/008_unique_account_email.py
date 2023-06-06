@@ -1,6 +1,6 @@
 steps = [
     [
-        #"UP" SQL statement
+        # "UP" SQL statement
         """
         DELETE FROM accounts
         WHERE id NOT IN (
@@ -13,6 +13,6 @@ steps = [
         # "DOWN" SQL statement
         """
 
-        """
+        """,
     ]
 ]

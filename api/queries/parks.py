@@ -1,10 +1,10 @@
 from queries.pool import pool
 from models.parks import ParkOut
 from typing import List
-import json
+
+
 
 class ParkQueries:
-
     def get_all_parks(self) -> List[ParkOut]:
         try:
             with pool.connection() as conn:
@@ -62,16 +62,16 @@ class ParkQueries:
                         park_image
                         FROM parks
                         WHERE park_id = %s
-                        """, [park_id]
+                        """,
+                        [park_id],
                     )
                     record = result.fetchone()
                     if record is None:
                         return None
                     return self.record_to_park_out(record)
         except Exception as e:
-                print(e)
-                return {"message": "Could not get all data"}
-
+            print(e)
+            return {"message": "Could not get all data"}
 
     def record_to_park_out(self, record):
         return ParkOut(

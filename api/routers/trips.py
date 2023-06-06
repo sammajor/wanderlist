@@ -1,10 +1,7 @@
 from fastapi import (
     Depends,
-    HTTPException,
-    status,
     Response,
     APIRouter,
-    Request,
 )
 from typing import Optional
 from authenticator import authenticator
@@ -32,7 +29,8 @@ async def get_all_trips(
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: TripQueries = Depends(),
 ):
-    return repo.get_all_trips(account_data['id'])
+    return repo.get_all_trips(account_data["id"])
+
 
 @router.get("/api/trips/{trip_id}")
 def get_one_trip(
@@ -45,6 +43,7 @@ def get_one_trip(
     if trip is None:
         response.status_code = 404
     return trip
+
 
 @router.put("/api/trips/{trip_id}/status")
 def update_trip_status(

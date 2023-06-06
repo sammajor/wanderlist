@@ -45,3 +45,8 @@ Today I worked with Sandy on the complete and cancel buttons for the trip detail
 
 6.02.23
 We got so much done today! I worked with Dasia today. We plowed through getting the Trip history page done and also the homepage. We then got back together with the other group and we worked together on finishing the trip note delete button and then we collaborated on starting the cleanup making sure comments and console.log statements are deleted. Looking forward to working on CSS, unit tests and more cleanup next week.
+
+06.05.23
+Today I worked with Sandy. I coded with her help. We added the a section to get park alerts for each park. I added a new slice file AlertSlice.js and made the call to the Alert API. We then called the query in the Park Detail page and added a section for the alerts to display. I also added a custom 404 page. I then worked on my unit test for getting one trip note. All of that was sucessfully merged into the main branch. We also worked together on doing some clean up and debugging.
+
+6.06.23

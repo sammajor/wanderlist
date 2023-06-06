@@ -3,19 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 const TripList = () => {
   const { data: trips, isLoading } = useGetAllTripsQuery();
-  console.log(trips)
   const navigate = useNavigate();
   const handleClick = (e) => {
     const { value } = e.target;
     navigate(`/trips/${value}/`);
   };
+  console.log(trips);
   const filteredTripList = () => {
-    return trips.filter((trip) => {
-        return (
-            trip.trip_status === 'Pending'
-        );
+    return trips?.filter((trip) => {
+      return trip.trip_status === "Pending";
     });
-};
+  };
   if (isLoading) return <div>Loading...</div>;
   return (
     <div className="list-container">
