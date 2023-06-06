@@ -9,7 +9,7 @@ const TripList = () => {
     navigate(`/trips/${value}/`);
   };
   const filteredTripList = () => {
-    return trips.filter((trip) => {
+    return trips?.filter((trip) => {
       return trip.trip_status === "Pending";
     });
   };

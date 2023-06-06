@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List
 
+
 class ParkOut(BaseModel):
     id: int
     full_name: str
@@ -12,6 +13,7 @@ class ParkOut(BaseModel):
     park_id: str
     activities: list
     park_image: str
+
 
 class ParksList(BaseModel):
     parks: List[ParkOut]

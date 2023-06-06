@@ -1,6 +1,6 @@
 steps = [
     [
-        #"UP" SQL statement
+        # "UP" SQL statement
         """
         ALTER TABLE trips
         RENAME COLUMN trip_id to id;
@@ -13,6 +13,6 @@ steps = [
         RENAME COLUMN id to trip_id;
         ALTER TABLE tripsnotes
         RENAME COLUMN id to note_id;
-        """
+        """,
     ]
 ]

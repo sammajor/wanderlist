@@ -1,12 +1,9 @@
 from fastapi import (
     Depends,
-    HTTPException,
-    status,
     Response,
     APIRouter,
-    Request,
 )
-from typing import Union, List, Optional
+from typing import Optional
 from authenticator import authenticator
 from queries.trip_notes import TripNoteQueries
 from models.trip_notes import (

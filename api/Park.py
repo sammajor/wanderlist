@@ -14,11 +14,11 @@ def get_park_data():
         if park["activities"] != []:
             activities = json.dumps(park["activities"])
         elif activities == []:
-             activities = [{"activities": "none"}]
-        if park['images'][0]['url']:
-                park_image = park['images'][0]["url"]
-        elif not park['images'][0]['url']:
-             park_image = "https://www.glenmoorbythesea.com/images/56a0dad6-2f38-4f05-8a18-e815d44e6e7c.webp"
+            activities = [{"activities": "none"}]
+        if park["images"][0]["url"]:
+            park_image = park["images"][0]["url"]
+        elif not park["images"][0]["url"]:
+            park_image = "https://www.glenmoorbythesea.com/images/56a0dad6-2f38-4f05-8a18-e815d44e6e7c.webp"
         try:
             park_info = {
                 "full_name": park["fullName"],
@@ -29,7 +29,7 @@ def get_park_data():
                 "park_id": park["id"],
                 "park_code": park["parkCode"],
                 "activities": activities,
-                "park_image": park_image
+                "park_image": park_image,
             }
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -50,18 +50,18 @@ def get_park_data():
                     VALUES
                         (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                     """,
-                    [
-                        park_info["full_name"],
-                        park_info["city"],
-                        park_info["state"],
-                        park_info["description"],
-                        park_info["park_url"],
-                        park_info["park_id"],
-                        park_info["park_code"],
-                        park_info["activities"],
-                        park_info["park_image"]
-                    ],
-                )
+                        [
+                            park_info["full_name"],
+                            park_info["city"],
+                            park_info["state"],
+                            park_info["description"],
+                            park_info["park_url"],
+                            park_info["park_id"],
+                            park_info["park_code"],
+                            park_info["activities"],
+                            park_info["park_image"],
+                        ],
+                    )
                     print("data is imported successfully")
         except IOError:
             print("Input Error")

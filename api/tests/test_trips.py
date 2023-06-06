@@ -7,7 +7,8 @@ from authenticator import authenticator
 
 client = TestClient(app)
 
-class FakeTripQueries():
+
+class FakeTripQueries:
     def get_one_trip(self, account_id: int, trip_id: int):
         return {
             "id": trip_id,
@@ -15,7 +16,7 @@ class FakeTripQueries():
             "start_date": "2023-06-04",
             "end_date": "2023-06-07",
             "park": "Aspen",
-            "trip_status": "Completed"
+            "trip_status": "Completed",
         }
     def create(self, account_id: int, trip: TripIn):
         return {
@@ -30,6 +31,7 @@ class FakeTripQueries():
     def get_all_trips(self, account_id: int):
         return []
 
+
 def fake_get_current_user_data():
     return {"id": "1337"}
 
@@ -37,7 +39,9 @@ def fake_get_current_user_data():
 def test_get_one_trip():
     # Arrange
     app.dependency_overrides[TripQueries] = FakeTripQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_user_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_user_data
 
     # Act
     res = client.get("/api/trips/900")
@@ -51,15 +55,18 @@ def test_get_one_trip():
         "start_date": "2023-06-04",
         "end_date": "2023-06-07",
         "park": "Aspen",
-        "trip_status": "Completed"
+        "trip_status": "Completed",
     }
     # Cleanup
     app.dependency_overrides = {}
 
+
 def test_get_all_trips():
     # Arrange
     app.dependency_overrides[TripQueries] = FakeTripQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_user_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_user_data
     # Act
     res = client.get("/api/trips")
     data = res.json()
