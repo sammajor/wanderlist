@@ -48,6 +48,7 @@ class TripQueries:
                         """,
                     [account_id],
                 )
+                    return [self.record_to_trip_out(record) for record in result]
             return [self.record_to_trip_out(record) for record in result]
         except Exception as e:
             print(e)
