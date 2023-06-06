@@ -8,6 +8,7 @@ const TripList = () => {
     const { value } = e.target;
     navigate(`/trips/${value}/`);
   };
+  console.log(trips);
   const filteredTripList = () => {
     return trips?.filter((trip) => {
       return trip.trip_status === "Pending";
