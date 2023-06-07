@@ -16,7 +16,7 @@ const TripList = () => {
   };
   if (isLoading) return <div>Loading...</div>;
   return (
-    <div className="">
+    <div className="list-container">
       <h2 className="list-title">My Upcoming Trips</h2>
       <table className="table table-striped">
         <thead>

@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <div className="container-bkg-green main-bc">
+      <div>
         <Routes>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />

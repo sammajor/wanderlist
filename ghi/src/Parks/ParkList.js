@@ -34,15 +34,8 @@ const ParkList = () => {
 
   return (
     <div className="container">
-      <div className="title-background mb-5">
-        <h1
-          className="title-line mb-3"
-          style={{ position: "absolute", left: "2px", top: "2px" }}
-        >
-          National Parks
-        </h1>
-        <SearchBar />
-      </div>
+      <h1>National Parks</h1>
+      <SearchBar />
       <div className="row" data-masonry='{"percentPosition": true }'>
         {!isLoading ? (
           <Pagination

@@ -83,9 +83,9 @@ const Pagination = (props) => {
           key={page}
           id={page}
           onClick={handlePageClick}
-          className={currentPage === page ? "page-item-active " : null}
+          className={currentPage === page ? "page-item-active" : null}
         >
-          <a className="page-link pages-bkg" href="#">
+          <a className="page-link" href="#">
             {page}
           </a>
         </li>
@@ -154,7 +154,7 @@ const Pagination = (props) => {
           <li className="page-item">
             <button
               value={currentPage}
-              className="btn btn-outline-success pagination-color"
+              className="btn btn-outline-primary"
               onClick={onPrevClick}
               disabled={currentPage === initMin}
             >
@@ -167,7 +167,7 @@ const Pagination = (props) => {
           <li className="page-item">
             <button
               value={currentPage}
-              className="btn btn-outline-success pagination-color"
+              className="btn btn-outline-primary"
               onClick={onNextClick}
               disabled={currentPage === initMax}
             >
