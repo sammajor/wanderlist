@@ -74,43 +74,6 @@ def test_get_all_trips():
     assert res.status_code == 200
     assert data == []
 
-<<<<<<< HEAD
-class FakeTripQueries():
-    def get_one_trip(self, account_id: int, trip_id: int):
-        return {
-            "id": trip_id,
-            "account_id": account_id,
-            "start_date": "2023-06-04",
-            "end_date": "2023-06-07",
-            "park": "Aspen",
-            "trip_status": "Completed"
-        }
-
-def fake_get_current_user_data():
-    return {"id": "1337"}
-
-
-def test_get_one_trip():
-    # Arrange
-    app.dependency_overrides[TripQueries] = FakeTripQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_user_data
-
-    # Act
-    res = client.get("/api/trips/900")
-    data = res.json()
-
-    # Assert
-    assert res.status_code == 200
-    assert data == {
-        "id": 900,
-        "account_id": 1337,
-        "start_date": "2023-06-04",
-        "end_date": "2023-06-07",
-        "park": "Aspen",
-        "trip_status": "Completed"
-    }
-    # Cleanup
-=======
 
 def fake_get_current_account_data():
     return {'id': 1}
@@ -141,5 +104,4 @@ def test_create_trip():
     }
 
     #cleanup
->>>>>>> 5604c758d0b963c9cbd4d84437966b098ea570e9
     app.dependency_overrides = {}
