@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import redwoods from './Video/Redwoods.mp4'
+import redwoods from './Video/Redwoods.mp4';
 
 const HomePage = () => {
   return (
@@ -11,8 +11,6 @@ const HomePage = () => {
               <h2>
                 Welcome to <span>WanderList</span></h2>
               <p>Plan Your Next National Park Adventure</p>
-            </div>
-            <div className="d-flex justify-content-center align-items-center h-100">
               <Link to="/parks">
                 <button
                   value=""
@@ -24,7 +22,6 @@ const HomePage = () => {
               </Link>
             </div>
         </>
-
   );
 };
 
