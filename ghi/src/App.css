@@ -13,13 +13,23 @@
   color: white;
 }
 
+#Hero-Image {
+  background-image: url("https://media.istockphoto.com/id/1189969126/photo/group-of-hikers-walks-in-mountains-at-sunset.jpg?s=612x612&w=0&k=20&c=YlJOZLmELRF0HaEr1Xv4-Uae_VN4vnB8XnE99hGD3gQ=");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 900px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
 .vid-bg{
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .content {
@@ -36,18 +46,11 @@
   color:#ebf4fb;
   font-size: 80px;
   margin: 0;
-  text-shadow: -1px 1px 0 #2a5d51,
-		1px 1px 0 #2a5d51,
-	  1px -1px 0 #2a5d51,
-	  -1px -1px 0 #2a5d51;
 }
 
 .content h2 span{
+  color:#ebf4fb;
   color: #c48559;
-  text-shadow: -1px 1px 0 #ebf4fb,
-		1px 1px 0 #ebf4fb,
-		1px -1px 0 #ebf4fb,
-		-1px -1px 0 #ebf4fb;
   font-weight: bold;
   font-size: 125px;
 }
@@ -57,10 +60,6 @@
   font-size: 30px;
   margin: 0;
   font-weight: bold;
-  text-shadow: -1px 1px 0 #2a5d51,
-		1px 1px 0 #2a5d51,
-		1px -1px 0 #2a5d51,
-		-1px -1px 0 #2a5d51;
 }
 
 .home-btn{
@@ -68,8 +67,8 @@
   font-size: 20px;
   padding: 10px 25px;
   border-radius: 10px;
-  top: 125%;
-  left: 40%;
+  top: 60%;
+  left: 50%;
   position: absolute;
   display: flex;
   flex-direction: column;
