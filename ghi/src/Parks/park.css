@@ -52,10 +52,6 @@
   bottom: 10px;
 }
 
-.card-hover:hover {
-  border: 2px solid #c48559;
-}
-
 .card-title-underline {
   border-bottom: solid 2px #c48559;
 }
