@@ -1,30 +1,24 @@
 import { Link } from "react-router-dom";
+import redwoods from "./Video/Redwoods.mp4";
 
 const HomePage = () => {
   return (
-    <div>
-      <div>
-        <div>
-          <div fluid="true" id="Hero-Image">
-            <h1 className="d-flex justify-content-center text-center">
-              Welcome to WanderList! <br></br>
-              Plan Your Next Trip to a National Park!
-            </h1>
-            <div className="d-flex justify-content-center align-items-center h-100">
-              <Link to="/parks">
-                <button
-                  value=""
-                  type="button"
-                  className="btn btn-success btn-lg"
-                >
-                  Click Here to Get Started!
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
+    <>
+      <video className="vid-bg" autoPlay loop muted>
+        <source src={redwoods} type="video/mp4" />
+      </video>
+      <div className="content">
+        <h2>
+          Welcome to <span>WanderList</span>
+        </h2>
+        <p>Plan Your Next National Park Adventure</p>
+        <Link to="/parks">
+          <button value="" type="button" className="home-btn btn-lg">
+            Get Started
+          </button>
+        </Link>
       </div>
-    </div>
+    </>
   );
 };
 
