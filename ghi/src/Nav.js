@@ -8,7 +8,7 @@ function Nav() {
   const [logout] = useLogoutMutation();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark nav-bc">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           WanderList
@@ -71,7 +71,7 @@ function Nav() {
             )}
             {token && (
               <button
-                className="btn btn-warning"
+                className="btn logout-bc"
                 onClick={() => {
                   logout();
                   navigate("/parks");

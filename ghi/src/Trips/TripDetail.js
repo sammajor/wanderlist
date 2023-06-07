@@ -30,7 +30,7 @@ const TripDetail = () => {
     };
     complete(body);
     navigate(`/trips/history`);
-};
+  };
 
   const handleCancel = () => {
     const body = {
