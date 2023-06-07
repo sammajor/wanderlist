@@ -71,7 +71,7 @@ function Nav() {
             )}
             {token && (
               <button
-                className="btn logout-bc"
+                className="btn btn-logout"
                 onClick={() => {
                   logout();
                   navigate("/parks");

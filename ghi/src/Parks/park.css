@@ -6,11 +6,26 @@
   text-align: center;
 }
 
+.detail-header {
+  padding-top: 50px;
+}
+.btn-trip {
+  background-color: #c48559;
+  color: white;
+}
+
+.alert-header {
+  font-weight: bold;
+}
 .title-line {
-  border-bottom: solid 2px #c48559;
   color: #5d2c08;
-  padding-top: 25px;
+  padding-top: 10px;
   position: absolute;
+}
+
+.h2-line {
+  border-bottom: 2px solid #c48559;
+  color: #c48559;
 }
 
 .search-btn {
@@ -86,9 +101,22 @@
   color: black;
 }
 
+.table-cell {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 /* potential background image urls for list page
 "https://img.freepik.com/premium-vector/vertical-seamless-border-with-green-leaves-botanical-flower-illustration-wedding-design_555489-628.jpg?w=900"
 https://img.freepik.com/premium-vector/green-branches-with-leaves-border_176503-334.jpg?w=2000 */
 
 /* potential background images for title block parks list page:
 https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg */
+.btn-trip {
+  background-color: #c48559;
+  color: white;
+}
+
+.alert-header {
+  font-weight: bold;
+}

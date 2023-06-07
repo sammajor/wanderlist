@@ -73,6 +73,22 @@
   color: #ebf4fb;
 }
 
+.nav-transparent {
+  background-color: #2a5d51;
+}
+
+.nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  color: #c48559;
+}
+
+.btn-logout {
+  background-color: #c48559;
+  color: white;
+}
 .nav-bc {
   background-color: #355230;
 }
@@ -88,4 +104,21 @@
 
 .navbar-brand {
   color: #c48559;
+}
+
+.nav-transparent {
+  background-color: #2a5d51;
+}
+
+.nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  color: #c48559;
+}
+
+.btn-logout {
+  background-color: #c48559;
+  color: white;
 }
