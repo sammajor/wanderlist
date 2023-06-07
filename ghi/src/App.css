@@ -13,7 +13,7 @@
   color: white;
 }
 
-.vid-bg{
+.vid-bg {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -32,8 +32,8 @@
   text-align: center;
 }
 
-.content h2{
-  color:#ebf4fb;
+.content h2 {
+  color: #ebf4fb;
   font-size: 80px;
   margin: 0;
   text-shadow: -1px 1px 0 #5D2C08,
@@ -42,17 +42,15 @@
 	  -1px -1px 0 #5D2C08;
 }
 
-.content h2 span{
+.content h2 span {
   color: #c48559;
-  text-shadow: -1px 1px 0 #ebf4fb,
-		1px 1px 0 #ebf4fb,
-		1px -1px 0 #ebf4fb,
-		-1px -1px 0 #ebf4fb;
+  text-shadow: -1px 1px 0 #ebf4fb, 1px 1px 0 #ebf4fb, 1px -1px 0 #ebf4fb,
+    -1px -1px 0 #ebf4fb;
   font-weight: bold;
   font-size: 125px;
 }
 
-.content p{
+.content p {
   color: #ebf4fb;
   font-size: 30px;
   margin: 0;
@@ -63,7 +61,7 @@
 		-1px -1px 0 #5D2C08;
 }
 
-.home-btn{
+.home-btn {
   border: 0;
   font-size: 20px;
   padding: 10px 25px;
@@ -76,5 +74,82 @@
   text-align: center;
   font-weight: bold;
   background-color: #c48559;
-  color:#ebf4fb;
+  color: #ebf4fb;
+}
+
+.vid-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.content {
+  text-align: center;
+  position: absolute;
+  top: 42%;
+  left: 32%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content h2 {
+  color: #ebf4fb;
+  font-size: 80px;
+  margin: 0;
+  text-shadow: -1px 1px 0 #2a5d51, 1px 1px 0 #2a5d51, 1px -1px 0 #2a5d51,
+    -1px -1px 0 #2a5d51;
+}
+
+.content h2 span {
+  color: #c48559;
+  text-shadow: -1px 1px 0 #ebf4fb, 1px 1px 0 #ebf4fb, 1px -1px 0 #ebf4fb,
+    -1px -1px 0 #ebf4fb;
+  font-weight: bold;
+  font-size: 125px;
+}
+
+.content p {
+  color: #ebf4fb;
+  font-size: 30px;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: -1px 1px 0 #2a5d51, 1px 1px 0 #2a5d51, 1px -1px 0 #2a5d51,
+    -1px -1px 0 #2a5d51;
+}
+
+.home-btn {
+  border: 0;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 10px;
+  top: 125%;
+  left: 40%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  background-color: #c48559;
+  color: #ebf4fb;
+}
+
+.nav-bc {
+  background-color: #355230;
+}
+
+.logout-bc {
+  background-color: #c48559;
+  color: white;
+}
+
+.main-bc {
+  background-color: #edede9;
+}
+
+.navbar-brand {
+  color: #c48559;
 }
