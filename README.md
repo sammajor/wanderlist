@@ -30,7 +30,12 @@ Our travel website is designed to attract both adventurous individuals and famil
 
 ## Functionality
 
-hello
+- While exploring the homepage, users are greeted with a captivating backdrop showcasing dynamic scenes from nature. This visual feature instantly immerses users in the ambiance of natural surroundings. By clicking "Get Started," users will be redirected to the page displaying a list of parks.
+- On the top navigation bar of the park list page, users have the option to either create a WanderList account or log in to their existing account using the designated buttons.
+- The Park listed page is open for all the user to view the national parks image, name, location and the park description.
+- In park detail page, users will see the park's location, description, activities, park alert. If the user is logged in, the create trip button will display.
+- Logged in users will see "My Upcoming Trips", "My Trip History", "Plan trip", "Create Trip Note", and "Logout" link in the navigation bar.
+- "Plan trip" will open a form that the user can fill in and submit to create their trip to a national park.
 
 ### Project images
 
