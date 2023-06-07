@@ -22,7 +22,6 @@ const HomePage = () => {
               </Link>
             </div>
         </>
-
   );
 };
 
