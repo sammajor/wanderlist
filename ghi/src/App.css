@@ -22,3 +22,20 @@
   height: 900px;
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.nav-bc {
+  background-color: #355230;
+}
+
+.logout-bc {
+  background-color: #c48559;
+  color: white;
+}
+
+.main-bc {
+  background-color: #edede9;
+}
+
+.navbar-brand {
+  color: #c48559;
+}
