@@ -36,10 +36,8 @@
   color: #ebf4fb;
   font-size: 80px;
   margin: 0;
-  text-shadow: -1px 1px 0 #5D2C08,
-		1px 1px 0 #5D2C08,
-	  1px -1px 0 #5D2C08,
-	  -1px -1px 0 #5D2C08;
+  text-shadow: -1px 1px 0 #5d2c08, 1px 1px 0 #5d2c08, 1px -1px 0 #5d2c08,
+    -1px -1px 0 #5d2c08;
 }
 
 .content h2 span {
@@ -55,10 +53,8 @@
   font-size: 30px;
   margin: 0;
   font-weight: bold;
-  text-shadow: -1px 1px 0 #5D2C08,
-		1px 1px 0 #5D2C08,
-		1px -1px 0 #5D2C08,
-		-1px -1px 0 #5D2C08;
+  text-shadow: -1px 1px 0 #5d2c08, 1px 1px 0 #5d2c08, 1px -1px 0 #5d2c08,
+    -1px -1px 0 #5d2c08;
 }
 
 .home-btn {
