@@ -8,7 +8,42 @@
   height: 25px;
   width: 75px;
 }
+
+.note-sticky {
+  background-color: #FFC;
+}
+
+.note-title {
+  font-weight: bold;
+  font-family: "Lato";
+}
+
+.note-body {
+  font-family: "Reenie Beanie";
+}
+
+.note-button {
+  background-color: #FFC;
+  border: solid 1px;
+  border-color: #C48559;
+  color: #C48559;
+}
+
+.note-button:hover {
+  background-color: white;
+  border: solid 1px;
+  border-color: #C48559;
+  color: #C48559;
+}
+
+.bulletin-image {
+  background-image: url("https://c1.wallpaperflare.com/preview/250/149/191/bulletin-board-cork-structure-pattern.jpg");
+}
+
+.cancel-button {
 /* https://chentaichi.org/wp-content/uploads/2018/08/cropped-twitter-header-1500x500-nature-22.jpg */
+}
+
 .trip-list-header {
   height: 270px;
   width: 100%;
@@ -19,7 +54,7 @@
 .trip-title-line {
   border-bottom: solid 2px #c48559;
   color: #5d2c08;
-  padding-top: 25px;
+  padding-top: 10px;
   position: absolute;
 }
 
@@ -28,7 +63,49 @@
   color: white;
 }
 
+.button-background {
+  background-color: #EDEDE9;
+}
+
+.cancel-button {
+  background-color: #674c39;
+  color: white;
+}
+
+.complete-button {
+  background-color: #C48559;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: red;
+  color: white;
+}
+
+.complete-button:hover {
+  background-color: #64b758;
+  color: white;
+}
+
+.trip-detail-date {
+  font-weight: bold;
+  padding-top: 60px;
+  color: #5d2c08;
+}
+
+.trip-detail-date span {
+  font-weight: bold;
+  font-style: italic;
+}
 .btn-trip-detail:hover {
   background-color: #64b758;
   color: white;
+}
+
+
+.trip-list-header-2 {
+  height: 170px;
+  width: 100%;
+  background: url("https://cdn1.vectorstock.com/i/1000x1000/60/35/mountains-eps-10-background-view-brown-vector-28916035.jpg")
+    center center / cover no-repeat;
 }

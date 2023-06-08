@@ -21,7 +21,7 @@ const TripHistoryList = () => {
         style={{ position: "relative", height: "900px" }}
       >
         <div className="trip-list-header">
-          <h2 className="trip-title-line mb-3">Trip History</h2>
+          <h2 className="trip-title-line mb-3">My Trip History</h2>
         </div>
 
         <div className="card mx-auto mt-2" style={{ width: "62rem" }}>

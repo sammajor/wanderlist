@@ -43,17 +43,18 @@ const TripDetail = () => {
   if (isLoading) return <div>Loading...</div>;
   return (
     <div>
-      <div className="container">
-        <div className="card-header">My Trip to {trip?.park}</div>
-        <div className="subheader">
-          {trip?.start_date} - {trip?.end_date}
+      <div className="container" style={{height: "900px", position: "relative"}}>
+        <div className="trip-list-header-2">
+        <h2 className="trip-title-line mb-3">My Trip to {trip?.park}</h2>
+        <div className="trip-detail-date">
+          {trip?.start_date} <span>to</span> {trip?.end_date}
         </div>
-        <div className="card-body">
+        </div>
           <div className="card">
-            <div className="card-body">
-              <div className="row">
+            <div className="card-body bulletin-image">
+              {/* <div className="row">
                 <Carousel className="col" />
-              </div>
+              </div> */}
 
               <div className="row justify-content-start">
                 {notes?.map((note) => {
@@ -70,14 +71,17 @@ const TripDetail = () => {
                   );
                 })}
               </div>
-              <div className="row">
+             </div>
+              <div className="">
                 <div>
-                  <div className="row justify-content-center">
+                  <div className="card button-background">
+                    <div className="card-body">
+                      <div className="col-sm">
                     <button
                       onClick={handleCancel}
                       id={trip_id}
                       disabled={trip?.trip_status === "Cancelled"}
-                      className="carousel btn btn-sm btn-danger mx-2"
+                      className="btn cancel-button mx-2"
                     >
                       Cancel
                     </button>
@@ -85,18 +89,18 @@ const TripDetail = () => {
                       onClick={handleComplete}
                       id={trip_id}
                       disabled={trip?.trip_status === "Completed"}
-                      className="carousel btn btn-sm btn-primary"
+                      className="btn complete-button"
                     >
                       Complete
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 export default TripDetail;
