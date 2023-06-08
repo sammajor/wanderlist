@@ -32,52 +32,56 @@ const CreateTripForm = () => {
     navigate("/trips");
   };
   return (
-    <div className="card text-bg-light mb-3">
-      <h5 className="card-header">Create a Trip</h5>
-      <div className="card-body">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Start Date</label>
-            <input
-              name="startDate"
-              type="date"
-              className="form-control"
-              min={dateMin}
-              onChange={handleStartDate}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">End Date</label>
-            <input
-              name="endDate"
-              type="date"
-              min={dateMin}
-              className="form-control"
-              onChange={(e) => {
-                setEndDate(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Park</label>
-            <input
-              name="park"
-              type="text"
-              min={dateMin}
-              className="form-control"
-              onChange={(e) => {
-                setPark(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            <input
-              className="btn btn-primary"
-              type="submit"
-              value="Create Trip"
-            />
-          </div>
-        </form>
+    <div className="d-flex justify-content-center align-items-center vh-100"
+    style={{ backgroundImage: 'url("https://thegeekycamper.com/wp-content/uploads/2020/10/Shenandoah-National-Park-Campgrounds-Guide-1536x864.jpg")',
+    backgroundSize: "cover" }}>
+      <div className="card text-bg-light mb-3" style={{ width: "550px", height: "410px" }}>
+        <h5 className="card-header create-trip-title">Create a Trip</h5>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label select-date">Start Date</label>
+              <input
+                name="startDate"
+                type="date"
+                className="form-control"
+                min={dateMin}
+                onChange={handleStartDate}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label select-date">End Date</label>
+              <input
+                name="endDate"
+                type="date"
+                min={dateMin}
+                className="form-control"
+                onChange={(e) => {
+                  setEndDate(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label select-date">Park</label>
+              <input
+                name="park"
+                type="text"
+                min={dateMin}
+                className="form-control"
+                onChange={(e) => {
+                  setPark(e.target.value);
+                }}
+              />
+            </div>
+            <div className="text-center">
+              <input
+                className="btn dkg-btn-color"
+                type="submit"
+                value="Create Trip"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

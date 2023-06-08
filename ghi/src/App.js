@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <div>
+      <div style={{backgroundColor: "#EDEDE9"}}>
         <Routes>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
