@@ -52,7 +52,11 @@ Our travel website is designed to attract both adventurous individuals and famil
 ![Signup](./Project_images/signup.png "Signup")
 ![Login](./Project_images/login.png "Login")
 ![CreateATrip](./Project_images/createTrip.png "CreateATrip")
+![UpcomingTrip](./Project_images/UpcomingTrip.png "UpcomingTrip")
+![TripDetail](./Project_images/TripDetail.png "TripDetail")
+![TripHistory](./Project_images/TripHistory.png "TripHistory")
 ![CreateNote](./Project_images/createNote.png "CreateNote")
+![NoteDetail](./Project_images/NoteDetail.png "NoteDetail")
 
 ### Unit Test
 
