@@ -61,7 +61,7 @@ Output:
 
 ```json
 {
-  "true"
+  true
 }
 ```
 
@@ -69,7 +69,7 @@ The Accounts API will create, login, logout a user on the WanderList website. Us
 
 ## Trips
 
-# Create a Trip
+# Create a trip
 
 - Method: `POST`,
 - Path: `/api/trips`
@@ -130,7 +130,7 @@ Output:
 }
 ```
 
-# Update Trip Status
+# Update trip status
 
 - Method: `PUT`
 - Path: `/api/trips/{trip_id}/status`
@@ -149,5 +149,176 @@ Output:
 ```json
 {
   "string"
+}
+```
+
+### Trip Notes
+
+# Create a trip note
+
+- Method: `POST`,
+- Path: `/api/trips/{trip_id}/notes`
+
+Input:
+
+```json
+{
+  "title": string,
+  "trip_id": int,
+  "description": string
+}
+```
+
+Output:
+
+```json
+{
+  "id": int,
+  "trip_id": int,
+  "account_id": int,
+  "title": string,
+  "description": string
+}
+```
+
+# Get all notes
+
+- Method: `GET`,
+- Path: `/api/trips/{trip_id}/notes`
+
+Input:
+
+```json
+{
+  "trip_id": int,
+}
+```
+
+Output:
+
+```json
+{
+[
+  {
+    "id": int,
+    "trip_id": int,
+    "account_id": int,
+    "title": string,
+    "description": string
+  }
+]
+}
+```
+
+# Get one note
+
+- Method: `GET`
+- Path: `/api/trips/{trip_id}/notes/{note_id}`
+
+Input:
+
+```json
+{
+  "trip_id": int,
+  "note_id": int,
+}
+```
+
+Output:
+
+```json
+{
+  "id": int,
+  "trip_id": int,
+  "account_id": int,
+  "title": string,
+  "description": string
+}
+```
+
+# Delete a note
+
+- Method: `DELETE`
+- Path: `/api/trips/{trip_id}/notes/{note_id}`
+
+Input:
+
+```json
+{
+  "note_id": int,
+}
+```
+
+Output:
+
+```json
+{
+  true
+}
+```
+
+## Parks
+
+# Get park data
+
+- Method: `GET`
+- Path: `/api/parks`
+
+Output:
+
+```json
+{
+  [
+  {
+    "id": int,
+    "full_name": string,
+    "park_code": string,
+    "description": string,
+    "city": string,
+    "state": string,
+    "park_url": string,
+    "park_id": string,
+    "activities": [
+      string
+    ],
+    "park_image": string
+  }
+]
+}
+```
+
+# Get one park
+
+- Method: `GET`
+- Path: `/api/parks/{park_id}`
+
+Input:
+
+```json
+{
+  "park_id": int,
+}
+```
+
+Output:
+
+```json
+{
+  [
+  {
+    "id": int,
+    "full_name": string,
+    "park_code": string,
+    "description": string,
+    "city": string,
+    "state": string,
+    "park_url": string,
+    "park_id": string,
+    "activities": [
+      string
+    ],
+    "park_image": string
+  }
+]
 }
 ```
