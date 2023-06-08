@@ -63,16 +63,20 @@ const ParkDetails = () => {
           <div className="card-header">
             {park?.description}
             <div>
-            <table className="card-body table table-striped mt-3">
-              <thead className="park-details-activities">
-                <tr>
-                  <th>
-                    Activities:
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{activityRows}</tbody>
-            </table>
+              <table className="card-body table table-striped mt-3">
+                <thead className="park-details-activities">
+                  <tr>
+                    <th>Activities:</th>
+                  </tr>
+                </thead>
+                <tbody>{activityRows}</tbody>
+              </table>
+              <p className="more-info">
+                <span>For More Information visit:</span>{" "}
+                <Link target="_blank" to={`${park?.park_url}`}>
+                  {park?.park_url}
+                </Link>
+              </p>
             </div>
           </div>
           <div
