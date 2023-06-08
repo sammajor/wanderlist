@@ -296,7 +296,7 @@ Input:
 
 ```json
 {
-  "park_id": int,
+  "park_id": string,
 }
 ```
 
@@ -306,7 +306,7 @@ Output:
 {
   [
   {
-    "id": int,
+    "id": string,
     "full_name": string,
     "park_code": string,
     "description": string,
