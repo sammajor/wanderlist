@@ -46,8 +46,8 @@ Our travel website is designed to attract both adventurous individuals and famil
 ### Project images
 
 ![Main](./Project_images/Main.png "Main")
-![ParkList](./Project_images/parkList.png "ParkList")
-![ParkDetail](./Project_images/parkDetail.png "ParkDetail")
+![ParkList](./Project_images/parklist.png)
+![ParkDetail](./Project_images/parkdetail.png)
 ![Signup](./Project_images/signup.png "Signup")
 ![Login](./Project_images/login.png "Login")
 ![CreateATrip](./Project_images/createTrip.png "CreateATrip")
