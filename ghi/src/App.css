@@ -132,3 +132,15 @@
   background-color: red;
   color: white;
 }
+
+.signup-form-text {
+  color: #355230;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.signup-title-text {
+  color: #5d2c08;
+  font-weight: bold;
+  font-size: 50px;
+}
