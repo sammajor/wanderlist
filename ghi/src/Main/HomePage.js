@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import redwoods from "./Video/Redwoods.mp4";
+import redwoods from "../Video/Redwoods.mp4";
 
+// RENDERED COMPONENT TO INTRODUCE USER TO APP AND NAVIGATE THEM TO PARK LIST PAGE UPON BUTTON CLICK //
 const HomePage = () => {
   return (
     <>

@@ -3,11 +3,13 @@ import { useDeleteTripNoteMutation } from "../store/apiSlice";
 import { useNavigate, useParams } from "react-router-dom";
 
 const NoteDetail = () => {
+  //  SET STATE VARIABLES AND ACCESS SLICE OF STATE FOR TRIPS AND TRIPNOTES //
   const { trip_id, note_id } = useParams();
   const { data, isLoading } = useGetTripNoteQuery({ trip_id, note_id });
   const [deleteNote] = useDeleteTripNoteMutation();
   const navigate = useNavigate();
 
+  // HANDLES DELETE REQUEST OF NOTE INSTANCE BY USER AND NAVIGATES BACK TO TRIP DETAIL PAGE //
   const handleDeleteNote = async () => {
     deleteNote({ trip_id, note_id });
     navigate(`/trips/${trip_id}`);
@@ -15,6 +17,7 @@ const NoteDetail = () => {
 
   if (isLoading) return <div>...loading</div>;
 
+  // RENDERED COMPONENT ALLOWING USER TO SEE TRIP NOTE DATA AND DELETE TRIPNOTE UPON DELETE BUTTON CLICK //
   return (
     <>
       <div

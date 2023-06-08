@@ -1,5 +1,4 @@
-// import "./carousel.css";
-
+// USES TRIPNOTE PROPS TO DISPLAY TRIPNOTE INSTANCE'S DETAILS ON CARD //
 const NoteCard = (props) => {
   const { title, description, id, handleCardClick } = props;
   const noteId = id.toString();

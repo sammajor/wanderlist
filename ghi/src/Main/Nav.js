@@ -1,6 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useGetTokenQuery, useLogoutMutation } from "./store/apiSlice";
-import './nav.css';
+import { useGetTokenQuery, useLogoutMutation } from "../store/apiSlice";
 
 function Nav() {
   const { data: token } = useGetTokenQuery();

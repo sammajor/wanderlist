@@ -1,3 +1,4 @@
+//  NAVIGATES USER TO A CUSTOMIZED 404 PAGE NOT FOUND COMPONENT IF THERE IS AN ATTEMPT TO VISIT ENDPOINT THAT DOES NOT EXIST //
 const PageNotFound = () => {
   return (
     <div className="d-flex justify-content-center align-items-center">

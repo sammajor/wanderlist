@@ -6,7 +6,7 @@
 | --------------- | ----------- | ------ |
 | id              | Primary Key | yes    |
 | email           | string      | yes    |
-| hashed_password | string      | no     |
+| hashed_password | string      | yes    |
 | name            | string      | no     |
 
 The `Account` entity contains the data for a unique user.
@@ -15,14 +15,14 @@ The `Account` entity contains the data for a unique user.
 
 | name        | type        | unique |
 | ----------- | ----------- | ------ |
-| id          | Primary Key | no     |
+| id          | Primary Key | yes    |
 | full_name   | string      | no     |
 | city        | string      | no     |
 | state       | string      | no     |
 | description | string      | no     |
 | activities  | list        | no     |
-| park_url    | string      | no     |
-| park_id     | string      | no     |
+| park_url    | string      | yes    |
+| park_id     | string      | yes    |
 | park_code   | string      | yes    |
 | park_image  | string      | no     |
 
@@ -30,8 +30,8 @@ The `Account` entity contains the data for a unique user.
 
 | name       | type        | unique |
 | ---------- | ----------- | ------ |
-| id         | Primary Key | no     |
-| account_id | string      | no     |
+| id         | Primary Key | yes    |
+| account_id | string      | yes    |
 | start_date | string      | no     |
 | end_date   | string      | no     |
 | park       | string      | no     |
@@ -41,8 +41,8 @@ The `Account` entity contains the data for a unique user.
 
 | name        | type        | unique |
 | ----------- | ----------- | ------ |
-| id          | Primary Key | no     |
+| id          | Primary Key | yes    |
 | trip_id     | integer     | no     |
-| account_id  | integer     | no     |
+| account_id  | integer     | yes    |
 | title       | string      | no     |
 | description | string      | no     |

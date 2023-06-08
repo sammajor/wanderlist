@@ -21,7 +21,7 @@ from models.accounts import (
 
 router = APIRouter()
 
-
+#### CREATES AN ACCOUNT WITH HASHED PASSWORD ####
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
@@ -41,7 +41,7 @@ async def create_account(
     token = await authenticator.login(response, request, form, repo)
     return AccountToken(account=account, **token.dict())
 
-
+#### GET TOKEN FROM USER SESSION ####
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
@@ -54,6 +54,7 @@ async def get_token(
             "account": account,
         }
 
+#### GET REQUEST ENSURING SECURE ACCOUNT/USER SESSION WITH TOKEN AND HASHED PASSWORD ####
 @router.get("/api/protected", response_model=bool)
 async def get_protected(
     account_data: dict = Depends(authenticator.get_current_account_data),

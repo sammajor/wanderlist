@@ -2,24 +2,26 @@ import {
   useCreateTripNoteMutation,
   useGetAllTripsQuery,
 } from "../store/apiSlice";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const CreateTripNoteForm = () => {
+  //  SET STATE VARIABLES AND ACCESS SLICE OF STATE FOR TRIPS AND TRIPNOTES //
   const { data, isLoading } = useGetAllTripsQuery();
   const [createTripNote] = useCreateTripNoteMutation();
   const [title, setTitle] = useState("");
   const [trip, setTrip] = useState("");
   const [description, setDescription] = useState("");
-  const navigate = useNavigate();
 
+  //  HANDLES STATE CHANGE BASED ON USER INPUT //
   const handleTripChange = (e) => {
     setTrip(e.target.value);
   };
 
+  //  HANDLES SUBMISSION UPON USER REQUEST //
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // CREATES A TRIPNOTE DICTIONARY POSTED TO BACK-END //
     const createTripNoteData = {
       title: title,
       trip_id: Number(trip),
@@ -31,7 +33,7 @@ const CreateTripNoteForm = () => {
 
   if (isLoading) return <div>...isLoading</div>;
 
-
+// RENDERED COMPONENT ALLOWING USER TO INPUT COMMENTS FOR TRIPNOTE TITLE AND DESCRIPTION AND SUCCESSFULLY COMPLETE POST REQUEST //
   return (
     <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundImage:"url('https://images.theoutbound.com/2018/04/09/19/d00aefba5547c5433285d0be0e37953a?&fit=crop&w=970&h=550&auto=format&dpr=2&q=60')", backgroundSize: "cover" }} >
       <div className="card text-bg-light mb-3" style={{ width: "500px", height: "370px" }}>
