@@ -69,7 +69,7 @@ The Accounts API will create, login, logout a user on the WanderList website. Us
 
 ## Trips
 
-Create a Trip
+# Create a Trip
 
 - Method: `POST`,
 - Path: `/api/trips`
@@ -97,14 +97,14 @@ Output:
 }
 ```
 
-Get all trips
+# Get all trips
 
 - Method: `GET`,
 - Path: `/api/trips`
 
 Users will automatically get all the trips they created
 
-Get one trip
+# Get one trip
 
 - Method: `GET`
 - Path: `/api/trips/{trip_id}`
@@ -130,7 +130,7 @@ Output:
 }
 ```
 
-Update Trip Status
+# Update Trip Status
 
 - Method: `PUT`
 - Path: `/api/trips/{trip_id}/status`
