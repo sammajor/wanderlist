@@ -12,7 +12,7 @@ Escape the busy and chaotic city life and immerse yourself in the splendor of th
 
 - [API design](docs/RestfulAPIs.MD)
 - [Data Model](docs/Data-model.MD)
-- Wireframe disgrams
+- [Wireframe disgrams](docs/Wireframe.MD)
 
 ## Technologies Used
 
