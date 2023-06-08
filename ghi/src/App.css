@@ -122,3 +122,13 @@
   background-color: #c48559;
   color: white;
 }
+
+.btn-delete {
+  background-color: #c48559;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: red;
+  color: white;
+}

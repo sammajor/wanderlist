@@ -8,3 +8,27 @@
   height: 25px;
   width: 75px;
 }
+/* https://chentaichi.org/wp-content/uploads/2018/08/cropped-twitter-header-1500x500-nature-22.jpg */
+.trip-list-header {
+  height: 270px;
+  width: 100%;
+  background: url("https://cdn1.vectorstock.com/i/1000x1000/60/35/mountains-eps-10-background-view-brown-vector-28916035.jpg")
+    center center / cover no-repeat;
+}
+
+.trip-title-line {
+  border-bottom: solid 2px #c48559;
+  color: #5d2c08;
+  padding-top: 25px;
+  position: absolute;
+}
+
+.btn-trip-detail {
+  background-color: #5d2c08;
+  color: white;
+}
+
+.btn-trip-detail:hover {
+  background-color: #64b758;
+  color: white;
+}
