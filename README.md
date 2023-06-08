@@ -45,7 +45,8 @@ Our travel website is designed to attract both adventurous individuals and famil
 
 ### Project images
 
-![Main](./Project_images/Main.png)
+![Main](./Project_images/Main.png "Main")
+![Login](./Project_images/login.png "Login")
 
 ### Unit Test
 
