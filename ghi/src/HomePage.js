@@ -7,6 +7,7 @@ const HomePage = () => {
       <video className="vid-bg" autoPlay loop muted>
         <source src={redwoods} type="video/mp4" />
       </video>
+      <div className="content-container">
       <div className="content">
         <h2>
           Welcome to <span>WanderList</span>
@@ -17,6 +18,7 @@ const HomePage = () => {
             Get Started
           </button>
         </Link>
+      </div>
       </div>
     </>
   );

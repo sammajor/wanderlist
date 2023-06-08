@@ -59,3 +59,21 @@ After completing these features, Drake took over to create our Nav bar. It is la
 Today we had a sprint to complete the last of our features and we did it! I led coding today with Sandy and Drake for the note detail page and note delete button. We had to write a new slice for note deletion, and move around some misplaced tags. From there, we deleted a transform response which was nullifying our note object for the note detail page (i.e. we would get a 200 response for our GET request but the page would be empty). Once we addressed this, we were able to view the entirety of our note. Then, I wrote a function to handle note deletion and re-route to the trip detail page, where the traveler would see the trip overview with their remaining notes.
 
 Sam and Sandy completed our home page and created a trip history page to log trips that were completed or cancelled, while our upcoming trips page holds "pending" trips. We worked together to sort out our merge requests, tested behavior as a team, and then selected who would write which unit tests. Next week, we will work on app styling, along with writing unit tests and ensuring the behavior of the app is as expected with all extraneous imports, commented-out code, etc. deleted before turning in the final product.
+
+## Monday, June 5
+
+Today, debugging was emphasized. We spent the majority of the day working through some various features that we wanted to protect by account, refresh the DOM automatically, adjust the pagination feature for our park list, etc. We split those debugging initiatives in half and attacked them. It felt really good to be able to fix bugs that stemmed from issues I'd seen pop up time and time again. That made the debugging process quite efficient. I worked with Dasia and Drake. I shared my screen and coded while they offered suggestions as we worked through the process.
+
+After this was completed, we got back together as a group to carefully work through our several merge requests and make sure the main branch had only appropriate code. After merging everything correctly, we tested the app in a live share demo.
+
+## Tuesday, June 6
+
+The day began with code-cleanup through different installed packages for python and javascript. After addressing cleanup, we merged to main and troubleshooted where we needed to diverge from the linters for app functionality. Troubleshooting took a while, but we were able to ensure that main was correct.
+
+Following this, we worked as a group to develop rules around our CSS styling, including page layout and our color palette. After clearly defining some constraints, we got to work. Today, I worked with Sandy and Drake emphasizing our Navbar customization. Drake led the way by screen sharing and trying different styling options, while Sandy and I chimed in based on what we could find by researching on the internet. Tomorrow we'll really power through styling.
+
+## Wednesday, June 7
+
+I shared my screen today and coded our home page with Sandy and Drake, adding a muted/looping video with some styled text and a button to 'Get Started' button to enter the app. This took us the majority of the morning before we met with the other group to handle our merge requests. After this, we worked on the sign up form and were able to center it and change some design for the card. Tomorrow we will apply similar principles to the login form. Dasia and Sam worked on styling some of our list and detail pages.
+
+
