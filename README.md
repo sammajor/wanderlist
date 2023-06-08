@@ -45,6 +45,8 @@ Our travel website is designed to attract both adventurous individuals and famil
 
 ### Project images
 
+![Main](./Project_images/Main.png)
+
 ### Unit Test
 
 - Brady Kautsch: get_all_trips
