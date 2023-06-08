@@ -46,8 +46,12 @@ Our travel website is designed to attract both adventurous individuals and famil
 ### Project images
 
 ![Main](./Project_images/Main.png "Main")
-! [Signup](./Project_images/signup.png)
-![Login](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg)
+![ParkList](./Project_images/parkList.png "ParkList")
+![ParkDetail](./Project_images/parkDetail.png "ParkDetail")
+![Signup](./Project_images/signup.png "Signup")
+![Login](./Project_images/login.png "Login")
+![CreateATrip](./Project_images/createTrip.png "CreateATrip")
+![CreateNote](./Project_images/createNote.png "CreateNote")
 
 ### Unit Test
 
