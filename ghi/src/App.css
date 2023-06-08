@@ -144,3 +144,10 @@
   font-weight: bold;
   font-size: 50px;
 }
+
+.page-not-found-text {
+  color: #5d2c08;
+  background-color: white;
+  position: fixed;
+  top: 30%;
+}
