@@ -13,9 +13,9 @@ import ParkList from "./Parks/ParkList.js";
 import ParkDetails from "./Parks/ParkDetailPage.js";
 import NoteDetail from "./Notes/NoteDetail";
 import TripDetail from "./Trips/TripDetail";
-import Nav from "./Nav";
-import HomePage from "./HomePage";
-import PageNotFound from "./PageNotFound";
+import Nav from "./Main/Nav";
+import HomePage from "./Main/HomePage";
+import PageNotFound from "./Main/PageNotFound";
 
 import TripHistoryList from "./Trips/TripHistoryPage";
 
@@ -28,17 +28,23 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/logout" element={<LogoutForm />} />
-          <Route path="/trips" element={<ListTrips />} />
+          {/* TRIP ROUTES */}
+          <Route path="trips">
+            <Route index element={<ListTrips />} />
+            <Route path=":trip_id" element={<TripDetail />} />
+            <Route
+            path=":trip_id/notes/:note_id"
+            element={<NoteDetail />}
+            />
+            <Route path="history" element={<TripHistoryList />} />
+          </Route>
           <Route path="/createtrip" element={<CreateTripForm />} />
           <Route path="/createtripnote" element={<CreateTripNoteForm />} />
-          <Route path="/parks" element={<ParkList />} />
-          <Route path="/parks/:park_id" element={<ParkDetails />} />
-          <Route path="trips/:trip_id" element={<TripDetail />} />
-          <Route
-            path="/trips/:trip_id/notes/:note_id"
-            element={<NoteDetail />}
-          />
-          <Route path="trips/history" element={<TripHistoryList />} />
+          {/* PARK ROUTES */}
+          <Route path="parks">
+            <Route index element={<ParkList />} />
+            <Route path=":park_id" element={<ParkDetails />} />
+          </Route>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

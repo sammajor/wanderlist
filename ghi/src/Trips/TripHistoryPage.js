@@ -2,18 +2,22 @@ import { useGetAllTripsQuery } from "../store/apiSlice";
 import { useNavigate } from "react-router-dom";
 
 const TripHistoryList = () => {
+  // SETS STATE VARIABLE AND NAVIGATION; ACCESSES SLICE FOR TRIPS //
   const { data: trips, isLoading } = useGetAllTripsQuery();
   const navigate = useNavigate();
+  // FUNCTION TO HANDLE NAVIGATION TO TRIP DETAILS PAGE BASED ON SELECTED TRIP INSTANCE //
   const handleClick = (e) => {
     const { value } = e.target;
     navigate(`/trips/${value}/`);
   };
+  // FUNCTION TO HANDLE FILTERING OUT ALL TRIPS WITH STATUS: PENDING; ONLY DISPLAYS TRIPS WITH STATUS 'CANCELED' OR 'COMPLETED' //
   const filteredTrips = () => {
     return trips.filter((trip) => {
       return trip.trip_status !== "Pending";
     });
   };
   if (isLoading) return <div>Loading...</div>;
+  // RENDERED COMPONENT TO DISPLAY PARK, START & END DATES, AND CANCELED OR COMPLETED TRIPS STATUSES, ALONG WITH BUTTON TO VIEW TRIP DETAILS PER TRIP INSTANCE //
   return (
     <>
       <div

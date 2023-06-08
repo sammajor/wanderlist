@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Alert, Spinner } from "react-bootstrap";
 
 const SignUpForm = () => {
+  // SET STATE VARIABLES FOR SIGN UP FORM //
   const [signup, { isLoading, isSuccess, error }] = useSignupMutation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  //  FUNCTION TO HANDLE SUBMISSION (POST REQUEST) OF NEW ACCOUNT DETAILS BY USER //
   const handleSubmit = (e) => {
     e.preventDefault();
     const accountData = {
@@ -24,12 +26,14 @@ const SignUpForm = () => {
     e.target.reset();
   };
 
+  // AFTER 200 RESPONSE FROM BACK-END FOR SUCCESS DEPENDENCY, AUTHENTICATED USER NAVIGATED TO PARK LIST PAGE //
   useEffect(() => {
     if (isSuccess === true) {
       navigate("/parks");
     }
   }, [isSuccess]);
 
+  // RENDERED COMPONENT TO HANDLE USER INPUTS FOR NAME, EMAIL, PASSWORD, AND SIGN-UP (POST) REQUEST //
   return (
     <div
       className="d-flex justify-content-center align-items-center vh-100"
@@ -44,6 +48,7 @@ const SignUpForm = () => {
         style={{ width: "700px", height: "550px" }}
       >
         <h5 className="card-header signup-title-text">Signup</h5>
+        {/* IF USER SUBMITS NEW ACCOUNT DATA THAT MATCHES A RECORD IN DATABASE ALREADY, USER RECEIVES WARNING TO USE UNIQUE SIGN-UP CREDENTIALS  */}
         {error ? (
           <Alert variant="danger">
             <Alert.Heading>Failed to signup</Alert.Heading>

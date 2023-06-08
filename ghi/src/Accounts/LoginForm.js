@@ -14,22 +14,26 @@ import {
 import { useLoginMutation } from "../store/apiSlice";
 
 const LoginForm = () => {
+  // SETTING STATE VARIABLES TO HANDLE USER INPUT //
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  //  FUNCTION TO HANDLE POSTING USER INPUT DATA TO BACK-END //
   const handleSubmit = async (e) => {
     e.preventDefault();
     login({ username, password });
   };
 
+  // AFTER 200 RESPONSE FROM BACK-END FOR SUCCESS DEPENDENCY, AUTHENTICATED USER NAVIGATED TO TRIP LIST PAGE //
   useEffect(() => {
     if (isSuccess === true) {
       navigate("/trips");
     }
   }, [isSuccess]);
 
+  // RENDERED COMPONENT TO HANDLE USER INPUTS FOR USERNAME, PASSWORD, AND LOGIN REQUEST //
   return (
     <Container fluid>
       <Row

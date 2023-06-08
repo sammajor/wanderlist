@@ -3,12 +3,15 @@ import { reset, search } from "../store/parkSearchSlice";
 import { useState } from "react";
 
 const SearchBar = () => {
+    // HANDLES STATE VARIABLE AND CALLS REDUCER FOR SEARCH //
   const dispatch = useDispatch();
   const [searchCriteria, setSearchCriteria] = useState("");
+//   FUNCTION TO HANDLE SEARCH SUBMISSION AND RETURN MATCHED RECORD(S) //
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(search(searchCriteria));
   };
+//   RENDERED SEARCH BAR COMPONENT WHICH ALLOWS USER TO SEARCH FOR MATCHED PARK RECORD AND RESETS STATE //
   return (
     <form
       className="row my-2 bottom-box"

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// SETS UNIFORM STRUCTURE OF INDIVIDUAL CARD RENDERED ON PARK LIST COMPONENT //
 const ParkCard = (props) => {
   const { park_image, full_name, city, state, description, park_id } = props;
 

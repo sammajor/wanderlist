@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useGetOneAlertQuery } from "../store/alertSlice";
 
 const ParkDetails = () => {
+  //  SET STATE VARIABLES AND ACCESS SLICE OF STATE FOR ACCOUNTS, PARKS, AND ALERTS //
   const { park_id } = useParams();
   const { data: park, isLoading } = useGetParkByIDQuery(park_id);
   const { data: token } = useGetTokenQuery();
   const { data: alerts } = useGetOneAlertQuery(park?.park_code);
+  // LOGIC TO PUT ACTIVITIES IN ROWS IN TABLE //
   const rows = [];
   const actList = park?.activities;
   for (let i = 0; i < actList?.length; i += 3) {
@@ -28,6 +30,8 @@ const ParkDetails = () => {
     );
   });
   if (isLoading) return <div>Loading...</div>;
+
+  // RENDERED COMPONENT TO DISPLAY PARK NAME, LOCATION, DESCRIPTION, ACTIVITIES, AND ALERTS FROM NPS API //
   return (
     <>
       <div className="container">
@@ -57,10 +61,18 @@ const ParkDetails = () => {
             style={{ width: "62rem", height: "35rem" }}
           />
           <div className="card-header">
-            Description: {park?.description}
-            <div className="card-body table table-striped">
-              <thead>Activities:</thead>
-              {activityRows}
+            {park?.description}
+            <div>
+            <table className="card-body table table-striped mt-3">
+              <thead className="park-details-activities">
+                <tr>
+                  <th>
+                    Activities:
+                  </th>
+                </tr>
+              </thead>
+              <tbody>{activityRows}</tbody>
+            </table>
             </div>
           </div>
           <div
