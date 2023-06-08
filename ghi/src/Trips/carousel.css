@@ -102,6 +102,27 @@
   color: white;
 }
 
+.create-trip-title {
+  color: #5d2c08;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.select-date {
+  color: #355230;
+  font-weight: bold;
+}
+
+.note-title {
+  color: #5d2c08;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.note-details {
+  color: #355230;
+  font-weight: bold;
+}
 
 .trip-list-header-2 {
   height: 170px;
