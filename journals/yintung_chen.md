@@ -1,3 +1,11 @@
+## Jun 8, 2023
+
+Today, I worked on:
+
+- CSS styling with Drake
+
+In this morning, I shared screen to revise the Signup form button with Drake. Then, we move on to do CSS styling on the login page.  Once we finished those two pages, we check in with other groups and discuss we’re going to work on styling both create trip page an create trip note. Drake shared his screen and code this time. Luckily, we’re able to finish it very quickly. We submit the merge request to make sure everyone has the latest version on the main branch. In the afternoon, I work with Drake on writing our README documentation.
+
 ## Jun 7, 2023
 
 Today, I worked on:
