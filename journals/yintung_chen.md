@@ -1,3 +1,12 @@
+## Jun 7, 2023
+
+Today, I worked on:
+
+- CSS styling with Drake and Brady
+
+We continue what we had left from yesterday, Brady shares the screen and begin to do the home page CSS while Drake and I doing the research and assist Brandy. After research and we are successfully using video as the background for our home page and text layout on the top. The home page looks fantastic!
+After the home page was completed, we move to SignUp form page, trying to do CSS. So I shared my screen and play around, but unfortunately, it was harder than we thought, the result was not what we expected. After struggle, Brady suggests we can use an image for the background instead of doing everything on CSS. After we applied to the image, the result turns out pretty nice. We plan to work on styling Sign-in form tomorrow.
+
 ## Jun 6, 2023
 
 Today, I worked on:

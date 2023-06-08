@@ -10,7 +10,7 @@ Escape the busy and chaotic city life and immerse yourself in the splendor of th
 
 ## Design
 
-- API design
+- [API design](docs/RestfulAPIs.MD)
 - Wireframe disgrams
 
 ## Technologies Used
@@ -33,9 +33,15 @@ Our travel website is designed to attract both adventurous individuals and famil
 - While exploring the homepage, users are greeted with a captivating backdrop showcasing dynamic scenes from nature. This visual feature instantly immerses users in the ambiance of natural surroundings. By clicking "Get Started," users will be redirected to the page displaying a list of parks.
 - On the top navigation bar of the park list page, users have the option to either create a WanderList account or log in to their existing account using the designated buttons.
 - The Park listed page is open for all the user to view the national parks image, name, location and the park description.
-- In park detail page, users will see the park's location, description, activities, park alert. If the user is logged in, the create trip button will display.
-- Logged in users will see "My Upcoming Trips", "My Trip History", "Plan trip", "Create Trip Note", and "Logout" link in the navigation bar.
-- "Plan trip" will open a form that the user can fill in and submit to create their trip to a national park, then redirect users to the "My Upcoming Trips"
+- In park detail page, users will see the park's location, description, activities, park alert.
+  - If the user is logged in, the create trip button will display.
+- Logged in users will see "My Upcoming Trips", "My Trip History", "Create Trip", "Create Trip Note", and "Logout" link in the navigation bar.
+- "Create Trip" will open a form that the user can fill in and submit to create their trip to a national park, then redirect users to the "My Upcoming Trips"
+- "My Upcoming trips" will list all of the trips that user has been created.
+  - By clicking "Details" it will redirect the user to the trip detail page
+- Logged in user can create trip notes linked to their trips
+- On the trip detail page, users can view the notes they created and trip status change button once their trip is completed or cancelled.
+- "My Trip History" will lists the trips that user has been completed or cancelled.
 
 ### Project images
 
