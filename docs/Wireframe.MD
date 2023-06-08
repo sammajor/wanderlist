@@ -2,6 +2,6 @@
 
 # Wireframe
 
-![HomePage](./Project_images/Wireframe_Homepage.png)
-![Wireframe_Park](./Project_images/Wireframe_Park.png)
-![Wireframe_Trip](./Project_images/Wireframe_Trip.png)
+![HomePage](./Wireframes/Wireframe_Homepage.png)
+![Wireframe_Park](./Wireframes/Wireframe_Park.png)
+![Wireframe_Trip](./Wireframes/Wireframe_Trip.png)
