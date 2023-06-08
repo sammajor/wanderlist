@@ -1,3 +1,31 @@
+## Jun 7, 2023
+
+Today, I worked on:
+
+- CSS styling with Drake and Brady
+
+We continue what we had left from yesterday, Brady shares the screen and begin to do the home page CSS while Drake and I doing the research and assist Brandy. After research and we are successfully using video as the background for our home page and text layout on the top. The home page looks fantastic!
+After the home page was completed, we move to SignUp form page, trying to do CSS. So I shared my screen and play around, but unfortunately, it was harder than we thought, the result was not what we expected. After struggle, Brady suggests we can use an image for the background instead of doing everything on CSS. After we applied to the image, the result turns out pretty nice. We plan to work on styling Sign-in form tomorrow.
+
+## Jun 6, 2023
+
+Today, I worked on:
+
+- Code cleaning with Dasia
+- CSS styling with Drake and Brady
+
+In the early project time, I work with Dasia to clean up the code, removed the unused import and try to clean the code that flake8 has been complaining. Only the migration table is unable to modify the code to the shorter version, because it will stop the Docker container.
+Later, the entire group discuss on the CSS styling, and color palette for our project, we split into two groups.
+I work with Drake and Brady on the home page, we got blockers because we used to bootstrap on React, so if we want to add CSS on top of it, it requires some modified. CSS styling is actually harder than we expect and take longer time to get our navigation bar work. We will keep working on it tomorrow.
+
+## Jun 5, 2023
+
+Today, I worked on:
+
+- Debugging start date and end date issue with Sam
+
+In today’s stand up, the entire group discusses the remaining bugs that we need to fix in order for the project to perform better. So, we split into two groups to work on our bugs. I team up with Sam today, he shared the screen and begin working on showing the alert on the park list detail page. This issue was solved pretty quickly, then we moved on to the create trip form file. When a user creates a trip, the end date can be less than then start date, so this is a bug. Both of us do some research and trying to make the time validation. While I’m trying in my local machine, Sam figures out how to prevent the end date is less than start date by writing a use State and set the date minimum. Later, we move on to the creating a 404 Page Not Found site.
+
 ## Jun 3, 2023
 
 Today, I work on writing a unit test and fixing the sign-up duplicate account issue. Showing an error message when the account has already existed when user trying to sign-up.
