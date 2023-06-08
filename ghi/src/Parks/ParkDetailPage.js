@@ -90,7 +90,7 @@ const ParkDetails = () => {
               {alerts?.data.map((alert, index) => {
                 return (
                   <div key={alert.id}>
-                    <div>
+                    <div className="park-details-activities">
                       {index + 1}. {alert.title}
                     </div>
                     <div>{alert.description}</div>
