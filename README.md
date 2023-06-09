@@ -1,142 +1,91 @@
-# Module3 Project Gamma
+## WanderList
 
-## Getting started
+- Brady Kautsch
+- Dasia Razo
+- Drake Phamanivong
+- Sam Major
+- Yin-Tung Chen
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+Escape the busy and chaotic city life and immerse yourself in the splendor of the natural world. WanderList assists users in arranging and managing their trips to national parks. Users can conveniently access park descriptions, activities, and alerts to select their preferred travel destinations.
 
-## Install Extensions
+## Design
 
-- Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-- Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+- [API design](docs/RestfulAPIs.MD)
+- [Data Model](docs/Data-model.MD)
+- [Wireframe diagrams](docs/Wireframe.MD)
 
-## Deliverables
+## Technologies Used
 
-- [ ] Wire-frame diagrams
-- [ ] API documentation
-- [ ] Project is deployed to Caprover (BE, DB) & GitLab-pages (FE)
-- [ ] GitLab issue board is setup and in use (or project management tool of choice)
-- [ ] Journals
+- PostgreSQL
+- FastAPI
+- JavaScript
+- Python
+- React
+- Redux
+- Bootstrap
+- CSS
 
-## Project layout
+## Intended market
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
+Our travel website is designed to attract both adventurous individuals and families who share a passion for exploring new destinations and immersing themselves in the beauty of natural environments.
 
-### Directories
+## Functionality
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+- While exploring the homepage, users are greeted with a captivating backdrop showcasing dynamic scenes from nature. This visual feature instantly immerses users in the ambiance of natural surroundings. By clicking "Get Started," users will be redirected to the page displaying a list of parks.
+- On the top navigation bar of the park list page, users have the option to either create a WanderList account or log in to their existing account using the designated buttons.
+- The Park listed page is open for all the user to view the national parks image, name, location and the park description.
+- In park detail page, users will see the park's location, description, activities, park alert.
+  - If the user is logged in, the create trip button will display.
+- Logged in users will see "My Upcoming Trips", "My Trip History", "Create Trip", "Create Trip Note", and "Logout" link in the navigation bar.
+- "Create Trip" will open a form that the user can fill in and submit to create their trip to a national park, then redirect users to the "My Upcoming Trips"
+- "My Upcoming trips" will list all of the trips that user has been created.
+  - By clicking "Details" it will redirect the user to the trip detail page
+- Logged in user can create trip notes linked to their trips
+- On the trip detail page, users can view the notes they created and trip status change button once their trip is completed or cancelled.
+- "My Trip History" will lists the trips that user has been completed or cancelled.
 
-The other directories, `ghi` and `sample_service`, are
-sample services, that you can start building off of or use
-as a reference point.
+### Project images
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+![Main](./Project_images/Main.png "Main")
+![ParkList](./Project_images/parklist.png)
+![ParkDetail](./Project_images/parkdetail.png)
+![Signup](./Project_images/signup.png "Signup")
+![Login](./Project_images/login.png "Login")
+![CreateATrip](./Project_images/createTrip.png "CreateATrip")
+![UpcomingTrip](./Project_images/UpcomingTrip.png "UpcomingTrip")
+![TripDetail](./Project_images/TripDetail.png "TripDetail")
+![TripHistory](./Project_images/TripHistory.png "TripHistory")
+![CreateNote](./Project_images/createNote.png "CreateNote")
+![NoteDetail](./Project_images/NoteDetail.png "NoteDetail")
 
-Inside of `sample_service` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
+### Unit Test
 
-Also in `sample_service` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
+- Brady Kautsch: get_all_trips
+- Dasia Razo: get_all_parks
+- Drake Phamanivong: create_trip
+- Sam Major: get_one_note
+- Yin-Tung Chen: get_one_trip
 
-The sample Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
+## Project Initialization
 
-### Other files
+To view this application on your local machine, please follow these steps:
 
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
+1. Clone this repository to your local machine
+2. CD into the new project directory
+3. Obtain a NPS Api key (https://www.nps.gov/subjects/developer/get-started.htm)
+4. Make Signing Key
+   - Install openssl
+   - run openssl rand -hex 32
+5. Make a .env file with the following variables:
 
-- `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-- `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to CapRover. We will learn much more about this file.
-- `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-- `.env.sample`: This file is a template to copy when
-  creating environment variables for your team. Create a
-  copy called `.env` and put your own passwords in here
-  without fear of it being committed to git (see `.env`
-  listed in `.gitignore`). You can also put team related
-  environment variables in here, things like api and signing
-  keys that shouldn't be committed; these should be
-  duplicated in your deployed environments.
+   - REACT_APP_SIGNING_KEY = "the signing key you created"
+   - REACT_APP_NPS_KEY = "the NPS Api key"
+   - REACT_APP_API_HOST = "http://localhost:8000/"
+   - REACT_APP_ALERT_HOST = "https://developer.nps.gov/api/v1"
 
-## How to complete the initial deploy
-
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
-
-### Setup GitLab repo/project
-
-- make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-- remove the fork relationship: In GitLab go to:
-
-  Settings -> General -> Advanced -> Remove fork relationship
-
-- add these GitLab CI/CD variables:
-  - PUBLIC_URL : this is your gitlab pages URL
-  - SAMPLE_SERVICE_API_HOST: enter "blank" for now
-
-#### Your GitLab pages URL
-
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
-
-If this is your project URL
-
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
-
-then your GitLab pages URL will be
-
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
-
-### Initialize CapRover
-
-1. Attain IP address and domain from an instructor
-1. Follow the steps in the CD Cookbook in Learn.
-
-### Update GitLab CI/CD variables
-
-Copy the service URL for your CapRover service and then paste
-that into the value for the SAMPLE_SERVICE_API_HOST CI/CD variable
-in GitLab.
-
-### Deploy it
-
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
+6. On the terminal (in the project directory), run docker volume create wander-list-data
+7. Run docker volume create pg-admin
+8. Run "docker compose build" command
+9. Run "docker compose up" command
+10. In terminal of "module3-project-gamma-api-1", run "python park.py" command, this will load our park list data
+11. Enjoy the full version of WanderList!

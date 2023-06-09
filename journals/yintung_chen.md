@@ -1,3 +1,11 @@
+## Jun 8, 2023
+
+Today, I worked on:
+
+- CSS styling with Drake
+
+In this morning, I shared screen to revise the Signup form button with Drake. Then, we move on to do CSS styling on the login page.  Once we finished those two pages, we check in with other groups and discuss we’re going to work on styling both create trip page an create trip note. Drake shared his screen and code this time. Luckily, we’re able to finish it very quickly. We submit the merge request to make sure everyone has the latest version on the main branch. In the afternoon, I work with Drake on writing our README documentation.
+
 ## Jun 7, 2023
 
 Today, I worked on:
@@ -6,6 +14,7 @@ Today, I worked on:
 
 We continue what we had left from yesterday, Brady shares the screen and begin to do the home page CSS while Drake and I doing the research and assist Brandy. After research and we are successfully using video as the background for our home page and text layout on the top. The home page looks fantastic!
 After the home page was completed, we move to SignUp form page, trying to do CSS. So I shared my screen and play around, but unfortunately, it was harder than we thought, the result was not what we expected. After struggle, Brady suggests we can use an image for the background instead of doing everything on CSS. After we applied to the image, the result turns out pretty nice. We plan to work on styling Sign-in form tomorrow.
+In the night time, I'm working on writing README documents.
 
 ## Jun 6, 2023
 
