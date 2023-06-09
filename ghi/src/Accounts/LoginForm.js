@@ -46,7 +46,7 @@ const LoginForm = () => {
         <Col md={3}>
           <Card style={{ width: "600px", height: "380px", opacity: 0.85 }}>
             <Card.Body>
-              <Card.Title className="signin-title-text">Login</Card.Title>
+              <Card.Title className="signup-title-text">Login</Card.Title>
               {error ? (
                 <Alert variant="danger">
                   <Alert.Heading>Failed to login</Alert.Heading>
@@ -55,7 +55,7 @@ const LoginForm = () => {
               ) : null}
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="Login_username" className="mb-3">
-                  <Form.Label className="signin-form-text">Username</Form.Label>
+                  <Form.Label className="signup-form-text">Username</Form.Label>
                   <Form.Control
                     type="email"
                     required
@@ -69,7 +69,7 @@ const LoginForm = () => {
                   />
                 </Form.Group>
                 <Form.Group controlId="Login_password" className="mb-3">
-                  <Form.Label className="signin-form-text">Password</Form.Label>
+                  <Form.Label className="signup-form-text">Password</Form.Label>
                   <Form.Control
                     type="password"
                     required
