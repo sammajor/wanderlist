@@ -1,6 +1,6 @@
 import { useGetTripNoteQuery } from "../store/apiSlice";
 import { useDeleteTripNoteMutation } from "../store/apiSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const NoteDetail = () => {
   //  SET STATE VARIABLES AND ACCESS SLICE OF STATE FOR TRIPS AND TRIPNOTES //
@@ -27,14 +27,20 @@ const NoteDetail = () => {
         <div className="trip-list-header">
           <h2 className="trip-title-line mb-3">{data?.title}</h2>
         </div>
-        <div className="card mx-auto justify-content-center" style={{ width: "62rem" }}>
+        <div
+          className="card mx-auto justify-content-center"
+          style={{ width: "62rem" }}
+        >
           <div className="card-header">Trip Note</div>
           <div className="card-body">
             <h5 className="card-title">{data?.title}</h5>
             <p className="card-text">{data?.description}</p>
-            <button className="btn btn-delete" onClick={handleDeleteNote}>
+            <button className="btn btn-delete mx-2" onClick={handleDeleteNote}>
               Delete Note
             </button>
+            <Link to={`/trips/${trip_id}`}>
+              <button className="btn btn-trip-detail">Back to Trip</button>
+            </Link>
           </div>
         </div>
       </div>
