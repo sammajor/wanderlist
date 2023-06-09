@@ -84,7 +84,8 @@ To view this application on your local machine, please follow these steps:
    - REACT_APP_ALERT_HOST = "https://developer.nps.gov/api/v1"
 
 6. On the terminal (in the project directory), run docker volume create wander-list-data
-7. Run "docker compose build" command
-8. Run "docker compose up" command
-9. In terminal of "module3-project-gamma-api-1", run "python park.py" command, this will load our park list data
-10. Enjoy the full version of WanderList!
+7. Run docker volume create pg-admin
+8. Run "docker compose build" command
+9. Run "docker compose up" command
+10. In terminal of "module3-project-gamma-api-1", run "python park.py" command, this will load our park list data
+11. Enjoy the full version of WanderList!
