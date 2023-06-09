@@ -14,6 +14,7 @@ from models.trips import (
 
 router = APIRouter()
 
+
 #### ALLOWS FOR POST REQUEST OF A TRIP INSTANCE ####
 @router.post("/api/trips", response_model=TripOut)
 async def create_trip(
@@ -23,6 +24,7 @@ async def create_trip(
 ):
     return repo.create(account_data["id"], trip)
 
+
 #### ALLOWS FOR GET REQUEST OF ALL TRIP INSTANCES CREATED BY USER ####
 @router.get("/api/trips")
 async def get_all_trips(
@@ -30,6 +32,7 @@ async def get_all_trips(
     repo: TripQueries = Depends(),
 ):
     return repo.get_all_trips(account_data["id"])
+
 
 #### ALLOWS FOR GET REQUEST OF ONE TRIP'S DETAILS ####
 @router.get("/api/trips/{trip_id}")
@@ -43,6 +46,7 @@ def get_one_trip(
     if trip is None:
         response.status_code = 404
     return trip
+
 
 #### ALLOWS USER TO UPDATE A PENDING TRIP TO EITHER 'COMPLETED' OR 'CANCELLED' ####
 @router.put("/api/trips/{trip_id}/status")

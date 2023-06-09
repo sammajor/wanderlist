@@ -3,10 +3,11 @@ import json
 import os
 from queries.pool import pool
 
+
 def get_park_data():
-#### GET REQUEST TO NATIONAL PARK SERVICE API FOR PARK DATA ####
-    payload = {'limit': '500', 'api_key': os.environ["NPS_KEY"]}
-    r = requests.get('https://developer.nps.gov/api/v1/parks', params=payload)
+    #### GET REQUEST TO NATIONAL PARK SERVICE API FOR PARK DATA ####
+    payload = {"limit": "500", "api_key": os.environ["NPS_KEY"]}
+    r = requests.get("https://developer.nps.gov/api/v1/parks", params=payload)
     #### RECEIVE REQUESTED DATA AND REFORMAT TO SMALLER OBJECT WITH PROPERTIES NEEDED ####
     data = json.loads(r.text)
     park_data = data["data"]
@@ -19,7 +20,7 @@ def get_park_data():
             park_image = park["images"][0]["url"]
         elif not park["images"][0]["url"]:
             park_image = "https://www.glenmoorbythesea.com/images/56a0dad6-2f38-4f05-8a18-e815d44e6e7c.webp"
-    #### POST REFORMATTED DATA TO DATABASE ####
+        #### POST REFORMATTED DATA TO DATABASE ####
         try:
             park_info = {
                 "full_name": park["fullName"],
@@ -35,7 +36,7 @@ def get_park_data():
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
-                    """
+                        """
                     INSERT INTO parks
                         (
                             full_name,
@@ -66,5 +67,6 @@ def get_park_data():
                     print("data is imported successfully")
         except IOError:
             print("Input Error")
+
 
 get_park_data()

@@ -18,6 +18,7 @@ class FakeTripQueries:
             "park": "Aspen",
             "trip_status": "Completed",
         }
+
     def create(self, account_id: int, trip: TripIn):
         return {
             "id": 1,
@@ -25,7 +26,7 @@ class FakeTripQueries:
             "start_date": "2023-06-24",
             "end_date": "2023-06-28",
             "park": "Acadia National Park",
-            "trip_status": "pending"
+            "trip_status": "pending",
         }
 
     def get_all_trips(self, account_id: int):
@@ -76,32 +77,34 @@ def test_get_all_trips():
 
 
 def fake_get_current_account_data():
-    return {'id': 1}
-
+    return {"id": 1}
 
 
 def test_create_trip():
-    #Arrange
+    # Arrange
     app.dependency_overrides[TripQueries] = FakeTripQueries
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
 
     trip_in = {
         "start_date": "2023-06-24",
         "end_date": "2023-06-28",
-        "park": "Acadia National Park"
+        "park": "Acadia National Park",
     }
     res = client.post("/api/trips", json=trip_in)
     data = res.json()
 
-    #Assert
+    # Assert
     assert res.status_code == 200
     assert data == {
-        "id": 1, "account_id": 6,
+        "id": 1,
+        "account_id": 6,
         "start_date": "2023-06-24",
         "end_date": "2023-06-28",
-        "park":"Acadia National Park",
-        "trip_status": "pending"
+        "park": "Acadia National Park",
+        "trip_status": "pending",
     }
 
-    #cleanup
+    # cleanup
     app.dependency_overrides = {}

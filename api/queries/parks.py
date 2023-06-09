@@ -3,7 +3,6 @@ from models.parks import ParkOut
 from typing import List
 
 
-
 class ParkQueries:
     #### GET ALL PARKS STORED IN DATABASE AS LIST ####
     def get_all_parks(self) -> List[ParkOut]:
@@ -45,7 +44,7 @@ class ParkQueries:
             print(e)
             return {"message": "Could not get all data"}
 
-#### ALLOWS GET REQUEST FOR DETAILS OF ONE PARK ####
+    #### ALLOWS GET REQUEST FOR DETAILS OF ONE PARK ####
     def get_one_park(self, park_id) -> ParkOut:
         try:
             with pool.connection() as conn:
@@ -75,7 +74,7 @@ class ParkQueries:
             print(e)
             return {"message": "Could not get all data"}
 
-#### ALLOWS FOR RETURN OF PARK INSTANCE WITHOUT POSTING VIA PARK IN ####
+    #### ALLOWS FOR RETURN OF PARK INSTANCE WITHOUT POSTING VIA PARK IN ####
     def record_to_park_out(self, record):
         return ParkOut(
             id=record[0],
