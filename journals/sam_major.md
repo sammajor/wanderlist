@@ -58,3 +58,7 @@ Today I worked with Dasia and we got so much done! I coded with her help and we 
 6.08.23
 
 Today I worked with Brady and Dasia on more CSS. We figured out the last bit on the note detail page and also did the styling on the trip detail page. We made some pretty significant changes and they look great. We made the background a bulletin board and made each note a "sticky" note. It turned out great. In the afternoon after all of the CSS styling was finished we moved on to adding comments to the code and doing the last bit of code cleanup.
+
+6.09.23
+
+Today we worked as a group to review final edits to the README.md file. I did a few minor edits to make sure the docker log for the ghi container didn't have so many errors pop up for mis-labeled img tags, I removed an <a> tag. Other minor changes. I also added a button on the note detail page to navigate back to the trip details, so you don't have to click triplist, click into the trip, etc. We then did a final run through making the volumes, building the images and running containers and then clicked on each element to make sure there were no errors in the console. Everything looks great and I'm so excited to submit!!
