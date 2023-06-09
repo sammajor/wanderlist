@@ -1,3 +1,15 @@
+6/9/2023 - Friday
+Today our team met all together to do a final run through of our project to make sure it is ready to submit. Sandy updated our README.md with all of the information about our project and once we agreed it was final Brady shared his screen to delete the volumes and start docker all over again to make sure our project was working perfectly. It was great working with this awesome team, now we are studying for our exam.
+
+
+6/8/2023 - Thursday
+Today I shared screen with Brady and Sam to create css for the Trip Note detail page. We came up with a post it note and board idea to show our trip notes and it came out really nice. After that we also made some changes to our pages we worked on the previous days like color and image sizing. After we completed that we came back into our groups and Brady led cleaning our code and adding important comments to our project.
+
+
+6/8/2023 - Thursday
+Today I shared screen with Brady and Sam to create css for the Trip Note detail page. We came up with a post it note and board idea to show our trip notes and it came out really nice. After that we also made some changes to our pages we worked on the previous days like color and image sizing. After we completed that we came back into our groups and Brady led cleaning our code and adding importany comments to our project.
+
+
 6/7/2023 - Wednesday
 Today Sam and I started off the morning with front end details on our park page. I shared screen in the morning and we were placing our entire park detail page on a card to have better control on the elements inside. It took us some time to move our activity list into columns of 3, but we got it done and it looked amazing! After we got that finished Sam shared screen to get our trip history page working, we thought it would be similar to our detail page but it was a little more complex and we had to get some css help from the seirs.
 

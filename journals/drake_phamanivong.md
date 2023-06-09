@@ -35,10 +35,27 @@ Sam and I continued working on the pagination pages were getting somewhere but i
 
 ## 5/30/23 Tuesday, May 30th 2023
 
-Sam had worked on the paginaiton pages over the weekend(thank you Sam!) so we were able to just move on and switch groups to do some other features. So I worked with Brady and Sandy to create our nav bar, the only issues that we were coming across for the nav bar was it not being able to refresh after logging in or signing out, the only way for it to change was to manually refresh.
+Sam had worked on the paginaiton pages over the weekend(thank you Sam!) so we were able to just move on and switch groups to do some other features. So I worked with Dasia and we had worked on the park details page, and the park details page only works when you use the string of 'park_id' instead of the actual ID integer. We quickly got the details page to work and got back with the team to let them know if they want us to work on anything else.
 
 ## 5/31/23 Wednesday, May 31st 2023
 
+There were some things that was needed to add onto the park details page, so Dasia and I went back and added them. What we added was the 'Create Trip' button and the only issue was that you were able to see it without an account so thats one of the only bugs that we ran into when finishing up the page, other than that it was ready to commit and merge.
+
+## 6/1/23 Thursday, June 1st 2023
+
+Today I started working with Brady and Dasia to implement a views button onto the list of parks so when you click on it, it takes you to that individual park. We were having some trouble so we went to the SEIR's for help and they were able to steer us into the right direction. As well as making adjustments and getting rid of redundant code. Later in the day we were able to finish that feature, and I took over to start going over the nav bar quickly finishing it but coming up on some minor bugs. The bugs were where if you were to logout/login/signup the navbar wouldnt refresh without a hard browser refresh.
+
+## 6/2/23 Friday, June 2nd 2023
+
+Continued working on the nav-bar today to finish out the features and make sure that it refreshed everytime you loggedin/loggedout/signedup. Later on I was still working with Brady and Sandy as we finished the nav-bar we moved onto the Notes details page. We were coming into some trouble realizing that it was one of the transform respones and we passed two arguements into the query getting our function to work.
+
+## 6/5/23 Monday, June 5th 2023
+
+Today we just went over some bugs we had during standup and then split up into out groups. In the group today was Brady, Dasia and I and we just went over what we wanted protected by accounts and going over the pagination bug. After all the debugging and such we were able to commit and create our merge requests for the day and testing to see if our project was working without any other bugs.
+
+## 6/6/23 Tuesday, June 6th 2023
+
+Today as a group we all talked about code cleanup and using flake8 and black to go over what was needed to clean, as well as getting rid of any unecessary console.logs, prints, and our commented out code as well.  Then all that came was to style our project and at first we started on the homepage then after 5:00pm break we got together again, and to find out Dasia and Sam had worked on the Navbar styling already so we moved our efforts towards the homepage.
 
 
 ## 6/7/23 Wednesday, June 7th 2023
@@ -48,4 +65,9 @@ Today Brady, Sandy and I worked on the homepage together. Brady led as he shared
 
 ## 6/8/23 Thursday, June 8th 2023
 
-Today we split up into different groups today and I got to work with Sandy. We finished up the Signin/Signup forms as well as the Create Trip and Create Trip Note Forms. Making everything kind of the same for consistency and not adding anything crazy just background pictures so it doesn't look too plain.
+Today we split up into different groups today and I got to work with Sandy. We finished up the Signin/Signup forms as well as the Create Trip and Create Trip Note Forms. Making everything kind of the same for consistency and not adding anything crazy just background pictures so it doesn't look too plain. Later after the group had split Sandy and I started finishing up ther README file and all thats missing now is the wireframe pictures.
+
+
+## 6/9/23 Friday, June 9th 2023
+
+Today before submission the group just went over some final bug fixes and error fixes before we submit our project, and did an overview together to see if every feature and such were working.

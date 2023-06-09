@@ -76,4 +76,10 @@ Following this, we worked as a group to develop rules around our CSS styling, in
 
 I shared my screen today and coded our home page with Sandy and Drake, adding a muted/looping video with some styled text and a button to 'Get Started' button to enter the app. This took us the majority of the morning before we met with the other group to handle our merge requests. After this, we worked on the sign up form and were able to center it and change some design for the card. Tomorrow we will apply similar principles to the login form. Dasia and Sam worked on styling some of our list and detail pages.
 
+## Thursday, June 8
 
+Today was about clean up and final styling touches. I went back through and added comments to the relevant files in the repo. Together, we finished our detail pages and form pages for styling, including a post-it note on top of a corkboard layout to collect our trip notes. Everyone shared screens and took a turn coding today. Otherwise, we just made minor formatting adjustments and small styling changes like making park alert titles bold. Sandy took the lead on updating our README. It was a very successful day full of hard work and merge requests from everyone.
+
+## Friday, June 9
+
+We spent the morning finalizing the ;ast little details of the project and double-checking that all features behaved as expected. Together, we cleaned up the README and then added one 'back' button which we thought would be nice to have. Otherwise, we combed through the code as a group to clean up little things like functions that were asynchronus but needn't be. Afterwards, I shared my screen, reset everything in Docker and tutorialed for the group to see everything working with no errors in the console for any page, feature, or functionality. Finally, we wrote our last journals, merged all of those into main and submitted our project.
