@@ -1,3 +1,12 @@
+## Jun 9, 2023
+
+Today, I worked on:
+
+- Merge README documentation to the main branch
+
+In this morning I revised the wireframe diagram and update the project image on README. Then I merge the README to main branch, the entire team work together to make sure the project working well. Sam also added a button on note detail page to redirect to the trip detail page.
+Then we go over the project again. The project is ready to submit now.
+
 ## Jun 8, 2023
 
 Today, I worked on:
