@@ -50,3 +50,11 @@ We got so much done today! I worked with Dasia today. We plowed through getting 
 Today I worked with Sandy. I coded with her help. We added the a section to get park alerts for each park. I added a new slice file AlertSlice.js and made the call to the Alert API. We then called the query in the Park Detail page and added a section for the alerts to display. I also added a custom 404 page. I then worked on my unit test for getting one trip note. All of that was sucessfully merged into the main branch. We also worked together on doing some clean up and debugging.
 
 6.06.23
+Today I worked with Drake to clean up code on the queries files and the park.py file. We removed excess code, used a linter to clean up the spacing and formatting. We also delted unused imports and variables. Then I worked with Dasia on CSS styling of the park list page. We got into it and the final product looks really good!!
+
+6.07.23
+Today I worked with Dasia and we got so much done! I coded with her help and we completed CSS styling on the Trip list page, Trip History page and the note detail page. We got stuck for a LONG time on the trip list page because our image was being wonky and we needed help from a SEIR. We worked with Garrett and Lauren for a LONG time but we were finally able to fix it.
+
+6.08.23
+
+Today I worked with Brady and Dasia on more CSS. We figured out the last bit on the note detail page and also did the styling on the trip detail page. We made some pretty significant changes and they look great. We made the background a bulletin board and made each note a "sticky" note. It turned out great. In the afternoon after all of the CSS styling was finished we moved on to adding comments to the code and doing the last bit of code cleanup.

@@ -20,7 +20,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   //  FUNCTION TO HANDLE POSTING USER INPUT DATA TO BACK-END //
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     login({ username, password });
   };

@@ -10,7 +10,7 @@ const NoteDetail = () => {
   const navigate = useNavigate();
 
   // HANDLES DELETE REQUEST OF NOTE INSTANCE BY USER AND NAVIGATES BACK TO TRIP DETAIL PAGE //
-  const handleDeleteNote = async () => {
+  const handleDeleteNote = () => {
     deleteNote({ trip_id, note_id });
     navigate(`/trips/${trip_id}`);
   };
