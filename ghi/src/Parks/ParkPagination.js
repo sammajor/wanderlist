@@ -1,5 +1,6 @@
 import React from "react";
 import ParkCard from "./ParkCard";
+import { Link } from "react-router-dom";
 import "./park.css";
 
 const Pagination = (props) => {
@@ -59,7 +60,7 @@ const Pagination = (props) => {
     setCurrentPage(newId);
     setDisplayParks(chunks[newId - 1]);
   };
-// FUNCTION TO HANDLE CLICKING PAGE NUMBER BUTTON //
+  // FUNCTION TO HANDLE CLICKING PAGE NUMBER BUTTON //
   const handlePageClick = (e) => {
     const { text } = e.target;
     const newId = Number(text);
@@ -92,9 +93,7 @@ const Pagination = (props) => {
           onClick={handlePageClick}
           className={currentPage === page ? "page-item-active " : null}
         >
-          <a className="page-link pages-bkg" href="#">
-            {page}
-          </a>
+          <Link className="page-link pages-bkg">{page}</Link>
         </li>
       );
     } else {
@@ -126,7 +125,7 @@ const Pagination = (props) => {
       </li>
     );
   }
-// PASSES PROPS TO CHILD PARK CARD //
+  // PASSES PROPS TO CHILD PARK CARD //
   return (
     <>
       {searchCriteria &&

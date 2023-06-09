@@ -57,7 +57,7 @@ const ParkDetails = () => {
           <img
             src={park?.park_image}
             className="card-img-top"
-            alt="Responsive image"
+            alt="Responsive pic"
             style={{ width: "62rem", height: "35rem" }}
           />
           <div className="card-header">
