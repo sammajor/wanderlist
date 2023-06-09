@@ -70,14 +70,6 @@
 .card-title-underline {
   border-bottom: solid 2px #c48559;
 }
-/*
-.container-bkg-green {
-  /* background-color: #b6ecac; */
-/* background-image: url("https://img.freepik.com/premium-vector/green-branches-with-leaves-border_176503-334.jpg?w=2000"); */
-/* background-size: 700px; */
-/* background-repeat: repeat; */
-/* background-position: 0% 0%; */
-/* } */
 
 .title-background {
   background-image: url("https://media.istockphoto.com/id/1128006336/vector/seamless-summer-forest.jpg?s=612x612&w=0&k=20&c=43c4GBUgSqoj3HkkEcjaIDqKwMEUeY04ynLVFP8OxVM=");
@@ -106,12 +98,6 @@
   padding-right: 40px;
 }
 
-/* potential background image urls for list page
-"https://img.freepik.com/premium-vector/vertical-seamless-border-with-green-leaves-botanical-flower-illustration-wedding-design_555489-628.jpg?w=900"
-https://img.freepik.com/premium-vector/green-branches-with-leaves-border_176503-334.jpg?w=2000 */
-
-/* potential background images for title block parks list page:
-https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg */
 .btn-trip {
   background-color: #c48559;
   color: white;

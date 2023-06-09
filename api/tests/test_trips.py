@@ -1,6 +1,5 @@
 from fastapi.testclient import TestClient
 from main import app
-import json
 from queries.trips import TripQueries
 from models.trips import TripIn
 from authenticator import authenticator

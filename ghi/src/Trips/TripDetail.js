@@ -6,7 +6,7 @@ import {
   useCompleteTripMutation,
 } from "../store/apiSlice";
 import "./carousel.css";
-import NoteCard from "./NoteCard";
+import NoteCard from "../Notes/NoteCard";
 import { useNavigate } from "react-router-dom";
 
 const TripDetail = () => {

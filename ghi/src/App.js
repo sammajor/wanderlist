@@ -1,6 +1,3 @@
-// import { useEffect, useState } from "react";
-// import Construct from "./Construct.js";
-// import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./Accounts/LoginForm.js";
