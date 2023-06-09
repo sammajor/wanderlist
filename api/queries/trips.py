@@ -5,6 +5,7 @@ from models.trips import Error
 
 
 class TripQueries:
+#### ALLOWS GET REQUEST FOR ONE TRIP ####
     def get_one_trip(self, account_id: int, trip_id: int) -> TripOut:
         try:
             with pool.connection() as conn:
@@ -30,6 +31,7 @@ class TripQueries:
             print(e)
             return {"message": "Trip Could Not Be Found"}
 
+#### ALLOWS GET REQUEST FOR LIST OF ALL TRIPS ####
     def get_all_trips(self, account_id: int) -> Union[Error, List[TripOut]]:
         try:
             with pool.connection() as conn:
@@ -49,10 +51,12 @@ class TripQueries:
                     [account_id],
                 )
                     return [self.record_to_trip_out(record) for record in result]
+            return [self.record_to_trip_out(record) for record in result]
         except Exception as e:
             print(e)
             return {"message": "Could not get all trips"}
 
+#### ALLOWS POST REQUEST FOR A NEW TRIP INSTANCE ####
     def create(self, account_id: int, trip: TripIn) -> TripOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
@@ -80,6 +84,7 @@ class TripQueries:
                 record = result.fetchone()
                 return self.record_to_trip_out(record)
 
+#### ALLOWS PUT REQUEST TO UPDATE TRIP STATUS FROM PENDING TO EITHER 'COMPLETED' OR 'CANCELLED' ####
     def update_trip_status(self, trip_id: int, trip_status: str) -> TripOut:
         try:
             with pool.connection() as conn:
@@ -113,10 +118,12 @@ class TripQueries:
             print(e)
             return {"message": "Could not update this trip"}
 
+#### RECEIVES USER POST REQUEST AND DATABASE ASSIGNS FURTHER VALUES ####
     def trip_in_to_out(self, account_id: int, trip_id: int, trip: TripIn):
         old_data = trip.dict()
         return TripOut(account_id=account_id, id=trip_id, **old_data)
 
+#### ALLOWS FOR RETURN OF TRIP INSTANCE WITHOUT POSTING VIA TRIP IN ####
     def record_to_trip_out(self, record):
         return TripOut(
             id=record[0],

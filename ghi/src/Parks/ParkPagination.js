@@ -1,8 +1,10 @@
 import React from "react";
 import ParkCard from "./ParkCard";
+import { Link } from "react-router-dom";
 import "./park.css";
 
 const Pagination = (props) => {
+  // HANDLES LOGIC TO DISPLAY PARK CARDS AND MANIPULATE PARK LIST COMPONENT //
   const {
     currentPage,
     maxPageLimit,
@@ -22,6 +24,7 @@ const Pagination = (props) => {
   } = props;
 
   const pages = [];
+  // FUNCTION TO HANDLE CHANGES TO UPPER LIMIT PAGE NUMBER //
   const onPageRangeIncrease = () => {
     if (maxPageLimit + 5 <= pages.length) {
       const newMaxLimit = maxPageLimit + 5;
@@ -34,6 +37,7 @@ const Pagination = (props) => {
     const newMinLimit = minPageLimit + 5;
     setMinPageLimit(newMinLimit);
   };
+  // FUNCTION TO HANDLE CHANGES TO LOWER LIMIT OF PAGE NUMBER //
   const onPageRangeDecrease = () => {
     const newMaxLimit = maxPageLimit - 5;
     if (minPageLimit - 5 > initMin) {
@@ -44,6 +48,7 @@ const Pagination = (props) => {
     }
     setMaxPageLimit(newMaxLimit);
   };
+  // FUNCTION TO HANDLE CLICKING PREVIOUS BUTTON //
   const onPrevClick = (e) => {
     const { value } = e.target;
     const newId = Number(value) - 1;
@@ -55,13 +60,14 @@ const Pagination = (props) => {
     setCurrentPage(newId);
     setDisplayParks(chunks[newId - 1]);
   };
-
+  // FUNCTION TO HANDLE CLICKING PAGE NUMBER BUTTON //
   const handlePageClick = (e) => {
     const { text } = e.target;
     const newId = Number(text);
     setDisplayParks(chunks[newId - 1]);
     setCurrentPage(newId);
   };
+  // FUNCTION TO HANDLE CLICKING NEXT BUTTON //
   const onNextClick = (e) => {
     const { value } = e.target;
     const newValue = Number(value) + 1;
@@ -73,9 +79,11 @@ const Pagination = (props) => {
     setCurrentPage(newValue);
     setDisplayParks(chunks[newValue - 1]);
   };
+  // POPULATES PAGE NUMBERS INTO LIST //
   for (let i = 1; i <= pageNumberLimit; i++) {
     pages.push(i);
   }
+  // FUNCTION TO DISPLAY CURRENT RANGE OF PAGE NUMBERS AVAILABLE //
   const pageNumbers = pages.map((page) => {
     if (page <= maxPageLimit && page >= minPageLimit) {
       return (
@@ -83,17 +91,16 @@ const Pagination = (props) => {
           key={page}
           id={page}
           onClick={handlePageClick}
-          className={currentPage === page ? "page-item-active" : null}
+          className={currentPage === page ? "page-item-active " : null}
         >
-          <a className="page-link" href="#">
-            {page}
-          </a>
+          <Link className="page-link pages-bkg">{page}</Link>
         </li>
       );
     } else {
       return null;
     }
   });
+  // LOGIC CONTROLLING UPPER ELLIPSES BUTTON //
   let pageIncrementEllipses;
 
   if (pages.length > maxPageLimit) {
@@ -106,7 +113,7 @@ const Pagination = (props) => {
       </li>
     );
   }
-
+  // LOGIC CONTROLLING LOWER ELLIPSES BUTTON //
   let pageDecrementEllipses;
   if (minPageLimit >= 2) {
     pageDecrementEllipses = (
@@ -118,7 +125,7 @@ const Pagination = (props) => {
       </li>
     );
   }
-
+  // PASSES PROPS TO CHILD PARK CARD //
   return (
     <>
       {searchCriteria &&
@@ -154,7 +161,7 @@ const Pagination = (props) => {
           <li className="page-item">
             <button
               value={currentPage}
-              className="btn btn-outline-primary"
+              className="btn btn-outline-success pagination-color"
               onClick={onPrevClick}
               disabled={currentPage === initMin}
             >
@@ -167,7 +174,7 @@ const Pagination = (props) => {
           <li className="page-item">
             <button
               value={currentPage}
-              className="btn btn-outline-primary"
+              className="btn btn-outline-success pagination-color"
               onClick={onNextClick}
               disabled={currentPage === initMax}
             >
