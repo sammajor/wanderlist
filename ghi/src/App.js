@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <div style={{backgroundColor: "#EDEDE9"}}>
+      <div style={{ backgroundColor: "#EDEDE9" }}>
         <Routes>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
@@ -32,10 +32,7 @@ function App() {
           <Route path="trips">
             <Route index element={<ListTrips />} />
             <Route path=":trip_id" element={<TripDetail />} />
-            <Route
-            path=":trip_id/notes/:note_id"
-            element={<NoteDetail />}
-            />
+            <Route path=":trip_id/notes/:note_id" element={<NoteDetail />} />
             <Route path="history" element={<TripHistoryList />} />
           </Route>
           <Route path="/createtrip" element={<CreateTripForm />} />

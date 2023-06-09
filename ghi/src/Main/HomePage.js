@@ -9,17 +9,17 @@ const HomePage = () => {
         <source src={redwoods} type="video/mp4" />
       </video>
       <div className="content-container">
-      <div className="content">
-        <h2>
-          Welcome to <span>WanderList</span>
-        </h2>
-        <p>Plan Your Next National Park Adventure</p>
-        <Link to="/parks">
-          <button value="" type="button" className="home-btn btn-lg">
-            Get Started
-          </button>
-        </Link>
-      </div>
+        <div className="content">
+          <h2>
+            Welcome to <span>WanderList</span>
+          </h2>
+          <p>Plan Your Next National Park Adventure</p>
+          <Link to="/parks">
+            <button value="" type="button" className="home-btn btn-lg">
+              Get Started
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

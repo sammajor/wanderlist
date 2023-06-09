@@ -10,7 +10,7 @@
 }
 
 .note-sticky {
-  background-color: #FFC;
+  background-color: #ffc;
 }
 
 .note-title {
@@ -23,17 +23,17 @@
 }
 
 .note-button {
-  background-color: #FFC;
+  background-color: #ffc;
   border: solid 1px;
-  border-color: #C48559;
-  color: #C48559;
+  border-color: #c48559;
+  color: #c48559;
 }
 
 .note-button:hover {
   background-color: white;
   border: solid 1px;
-  border-color: #C48559;
-  color: #C48559;
+  border-color: #c48559;
+  color: #c48559;
 }
 
 .bulletin-image {
@@ -60,7 +60,7 @@
 }
 
 .button-background {
-  background-color: #EDEDE9;
+  background-color: #edede9;
 }
 
 .cancel-button {
@@ -69,7 +69,7 @@
 }
 
 .complete-button {
-  background-color: #C48559;
+  background-color: #c48559;
   color: white;
 }
 

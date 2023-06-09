@@ -33,15 +33,25 @@ const CreateTripNoteForm = () => {
 
   if (isLoading) return <div>...isLoading</div>;
 
-// RENDERED COMPONENT ALLOWING USER TO INPUT COMMENTS FOR TRIPNOTE TITLE AND DESCRIPTION AND SUCCESSFULLY COMPLETE POST REQUEST //
+  // RENDERED COMPONENT ALLOWING USER TO INPUT COMMENTS FOR TRIPNOTE TITLE AND DESCRIPTION AND SUCCESSFULLY COMPLETE POST REQUEST //
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundImage:"url('https://images.theoutbound.com/2018/04/09/19/d00aefba5547c5433285d0be0e37953a?&fit=crop&w=970&h=550&auto=format&dpr=2&q=60')", backgroundSize: "cover" }} >
-      <div className="card text-bg-light mb-3" style={{ width: "500px", height: "370px" }}>
+    <div
+      className="d-flex justify-content-center align-items-center vh-100"
+      style={{
+        backgroundImage:
+          "url('https://images.theoutbound.com/2018/04/09/19/d00aefba5547c5433285d0be0e37953a?&fit=crop&w=970&h=550&auto=format&dpr=2&q=60')",
+        backgroundSize: "cover",
+      }}
+    >
+      <div
+        className="card text-bg-light mb-3"
+        style={{ width: "500px", height: "370px" }}
+      >
         <h5 className="card-header note-title">Write a Note</h5>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label note-details" >Title</label>
+              <label className="form-label note-details">Title</label>
               <input
                 name="title"
                 type="text"
@@ -80,7 +90,11 @@ const CreateTripNoteForm = () => {
               />
             </div>
             <div className="text-center">
-              <input className="btn dkg-btn-color" type="submit" value="Publish" />
+              <input
+                className="btn dkg-btn-color"
+                type="submit"
+                value="Publish"
+              />
             </div>
           </form>
         </div>

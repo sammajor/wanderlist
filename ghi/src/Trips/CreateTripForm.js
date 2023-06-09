@@ -23,7 +23,7 @@ const CreateTripForm = () => {
     e.preventDefault();
     const newStart = parseISO(startDate);
     const newEnd = parseISO(endDate);
-  // FUNCTION TO CREATE TRIP DATE DICTIONARY AND POST TO DATABASE //
+    // FUNCTION TO CREATE TRIP DATE DICTIONARY AND POST TO DATABASE //
     const createTripData = {
       start_date: format(newStart, "yyyy-MM-dd"),
       end_date: format(newEnd, "yyyy-MM-dd"),
@@ -36,10 +36,18 @@ const CreateTripForm = () => {
   };
   // RENDERED COMPONENT WHICH ALLOWS USER INPUT OF START DATE, END DATE, PARK NAME, AND SUBMISSION UPON BUTTON CLICK //
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100"
-    style={{ backgroundImage: 'url("https://thegeekycamper.com/wp-content/uploads/2020/10/Shenandoah-National-Park-Campgrounds-Guide-1536x864.jpg")',
-    backgroundSize: "cover" }}>
-      <div className="card text-bg-light mb-3" style={{ width: "550px", height: "410px" }}>
+    <div
+      className="d-flex justify-content-center align-items-center vh-100"
+      style={{
+        backgroundImage:
+          'url("https://thegeekycamper.com/wp-content/uploads/2020/10/Shenandoah-National-Park-Campgrounds-Guide-1536x864.jpg")',
+        backgroundSize: "cover",
+      }}
+    >
+      <div
+        className="card text-bg-light mb-3"
+        style={{ width: "550px", height: "410px" }}
+      >
         <h5 className="card-header create-trip-title">Create a Trip</h5>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
