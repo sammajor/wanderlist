@@ -5,7 +5,7 @@ from models.trips import Error
 
 
 class TripNoteQueries:
-    #### ALLOWS FOR GET REQUEST OF ONE TRIPNOTE INSTANCE ####
+    # ALLOWS FOR GET REQUEST OF ONE TRIPNOTE INSTANCE
     def get_one_note(
         self, account_id: int, trip_id: int, note_id: int
     ) -> TripNoteOut:
@@ -28,7 +28,7 @@ class TripNoteQueries:
             print(e)
             return {"message": "Trip Note Could Not Be Found"}
 
-    ### ALLOWS GET REQUEST FOR ALL TRIPNOTES AS A LIST ####
+    # ALLOWS GET REQUEST FOR ALL TRIPNOTES AS A LIST
     def get_all_notes(
         self, account_id: int, trip_id: int
     ) -> Union[Error, List[TripNoteOut]]:
@@ -52,7 +52,7 @@ class TripNoteQueries:
             print(e)
             return {"message": "Could not get all trip notes"}
 
-    #### ALLOWS USER TO POST A TRIPNOTE ####
+    # ALLOWS USER TO POST A TRIPNOTE
     def create_note(
         self, account_id: int, trip_note: TripNoteIn
     ) -> TripNoteOut:
@@ -78,7 +78,7 @@ class TripNoteQueries:
                 print("note_id", note_id)
                 return self.trip_note_in_to_out(account_id, note_id, trip_note)
 
-    #### ALLOWS FOR DELETE REQUEST OF A TRIPNOTE INSTANCE ####
+    # ALLOWS FOR DELETE REQUEST OF A TRIPNOTE INSTANCE
     def delete(self, account_id: int, note_id: int) -> bool:
         try:
             with pool.connection() as conn:
@@ -95,14 +95,15 @@ class TripNoteQueries:
             print(e)
             return False
 
-    #### ALLOWS FOR RECEIPT OF A TRIPNOTE POSTED BY USER AND ASSIGNS FURTHER INPUTS ASSIGNED BY DATABASE ####
+    # ALLOWS FOR RECEIPT OF A TRIPNOTE POSTED BY USER
+    # AND ASSIGNS FURTHER INPUTS ASSIGNED BY DATABASE
     def trip_note_in_to_out(
         self, account_id, note_id: int, note: TripNoteIn
     ) -> TripNoteOut:
         old_data = note.dict()
         return TripNoteOut(account_id=account_id, id=note_id, **old_data)
 
-    #### ALLOWS FOR RETURN OF TRIPNOTE INSTANCE WITHOUT POSTING VIA TRIPNOTE IN ####
+    # ALLOWS FOR RETURN OF TRIPNOTE INSTANCE WITHOUT POSTING VIA TRIPNOTE IN
     def record_to_trip_note_out(self, record):
         return TripNoteOut(
             id=record[0],

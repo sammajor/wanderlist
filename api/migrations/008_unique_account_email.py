@@ -8,7 +8,8 @@ steps = [
             FROM accounts
             GROUP BY email
         );
-        ALTER TABLE accounts ADD CONSTRAINT accounts_unique_email UNIQUE (email);
+        ALTER TABLE accounts
+        ADD CONSTRAINT accounts_unique_email UNIQUE (email);
         """,
         # "DOWN" SQL statement
         """

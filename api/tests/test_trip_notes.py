@@ -1,6 +1,5 @@
 from fastapi.testclient import TestClient
 from main import app
-from models.trip_notes import TripNoteOut
 from queries.trip_notes import TripNoteQueries
 from authenticator import authenticator
 
@@ -23,15 +22,15 @@ def fake_get_current_account_data():
 
 
 def test_get_one_note():
-    ###ARRANGE
+    # ARRANGE
     app.dependency_overrides[TripNoteQueries] = FakeTripNoteQueries
     app.dependency_overrides[
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
-    ###ACT
+    # ACT
     res = client.get("/api/trips/2/notes/3")
     data = res.json()
-    ###ASSERT
+    # ASSERT
     assert res.status_code == 200
     assert data == {
         "id": 3,
@@ -40,5 +39,5 @@ def test_get_one_note():
         "title": "Test Note",
         "description": "Test Description",
     }
-    ### CLEAN UP
+    # CLEAN UP
     app.dependency_overrides = {}

@@ -16,7 +16,7 @@ api-unit-tests-job:
   needs:
     - lint-test-job
   variables:
-    DATABASE-URL: 'doesnotmatter'
+    DATABASE_URL: 'doesnotmatter'
     NPS_KEY: 'doesnotmatter'
     SIGNING_KEY: 'doesnotmatter'
   script:
