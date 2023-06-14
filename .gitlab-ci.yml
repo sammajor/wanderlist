@@ -7,7 +7,7 @@ services:
   - postgres:14.2-bullseye
 
 variables:
-  DATABASE_URL: postgresql://postgres:cookiemonsters@srv-captain--wanderlist-db-1:5432
+  DATABASE_URL: postgresql://Wanderlist-admin:cookiemonsters@srv-captain--wanderlist-db-1:5432
   SIGNING_KEY: d284975daa7b6c4f34e5477834bc2f9bd178873c612612eb04cd2e5b5172376
 
 lint-test-job:
