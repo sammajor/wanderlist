@@ -15,10 +15,6 @@ api-unit-tests-job:
   stage: test
   needs:
     - lint-test-job
-  variables:
-    DATABASE_URL: 'doesnotmatter'
-    NPS_KEY: 'doesnotmatter'
-    SIGNING_KEY: 'doesnotmatter'
   script:
     - cd api
     - pip install -r requirements.txt
