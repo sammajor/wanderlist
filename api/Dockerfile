@@ -16,6 +16,4 @@ COPY authenticator.py authenticator.py
 
 RUN python -m pip install -r requirements.txt
 
-COPY migrations migrations
-
 CMD python -m migrations up && python Park.py && uvicorn main:app --host 0.0.0.0 --port 80
