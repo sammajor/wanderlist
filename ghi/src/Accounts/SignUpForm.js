@@ -31,7 +31,7 @@ const SignUpForm = () => {
     if (isSuccess === true) {
       navigate("/parks");
     }
-  }, [isSuccess]);
+  }, [isSuccess, navigate]);
 
   // RENDERED COMPONENT TO HANDLE USER INPUTS FOR NAME, EMAIL, PASSWORD, AND SIGN-UP (POST) REQUEST //
   return (

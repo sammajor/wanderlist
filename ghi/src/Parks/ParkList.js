@@ -32,7 +32,7 @@ const ParkList = () => {
   useEffect(() => {
     setDisplayParks(initParks);
     setPageNumberLimit(chunks.length);
-  }, [data, searchCriteria]);
+  }, [data, searchCriteria, initParks, chunks.length]);
 
   if (isLoading) return <div>...loading</div>;
 

@@ -31,7 +31,7 @@ const LoginForm = () => {
     if (isSuccess === true) {
       navigate("/trips");
     }
-  }, []);
+  }, [isSuccess, navigate]);
 
   // RENDERED COMPONENT TO HANDLE USER INPUTS FOR USERNAME, PASSWORD, AND LOGIN REQUEST //
   return (
